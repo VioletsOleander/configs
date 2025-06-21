@@ -1,3 +1,8 @@
+# source the global configuration
+if [ -f /etc/bashrc ]; then
+        . /etc/bashrc
+fi
+
 # alias
 alias ls='ls --color=auto'
 alias ll='ls -al'
