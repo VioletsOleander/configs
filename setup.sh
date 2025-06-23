@@ -4,7 +4,11 @@ function setup() {
 	rsync --exclude ".git/" \
 		--exclude "setup.sh" \
 		--exclude "README.md" \
+        --exclude "additional_setup.sh" \
 		-avh --no-perms . ~;
+    if [[ -f ./additional_setup.sh ]]; then
+        source additional_setup.sh
+    fi
 	source ~/.bashrc;
 }
 
