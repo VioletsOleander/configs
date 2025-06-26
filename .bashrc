@@ -6,6 +6,8 @@ fi
 # alias
 alias ls='ls --color=auto'
 alias ll='ls -al'
+alias df='df -h'
+alias du='du -h'
 alias cls=clear
 
 # functions
