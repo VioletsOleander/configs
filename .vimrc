@@ -34,3 +34,6 @@ set shiftwidth=4
 set nobackup
 set noundofile
 set noswapfile
+
+" no beep and flash when error
+set noerrorbells
