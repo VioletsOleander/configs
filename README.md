@@ -3,5 +3,5 @@
 ## Usage
 
 ```bash
-source setup.sh
+./setup.sh -h
 ```
