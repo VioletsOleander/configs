@@ -9,3 +9,6 @@
 	stats = status
 [core]
     editor = vim
+	autocrlf = true
+	quotepath = true
+	ignorecase = false
