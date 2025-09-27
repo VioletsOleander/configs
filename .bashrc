@@ -9,6 +9,7 @@ alias ll='ls -al'
 alias df='df -h'
 alias du='du -h'
 alias cls=clear
+alias vi=vim
 
 # functions
 cl() {
@@ -20,3 +21,4 @@ export CURRENT_UID=$(id -u)
 export CURRENT_GID=$(id -g)
 export CURRENT_NAME=$(whoami)
 export CURRENT_GROUPS=$(groups)
+export EDITOR=vim
