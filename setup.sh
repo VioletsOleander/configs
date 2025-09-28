@@ -90,6 +90,15 @@ while [[ $# -gt 0 ]]; do
 	esac
 done
 
+# Ensure we're in $HOME/configs 
+if [[ "$(pwd)" != "$HOME/configs" ]]; then
+    echo "Error: this script must run from \$HOME/configs/"
+    echo "Current dir: $current_dir"
+    echo "Expected: $HOME/configs"
+    exit 1
+fi
+
+
 # Execute setup based on mode and force flag
 if [ "$FORCE" = true ]; then
 	if [ "$MODE" = "append" ]; then
