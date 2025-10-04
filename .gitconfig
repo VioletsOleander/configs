@@ -12,3 +12,5 @@
 	autocrlf = input
 	quotepath = false
 	ignorecase = false
+[credential]
+	helper = cache
