@@ -1,0 +1,5 @@
+theme = "zed_onelight"
+
+[editor.cursor-shape]
+insert = "bar"
+
