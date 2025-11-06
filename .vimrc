@@ -42,3 +42,7 @@ set vb t_vb=
 " no recursive map in normal mode
 " map ctrl-v to alt-v
 noremap <C-v> <A-v>
+
+" no recursive map in insert mode
+" map jk to Esc
+inoremap jk <Esc>
