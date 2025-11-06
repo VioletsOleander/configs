@@ -3,5 +3,5 @@
 ## Usage
 
 ```bash
-./setup.sh -h
+python setup.py -h
 ```
