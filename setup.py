@@ -165,13 +165,16 @@ class ConfigSyncer:
                 case Policy.OVERWRITE:
                     tmp_target_file.write_text(append_text, encoding="utf-8")
                 case Policy.PREPEND_SOURCE_STATEMENT:
-                    origin_text = target_file.read_text(encoding="utf-8")
-                    source_statement = (
-                        f'# Source personal configs\nsource "{source_file}"'
-                    )
-                    tmp_target_file.write_text(
-                        source_statement + "\n\n" + origin_text, encoding="utf-8"
-                    )
+                    origin_lines = target_file.open("r", encoding="utf-8").readlines()
+                    expected_statement = f'source "{source_file}"\n'
+                    if len(origin_lines) < 2 or origin_lines[1] != expected_statement:
+                        origin_text = "".join(origin_lines)
+                        source_statement = (
+                            f'# Source personal configs\nsource "{source_file}"'
+                        )
+                        tmp_target_file.write_text(
+                            source_statement + "\n\n" + origin_text, encoding="utf-8"
+                        )
 
         else:
             if not force and not self._prompt_for_confirmation(
