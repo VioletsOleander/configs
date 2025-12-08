@@ -5,7 +5,8 @@ insert = "bar"
 
 [keys.insert]
 "C-[" = "normal_mode"
+"A-n" = "normal_mode"
 
 [keys.select]
 "C-[" = "normal_mode"
-
+"A-n" = "normal_mode"
