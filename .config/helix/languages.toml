@@ -5,3 +5,4 @@ args = ["serve"]
 [[language]]
 name = "git-commit"
 language-servers = ["codebook"]
+diagnostic-severity = "warning"
