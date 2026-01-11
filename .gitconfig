@@ -20,8 +20,15 @@
 	line = log --oneline
 [core]
     editor = vim
+    pager = delta
 	autocrlf = input
 	quotepath = false
 	ignorecase = false
+[interactive]
+    diffFilter = delta --color-only
 [credential]
 	helper = cache
+[merge]
+    conflictStyle = zdiff3
+[delta]
+    navigate = true    # use n and N to move between diff sections
