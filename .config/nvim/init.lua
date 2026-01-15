@@ -33,4 +33,3 @@ vim.opt.softtabstop = 4
 vim.keymap.set('i', 'jj', '<Esc>')
 vim.keymap.set('i', 'jk', '<Esc>')
 vim.keymap.set('i', 'kk', '<Esc>')
-vim.keymap.set('i', '<A-n>', 'HELLO')
