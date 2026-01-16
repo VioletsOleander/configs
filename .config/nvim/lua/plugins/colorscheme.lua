@@ -1,11 +1,5 @@
 return {
     {
-        "folke/tokyonight.nvim",
-        lazy = false,
-        priority = 1000,
-        opts = {},
-    },
-    {
         "navarasu/onedark.nvim",
         priority = 1000,
         config = function()
@@ -13,11 +7,17 @@ return {
                 style = 'light'
             }
             require('onedark').load()
-        end
+        end,
+    },
+    {
+        "folke/tokyonight.nvim",
+        priority = 1000,
+        opts = {},
+        lazy = true,
     },
     {
         "olimorris/onedarkpro.nvim",
-        lazy = true,
         priority = 1000,
+        lazy = true,
     },
 }
