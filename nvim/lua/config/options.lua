@@ -75,5 +75,8 @@ local cursor_config = {
 }
 opt.guicursor = table.concat(cursor_config, ",")
 
+-- Fload window border
+opt.winborder = "rounded"
+
 -- Not display tabline
 opt.showtabline = 0
