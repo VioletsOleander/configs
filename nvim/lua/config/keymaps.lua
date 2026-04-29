@@ -129,8 +129,6 @@ map("n", "<Leader>w", "<Cmd>w<CR>", { desc = "Save File", silent = true })
 map("n", "<Leader><CR>", "<Cmd>w<CR>", { desc = "Save File", silent = true })
 
 -- Completion
-map("i", "<C-]>", "<C-X><C-]>", { desc = "Completion with tags" })
-map("i", "<C-f>", "<C-X><C-F>", { desc = "Completion with file names" })
 map("i", "<C-d>", "<C-X><C-D>", { desc = "Completion with definition or marcros" })
 map("i", "<C-l>", "<C-X><C-L>", { desc = "Completion with seen whole lines" })
 
