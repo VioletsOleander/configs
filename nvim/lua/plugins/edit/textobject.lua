@@ -1,59 +1,7 @@
--- Basic edit
-local nvim_surround = {
-	"kylechui/nvim-surround",
-	event = { "BufReadPre", "BufNewFile" },
-}
+if vim.g.vscode then
+	return {}
+end
 
-local nvim_autopair = {
-	"windwp/nvim-autopairs",
-	cond = not vim.g.vscode,
-	event = "InsertEnter",
-	opts = {},
-}
-
--- Motion
-local flash_nvim = {
-	"folke/flash.nvim",
-	event = "VeryLazy",
-	config = function()
-		local flash = require("flash")
-		local map = vim.keymap.set
-
-		map({ "n", "o", "x" }, "s", function()
-			flash.jump()
-		end, { desc = "jump to any visible position in current screen" })
-
-		map({ "n", "o", "x" }, "<leader>s", function()
-			flash.treesitter()
-		end, { desc = "jump to any syntax node in current screen" })
-
-		map({ "o" }, "r", function()
-			flash.remote()
-		end, {
-			desc = "perform any motion like jump, treesitter etc. "
-				.. "the operator will be executed to the target position, "
-				.. "and original position will be jumped back.",
-		})
-
-		map({ "o", "x" }, "r", function()
-			flash.treesitter_search()
-		end, { desc = "jump to the syntax node containing searched pattern in current screen" })
-
-		local opts = {
-			modes = {
-				char = {
-					highlight = {
-						backdrop = false,
-					},
-				},
-			},
-		}
-
-		flash.setup(opts)
-	end,
-}
-
--- Textobject
 local mini_ai = {
 	"nvim-mini/mini.ai",
 	version = "*",
@@ -177,58 +125,4 @@ local nvim_treesitter_textobjects = {
 	end,
 }
 
--- Completion
-local copilot = {
-	"github/copilot.vim",
-	cond = not vim.g.vscode,
-	cmd = "Copilot",
-}
-
-local blink_cmp = {
-	"saghen/blink.cmp",
-	cond = not vim.g.vscode,
-	event = { "InsertEnter" },
-	dependencies = { "rafamadriz/friendly-snippets" },
-	version = "1.*",
-	opts = {
-		keymap = {
-			preset = "default",
-			["<Tab>"] = { "select_and_accept", "fallback" },
-			["<C-k>"] = { "select_prev", "fallback" },
-			["<C-j>"] = { "select_next", "fallback" },
-			["<C-p>"] = { "select_prev", "fallback" },
-			["<C-n>"] = { "select_next", "fallback" },
-		},
-		cmdline = { enabled = false },
-		appearance = { nerd_font_variant = "mono" },
-		completion = { documentation = { auto_show = false } },
-		sources = {
-			default = { "lsp", "path", "snippets", "buffer" },
-		},
-		fuzzy = { implementation = "prefer_rust_with_warning" },
-	},
-	opts_extend = { "sources.default" },
-}
-
-if vim.g.user_use_builtin_completion then
-	return {
-		nvim_surround,
-		nvim_autopair,
-		mini_ai,
-		flash_nvim,
-		nvim_treesitter,
-		nvim_treesitter_textobjects,
-		copilot,
-	}
-else
-	return {
-		nvim_surround,
-		nvim_autopair,
-		mini_ai,
-		flash_nvim,
-		nvim_treesitter,
-		nvim_treesitter_textobjects,
-		copilot,
-		blink_cmp,
-	}
-end
+return { mini_ai, nvim_treesitter, nvim_treesitter_textobjects }
