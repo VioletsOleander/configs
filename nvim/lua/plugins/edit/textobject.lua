@@ -2,6 +2,9 @@ if vim.g.vscode then
 	return {}
 end
 
+---@module "lazy"
+
+---@type LazyPluginSpec
 local mini_ai = {
 	"nvim-mini/mini.ai",
 	version = "*",
@@ -39,11 +42,13 @@ local mini_ai = {
 	end,
 }
 
+---@type LazyPluginSpec
 local nvim_treesitter = {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
 }
 
+---@type LazyPluginSpec
 local nvim_treesitter_textobjects = {
 	"nvim-treesitter/nvim-treesitter-textobjects",
 	branch = "main",

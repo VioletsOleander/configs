@@ -2,6 +2,9 @@ if vim.g.vscode then
 	return {}
 end
 
+---@module "lazy"
+
+---@type LazyPluginSpec
 local flash_nvim = {
 	"folke/flash.nvim",
 	event = "VeryLazy",

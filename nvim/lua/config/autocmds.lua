@@ -68,7 +68,7 @@ au("LspAttach", {
 		map_local("n", "gi", vim.lsp.buf.implementation, "Go to implementation")
 
 		-- LSP shows
-		map_local({ "i", "n" }, "gr", vim.lsp.buf.references, "Show references")
+		map_local("n", "gr", vim.lsp.buf.references, "Show references")
 		map_local({ "n", "i" }, "gk", function()
 			vim.lsp.buf.signature_help({ close_events = { "CursorMoved", "BufHidden", "InsertLeave" } })
 		end, "Show signature help, persist as typing")

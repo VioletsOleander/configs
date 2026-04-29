@@ -1,15 +1,21 @@
+if vim.g.vscode then
+	return {}
+end
+
+---@module "lazy"
+
+---@type LazyPluginSpec
 local lsp_config = {
 	"neovim/nvim-lspconfig",
-	cond = not vim.g.vscode,
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		vim.lsp.enable({ "lua_ls", "stylua", "ty", "ruff", "yamlls", "jsonls", "rust_analyzer" })
 	end,
 }
 
+---@type LazyPluginSpec
 local conform = {
 	"stevearc/conform.nvim",
-	cond = not vim.g.vscode,
 	event = { "BufWritePre" },
 	cmd = { "ConformInfo" },
 	opts = {

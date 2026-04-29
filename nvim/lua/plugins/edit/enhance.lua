@@ -1,8 +1,12 @@
+---@module "lazy"
+
+---@type LazyPluginSpec
 local nvim_surround = {
 	"kylechui/nvim-surround",
 	event = { "BufReadPre", "BufNewFile" },
 }
 
+---@type LazyPluginSpec
 local nvim_autopair = {
 	"windwp/nvim-autopairs",
 	cond = not vim.g.vscode,

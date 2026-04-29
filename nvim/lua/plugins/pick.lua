@@ -1,4 +1,10 @@
+if vim.g.vscode then
+	return {}
+end
+
+---@module "lazy"
 ---@module "snacks"
+---@module "oil"
 
 ---@type snacks.Config
 local snacks_opts = {
@@ -14,6 +20,18 @@ local snacks_opts = {
 	explorer = { enabled = true, replace_netrw = true, trash = true },
 	picker = {
 		enabled = true,
+		actions = {
+			list_down_5 = function(picker, _)
+				for _ = 1, 5 do
+					picker:action("list_down")
+				end
+			end,
+			list_up_5 = function(picker, _)
+				for _ = 1, 5 do
+					picker:action("list_up")
+				end
+			end,
+		},
 		win = {
 			input = {
 				keys = {
@@ -30,8 +48,8 @@ local snacks_opts = {
 				keys = {
 					["jk"] = { "confirm", mode = { "i", "n" } },
 					["<C-q>"] = { "close", mode = { "i", "n" } },
-					["<C-j>"] = { "list_down", mode = { "i", "n" } },
-					["<C-k>"] = { "list_up", mode = { "i", "n" } },
+					["<C-j>"] = { "list_down_5", mode = { "i", "n" } },
+					["<C-k>"] = { "list_up_5", mode = { "i", "n" } },
 					["<Leader>v"] = { "edit_vsplit", mode = { "i", "n" } },
 					["<Leader>s"] = { "edit_split", mode = { "i", "n" } },
 				},
@@ -178,7 +196,9 @@ end
 
 local function set_snacks_autocmd()
 	local snacks_group = vim.api.nvim_create_augroup("user.snacks", { clear = true })
-	vim.api.nvim_create_autocmd("FileType", {
+	local au = vim.api.nvim_create_autocmd
+
+	au("FileType", {
 		group = snacks_group,
 		pattern = { "snacks_picker_input", "snacks_input" },
 		callback = function()
@@ -187,9 +207,9 @@ local function set_snacks_autocmd()
 	})
 end
 
+---@type LazyPluginSpec
 local snacks = {
 	"folke/snacks.nvim",
-	cond = not vim.g.vscode,
 	lazy = false,
 	priority = 1000,
 	config = function()
@@ -202,13 +222,20 @@ local snacks = {
 	end,
 }
 
+---@type LazyPluginSpec
 local oil = {
 	"stevearc/oil.nvim",
-	cond = not vim.g.vscode,
+	---@type oil.SetupOpts
 	opts = {
 		view_options = {
 			show_hidden = true,
 		},
+		keymaps = {
+			["gj"] = { "actions.select", mode = "n" },
+			["gk"] = { "actions.parent", mode = "n" },
+			["<C-q>"] = { "actions.close", mode = "n" },
+		},
+		delete_to_trash = true,
 	},
 }
 

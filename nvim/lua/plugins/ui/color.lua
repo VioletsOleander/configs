@@ -2,8 +2,11 @@ if vim.g.vscode then
 	return {}
 end
 
+---@module "lazy"
+
 local current_theme = "gruvbox_material"
 
+---@type LazyPluginSpec
 local gruvbox_material = {
 	"sainnhe/gruvbox-material",
 	lazy = (current_theme ~= "gruvbox_material"),
@@ -15,6 +18,7 @@ local gruvbox_material = {
 	end,
 }
 
+---@type LazyPluginSpec
 local ever_forest = {
 	"sainnhe/everforest",
 	lazy = (current_theme ~= "ever_forest"),
@@ -26,6 +30,7 @@ local ever_forest = {
 	end,
 }
 
+---@type LazyPluginSpec
 local tokyo_night_day = {
 	"folke/tokyonight.nvim",
 	lazy = (current_theme ~= "tokyo_night_day"),
@@ -36,6 +41,7 @@ local tokyo_night_day = {
 	end,
 }
 
+---@type LazyPluginSpec
 local day_fox = {
 	"EdenEast/nightfox.nvim",
 	lazy = (current_theme ~= "day_fox"),
@@ -46,6 +52,7 @@ local day_fox = {
 	end,
 }
 
+---@type LazyPluginSpec
 local one_light = {
 	"navarasu/onedark.nvim",
 	lazy = (current_theme ~= "one_light"),
@@ -56,6 +63,7 @@ local one_light = {
 	end,
 }
 
+---@type LazyPluginSpec
 local one_light_refined = {
 	"olimorris/onedarkpro.nvim",
 	lazy = (current_theme ~= "atom_one_light"),
