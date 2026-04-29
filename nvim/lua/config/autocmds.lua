@@ -69,12 +69,24 @@ au("LspAttach", {
 
 		-- LSP shows
 		map_local({ "i", "n" }, "gr", vim.lsp.buf.references, "Show references")
-		map_local({ "n", "i" }, "gk", vim.lsp.buf.signature_help, "Show signature help")
+		map_local({ "n", "i" }, "gk", function()
+			vim.lsp.buf.signature_help({ close_events = { "CursorMoved", "BufHidden", "InsertLeave" } })
+		end, "Show signature help, persist as typing")
 		map_local({ "n", "i" }, "ga", vim.diagnostic.open_float, "Show diagnostics")
 
 		-- LSP actions
 		map_local("n", "<Leader>r", vim.lsp.buf.rename, "Rename symbol")
 
 		map_local("n", "<Leader>a", vim.lsp.buf.code_action, "Code action")
+	end,
+})
+
+-- Readonly files
+au("BufRead", {
+	group = native_group,
+	pattern = { "*/.cargo/*", "*/.venv/*" },
+	callback = function()
+		vim.opt_local.readonly = true
+		vim.opt_local.modifiable = false
 	end,
 })
