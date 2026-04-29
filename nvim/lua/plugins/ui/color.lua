@@ -1,8 +1,11 @@
-local current_theme = "ever_forest"
+if vim.g.vscode then
+	return {}
+end
+
+local current_theme = "gruvbox_material"
 
 local gruvbox_material = {
 	"sainnhe/gruvbox-material",
-	cond = not vim.g.vscode,
 	lazy = (current_theme ~= "gruvbox_material"),
 	priority = 1000,
 	config = function()
@@ -14,7 +17,6 @@ local gruvbox_material = {
 
 local ever_forest = {
 	"sainnhe/everforest",
-	cond = not vim.g.vscode,
 	lazy = (current_theme ~= "ever_forest"),
 	priority = 1000,
 	config = function()
@@ -26,7 +28,6 @@ local ever_forest = {
 
 local tokyo_night_day = {
 	"folke/tokyonight.nvim",
-	cond = not vim.g.vscode,
 	lazy = (current_theme ~= "tokyo_night_day"),
 	priority = 1000,
 	config = function()
@@ -37,7 +38,6 @@ local tokyo_night_day = {
 
 local day_fox = {
 	"EdenEast/nightfox.nvim",
-	cond = not vim.g.vscode,
 	lazy = (current_theme ~= "day_fox"),
 	priority = 1000,
 	config = function()
@@ -48,7 +48,6 @@ local day_fox = {
 
 local one_light = {
 	"navarasu/onedark.nvim",
-	cond = not vim.g.vscode,
 	lazy = (current_theme ~= "one_light"),
 	priority = 1000,
 	config = function()
@@ -59,7 +58,6 @@ local one_light = {
 
 local one_light_refined = {
 	"olimorris/onedarkpro.nvim",
-	cond = not vim.g.vscode,
 	lazy = (current_theme ~= "atom_one_light"),
 	priority = 1000,
 	config = function()

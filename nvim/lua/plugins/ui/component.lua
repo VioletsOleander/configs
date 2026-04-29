@@ -1,21 +1,27 @@
+if vim.g.vscode then
+	return {}
+end
+
+---@module "lazy"
+
+---@type LazyPluginSpec
 local treesitter_context = {
 	"nvim-treesitter/nvim-treesitter-context",
-	cond = not vim.g.vscode,
 	event = { "BufReadPost", "BufNewFile" },
 	dependencies = { "nvim-treesitter/nvim-treesitter" },
 	opts = {},
 }
 
+---@type LazyPluginSpec
 local mini_icons = {
 	"nvim-mini/mini.icons",
-	cond = not vim.g.vscode,
 	event = "VeryLazy",
 	opts = {},
 }
 
+---@type LazyPluginSpec
 local gitsigns = {
 	"lewis6991/gitsigns.nvim",
-	cond = not vim.g.vscode,
 	event = { "BufReadPost", "BufNewFile" },
 	opts = {
 		signs = {
