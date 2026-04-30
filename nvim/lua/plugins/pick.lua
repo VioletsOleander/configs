@@ -41,7 +41,6 @@ local snacks_opts = {
 					["<C-j>"] = { "list_down", mode = { "i", "n" } },
 					["<C-k>"] = { "list_up", mode = { "i", "n" } },
 					["<Leader>v"] = { "edit_vsplit", mode = { "i", "n" } },
-					["<Leader>s"] = { "edit_split", mode = { "i", "n" } },
 				},
 			},
 			list = {
@@ -51,7 +50,6 @@ local snacks_opts = {
 					["<C-j>"] = { "list_down_5", mode = { "i", "n" } },
 					["<C-k>"] = { "list_up_5", mode = { "i", "n" } },
 					["<Leader>v"] = { "edit_vsplit", mode = { "i", "n" } },
-					["<Leader>s"] = { "edit_split", mode = { "i", "n" } },
 				},
 			},
 		},
@@ -80,9 +78,6 @@ local function set_snacks_keymap()
 	map("n", "<Leader>:", function()
 		Snacks.picker.command_history()
 	end, { desc = "Show command history" })
-	map("n", "<Leader>n", function()
-		Snacks.picker.notifications()
-	end, { desc = "Show notification history" })
 
 	-- Buffer (b)
 	map("n", "<Leader>;", function()
@@ -132,7 +127,10 @@ local function set_snacks_keymap()
 		Snacks.lazygit()
 	end, { desc = "Toggle lazygit" })
 
-	-- Search (s)
+	-- Search/Show (s)
+	map("n", "<Leader>sn", function()
+		Snacks.picker.notifications()
+	end, { desc = "Show notification history" })
 	map("n", '<Leader>sg"', function()
 		Snacks.picker.registers()
 	end, { desc = "Search registers" })
