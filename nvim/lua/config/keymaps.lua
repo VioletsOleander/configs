@@ -102,7 +102,13 @@ end
 map("n", "<Leader>c", function()
 	vim.cmd("nohlsearch")
 	Snacks.notifier.hide()
-end, { desc = "Clear Screen (including search highlight, notifications)" })
+	for _, win in ipairs(vim.api.nvim_list_wins()) do
+		-- Find float windows
+		if vim.api.nvim_win_get_config(win).relative ~= "" then
+			vim.api.nvim_win_close(win, false)
+		end
+	end
+end, { desc = "Clear Screen (including search highlight, notifications, floating windows)" })
 
 -- Center screen and clear screen
 map("n", "zz", function()
@@ -141,15 +147,16 @@ local function get_next_char()
 	return line:sub(col + 1, col + 1)
 end
 
---- Return true if the char after cursor is a closer (i.e. ), ], }, ", ', `, >)
+--- Return true if the char after cursor is jumpable
+--- Jumpable chars including: ] } " ' ` > ) ,
 ---
 ---@return boolean
-local function next_is_closer()
+local function next_is_jumpable()
+	local chars = { ")", "]", "}", '"', "'", "`", ">", "," }
 	local next_char = get_next_char()
 
-	local closers = { ")", "]", "}", '"', "'", "`", ">" }
-	for _, closer in ipairs(closers) do
-		if next_char == closer then
+	for _, char in ipairs(chars) do
+		if next_char == char then
 			return true
 		end
 	end
@@ -168,7 +175,7 @@ end
 map("i", "<Tab>", function()
 	if pum_is_visible() then
 		return "<C-y>"
-	elseif next_is_closer() then
+	elseif next_is_jumpable() then
 		return "<Right>"
 	else
 		return "<Tab>"
