@@ -89,6 +89,7 @@
                 "source": "Windows.Terminal.VisualStudio"
             },
             {
+                "adjustIndistinguishableColors": "indexed",
                 "colorScheme": "AtomOneLight-Refined",
                 "commandline": "C:\\Users\\Vios\\scoop\\apps\\nu\\current\\nu.exe",
                 "font": 
