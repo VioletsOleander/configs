@@ -4,12 +4,21 @@ end
 
 ---@module "lazy"
 
-local current_theme = "gruvbox_material"
+---@alias colortheme
+---| '"everforest"'
+---| '"gruvbox-material"'
+---| '"tokyonight-day"'
+---| '"dayfox"'
+---| '"onelight"'
+---| '"onelight-refined"'
+
+---@type colortheme
+local current_theme = "onelight"
 
 ---@type LazyPluginSpec
 local gruvbox_material = {
 	"sainnhe/gruvbox-material",
-	lazy = (current_theme ~= "gruvbox_material"),
+	lazy = (current_theme ~= "gruvbox-material"),
 	priority = 1000,
 	config = function()
 		vim.g.gruvbox_material_better_performance = 1
@@ -21,7 +30,7 @@ local gruvbox_material = {
 ---@type LazyPluginSpec
 local ever_forest = {
 	"sainnhe/everforest",
-	lazy = (current_theme ~= "ever_forest"),
+	lazy = (current_theme ~= "everforest"),
 	priority = 1000,
 	config = function()
 		vim.g.everforest_better_performance = 1
@@ -33,10 +42,15 @@ local ever_forest = {
 ---@type LazyPluginSpec
 local tokyo_night_day = {
 	"folke/tokyonight.nvim",
-	lazy = (current_theme ~= "tokyo_night_day"),
+	lazy = (current_theme ~= "tokyonight-day"),
 	priority = 1000,
 	config = function()
-		require("tokyonight").setup()
+		require("tokyonight").setup({
+			styles = {
+				comment = { italic = false },
+				keywords = { italic = false },
+			},
+		})
 		vim.cmd("colorscheme tokyonight-day")
 	end,
 }
@@ -44,7 +58,7 @@ local tokyo_night_day = {
 ---@type LazyPluginSpec
 local day_fox = {
 	"EdenEast/nightfox.nvim",
-	lazy = (current_theme ~= "day_fox"),
+	lazy = (current_theme ~= "dayfox"),
 	priority = 1000,
 	config = function()
 		require("nightfox").setup()
@@ -55,10 +69,14 @@ local day_fox = {
 ---@type LazyPluginSpec
 local one_light = {
 	"navarasu/onedark.nvim",
-	lazy = (current_theme ~= "one_light"),
+	lazy = (current_theme ~= "onelight"),
 	priority = 1000,
 	config = function()
-		require("onedark").setup({ style = "light" })
+		require("onedark").setup({
+			style = "light",
+			toggle_style_list = { "light" },
+			highlights = { ModeMsg = { fg = "$green" } },
+		})
 		require("onedark").load()
 	end,
 }
@@ -66,7 +84,7 @@ local one_light = {
 ---@type LazyPluginSpec
 local one_light_refined = {
 	"olimorris/onedarkpro.nvim",
-	lazy = (current_theme ~= "atom_one_light"),
+	lazy = (current_theme ~= "onelight-refined"),
 	priority = 1000,
 	config = function()
 		local gray = "#aaaaaa"
