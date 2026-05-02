@@ -1,1 +1,3 @@
 set editorcmd alacritty -e nvim
+bind --mode=normal <C-j> scrollline 50
+bind --mode=normal <C-k> scrollline -50
