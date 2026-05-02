@@ -7,10 +7,10 @@ end
 ---@alias colortheme
 ---| '"everforest"'
 ---| '"gruvbox-material"'
+---| '"edge"'
 ---| '"tokyonight-day"'
 ---| '"dayfox"'
 ---| '"onelight"'
----| '"onelight-refined"'
 
 ---@type colortheme
 local current_theme = "onelight"
@@ -28,7 +28,7 @@ local gruvbox_material = {
 }
 
 ---@type LazyPluginSpec
-local ever_forest = {
+local everforest = {
 	"sainnhe/everforest",
 	lazy = (current_theme ~= "everforest"),
 	priority = 1000,
@@ -40,7 +40,18 @@ local ever_forest = {
 }
 
 ---@type LazyPluginSpec
-local tokyo_night_day = {
+local edge = {
+	"sainnhe/edge",
+	lazy = (current_theme ~= "edge"),
+	priority = 1000,
+	config = function()
+		vim.g.edge_better_performance = 1
+		vim.cmd("colorscheme edge")
+	end,
+}
+
+---@type LazyPluginSpec
+local tokyonight_day = {
 	"folke/tokyonight.nvim",
 	lazy = (current_theme ~= "tokyonight-day"),
 	priority = 1000,
@@ -56,7 +67,7 @@ local tokyo_night_day = {
 }
 
 ---@type LazyPluginSpec
-local day_fox = {
+local dayfox = {
 	"EdenEast/nightfox.nvim",
 	lazy = (current_theme ~= "dayfox"),
 	priority = 1000,
@@ -67,121 +78,41 @@ local day_fox = {
 }
 
 ---@type LazyPluginSpec
-local one_light = {
+local onelight = {
 	"navarasu/onedark.nvim",
 	lazy = (current_theme ~= "onelight"),
 	priority = 1000,
 	config = function()
-		require("onedark").setup({
-			style = "light",
-			toggle_style_list = { "light" },
-			highlights = { ModeMsg = { fg = "$green" } },
-		})
-		require("onedark").load()
-	end,
-}
-
----@type LazyPluginSpec
-local one_light_refined = {
-	"olimorris/onedarkpro.nvim",
-	lazy = (current_theme ~= "onelight-refined"),
-	priority = 1000,
-	config = function()
-		local gray = "#aaaaaa"
-		local light_gray = "#dddddd"
-		local lighter_gray = "#efefef"
-
-		local white = "#ffffff"
-		local dark_white = "#fafafa"
-		local darker_white = "#f0f0f0"
-
-		local black = "#2a2c33"
-		local light_black = "#383a42"
-
-		local green = "#327a2e"
-
-		local blue = "#2153e8"
-		local light_blue = "#426ce8"
-
-		local purple = "#950095"
-		local cyan = "#2e7a78"
-
-		local orange = "#bc6b0b"
-		local red = "#be342c"
-		local light_red = "#d7332c"
-		local yellow = "#73732b"
-
-		local darker_pink = "#b0005c"
-		local dark_pink = "#d70071"
-
-		local fg = black
-		local bg = dark_white
-
-		local custom_colors = {
-			onelight = {
-				fg = fg,
-				bg = bg,
-				black = black,
-				white = white,
-				blue = light_blue,
-				cyan = cyan,
-				green = green,
-				purple = purple,
-				red = red,
-				yellow = yellow,
-				orange = orange,
-				gray = gray,
-				highlight = lighter_gray,
-				comment = "#72747e",
-			},
+		local colors = {
+			bg_blue = "#4078f2",
+			purple = "#950095",
+			green = "#327a2e",
+			orange = "#bc6b0b",
+			blue = "#426ce8",
+			cyan = "#2e7a78",
+			red = "#be342c",
+		}
+		local highlights = {
+			ModeMsg = { fg = "$black" },
 		}
 
-		vim.api.nvim_create_autocmd("ColorScheme", {
-			pattern = "onelight",
-			callback = function()
-				-- bg for float window and widgets on it
-				local float_bg = darker_white
+		local opts = {
+			style = "light",
+			toggle_style_list = { "light" },
+			highlights = highlights,
+			colors = colors,
+		}
 
-				local highlights = {
-					-- Float window
-					FloatTitle = { fg = green, bg = float_bg },
-					NonText = { bg = float_bg },
-					NormalFloat = { bg = float_bg },
-
-					SnacksPickerPreview = { fg = fg, bg = bg },
-					SnacksPickerPrompt = { fg = blue, bg = float_bg },
-					SnacksPickerIconFile = { fg = fg, bg = float_bg },
-					SnacksPickerTree = { fg = "#CCCCCC", bg = float_bg },
-
-					SnacksNormal = { fg = fg, bg = float_bg },
-					SnacksInputNormal = { fg = fg, bg = float_bg },
-
-					-- Flash
-					FlashMatch = { fg = dark_white, bg = light_blue },
-					FlashCurrent = { fg = dark_white, bg = orange },
-					FlashLabel = { fg = white, bg = darker_pink },
-
-					-- Others
-					StatusLine = { bg = darker_white },
-					Cursor = { fg = black, bg = gray },
-				}
-
-				for name, val in pairs(highlights) do
-					vim.api.nvim_set_hl(0, name, val)
-				end
-			end,
-		})
-
-		require("onedarkpro").setup({ colors = custom_colors })
-		vim.cmd("colorscheme onelight")
+		require("onedark").setup(opts)
+		require("onedark").load()
 	end,
 }
 
 return {
 	gruvbox_material,
-	ever_forest,
-	tokyo_night_day,
-	day_fox,
-	one_light,
-	one_light_refined,
+	everforest,
+	edge,
+	tokyonight_day,
+	dayfox,
+	onelight,
 }
