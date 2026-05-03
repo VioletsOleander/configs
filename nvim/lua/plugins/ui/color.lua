@@ -13,10 +13,10 @@ end
 ---| '"onelight"'
 
 ---@type colortheme
-local current_theme = "onelight"
+local current_theme = "gruvbox-material"
 
 ---@type LazyPluginSpec
-local gruvbox_material = {
+local gruvbox = {
 	"sainnhe/gruvbox-material",
 	lazy = (current_theme ~= "gruvbox-material"),
 	priority = 1000,
@@ -108,11 +108,4 @@ local onelight = {
 	end,
 }
 
-return {
-	gruvbox_material,
-	everforest,
-	edge,
-	tokyonight_day,
-	dayfox,
-	onelight,
-}
+return { gruvbox, everforest, edge, tokyonight_day, dayfox, onelight }
