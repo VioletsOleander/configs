@@ -98,6 +98,7 @@ end
 -- Keymaps for Neovim only
 
 ---@module "snacks"
+
 -- Clear screen
 map("n", "<Leader>c", function()
 	vim.cmd("nohlsearch")
@@ -118,7 +119,8 @@ end, { desc = "Center Screen and Clear Search Highlight" })
 
 -- Insert mode to normal mode
 map("i", "jj", "<Esc>", { desc = "Switch to normal mode" })
-map("i", "jk", "<C-o>", { desc = "Execute a normal mode command and return to insert mode" })
+map("i", ";;", "<Esc>", { desc = "Switch to normal mode" })
+map("i", "<C-h>", "<Esc>", { desc = "Switch to normal mode" })
 
 -- Move between panes
 map("n", "<C-h>", "<C-w>h", { desc = "Move to the left pane" })

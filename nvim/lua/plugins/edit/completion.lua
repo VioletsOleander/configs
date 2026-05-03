@@ -28,7 +28,6 @@ local blink_opts = {
 		["<C-p>"] = { "select_prev", "fallback" },
 		["<C-n>"] = { "select_next", "fallback" },
 		["<C-f>"] = { "show", "show_documentation", "fallback" },
-		["<C-h>"] = { "show_signature", "hide_signature", "fallback" },
 	},
 	signature = { enabled = true, window = { show_documentation = true } },
 	cmdline = { enabled = false },
