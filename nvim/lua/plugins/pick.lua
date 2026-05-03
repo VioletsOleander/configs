@@ -35,9 +35,9 @@ local snacks_opts = {
 		win = {
 			input = {
 				keys = {
-					["jk"] = { "confirm", mode = { "i", "n" } },
 					["<Esc>"] = { "close", mode = { "i", "n" } },
 					["<C-q>"] = { "close", mode = { "i", "n" } },
+					["<C-l>"] = { "confirm", mode = { "i", "n" } },
 					["<C-j>"] = { "list_down", mode = { "i", "n" } },
 					["<C-k>"] = { "list_up", mode = { "i", "n" } },
 					["<Leader>v"] = { "edit_vsplit", mode = { "i", "n" } },
@@ -45,7 +45,7 @@ local snacks_opts = {
 			},
 			list = {
 				keys = {
-					["jk"] = { "confirm", mode = { "i", "n" } },
+					["<C-l>"] = { "confirm", mode = { "i", "n" } },
 					["<C-q>"] = { "close", mode = { "i", "n" } },
 					["<C-j>"] = { "list_down_5", mode = { "i", "n" } },
 					["<C-k>"] = { "list_up_5", mode = { "i", "n" } },
