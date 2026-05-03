@@ -119,7 +119,6 @@ end, { desc = "Center Screen and Clear Search Highlight" })
 
 -- Insert mode to normal mode
 map("i", "jj", "<Esc>", { desc = "Switch to normal mode" })
-map("i", "<C-h>", "<Esc>", { desc = "Switch to normal mode" })
 
 -- Move between panes
 map("n", "<C-h>", "<C-w>h", { desc = "Move to the left pane" })
@@ -196,9 +195,9 @@ map({ "i", "c" }, "<C-j>", function()
 	if pum_is_visible() then
 		return "<C-n>"
 	else
-		return "<C-x><C-o>"
+		return "<Esc>"
 	end
-end, { expr = true, desc = "Select next completion or start omini function completion" })
+end, { expr = true, desc = "Select next completion or go into insert mode" })
 
 map({ "i", "c" }, "<C-k>", function()
 	if pum_is_visible() then
