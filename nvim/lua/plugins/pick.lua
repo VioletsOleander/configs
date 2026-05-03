@@ -21,20 +21,20 @@ local snacks_opts = {
 	picker = {
 		enabled = true,
 		actions = {
-			list_down_5 = function(picker, _)
-				for _ = 1, 5 do
-					picker:action("list_down")
-				end
+			list_down_5 = function(picker)
+				picker.list:move(5)
 			end,
-			list_up_5 = function(picker, _)
-				for _ = 1, 5 do
-					picker:action("list_up")
-				end
+			list_up_5 = function(picker)
+				picker.list:move(-5)
+			end,
+			goto_normal = function()
+				vim.cmd("stopinsert")
 			end,
 		},
 		win = {
 			input = {
 				keys = {
+					["jj"] = { "goto_normal", mode = "i" },
 					["jk"] = { "confirm", mode = { "i", "n" } },
 					["<Esc>"] = { "close", mode = { "i", "n" } },
 					["<C-q>"] = { "close", mode = { "i", "n" } },
@@ -45,7 +45,9 @@ local snacks_opts = {
 			},
 			list = {
 				keys = {
+					["jj"] = { "goto_normal", mode = "i" },
 					["jk"] = { "confirm", mode = { "i", "n" } },
+					["<Esc>"] = { "close", mode = { "i", "n" } },
 					["<C-q>"] = { "close", mode = { "i", "n" } },
 					["<C-j>"] = { "list_down_5", mode = { "i", "n" } },
 					["<C-k>"] = { "list_up_5", mode = { "i", "n" } },
