@@ -119,7 +119,6 @@ end, { desc = "Center Screen and Clear Search Highlight" })
 
 -- Insert mode to normal mode
 map("i", "jj", "<Esc>", { desc = "Switch to normal mode" })
-map("i", ";;", "<Esc>", { desc = "Switch to normal mode" })
 map("i", "<C-h>", "<Esc>", { desc = "Switch to normal mode" })
 
 -- Move between panes
