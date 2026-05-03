@@ -2,19 +2,7 @@
 
 SetCapsLockState "AlwaysOff"
 
-*CapsLock::
-{
-    Send "{LControl Down}"
-}
-
-*CapsLock UP::
-{
-    Send "{LControl Up}"
-    if (A_PriorKey = "CapsLock")
-    {
-        Send "{Esc}"
-    }
-}
+CapsLock::Control
 
 #HotIf WinActive("ahk_exe chrome.exe")
 
