@@ -16,7 +16,7 @@ local flash_nvim = {
 			flash.jump()
 		end, { desc = "jump to any visible position in current screen" })
 
-		map({ "n", "o", "x" }, "<leader>s", function()
+		map({ "n", "o", "x" }, "gs", function()
 			flash.treesitter()
 		end, { desc = "jump to any syntax node in current screen" })
 
