@@ -1,8 +1,8 @@
 // Place your key bindings in this file to override the defaults
 [
-  // alt+n to vim escape
+  // ctrl+j to vim escape
   {
-    "key": "alt+n",
+    "key": "ctrl+j",
     "command": "vscode-neovim.escape",
     "when": "editorTextFocus && neovim.init && editorLangId not in 'neovim.editorLangIdExclusions'",
   },
