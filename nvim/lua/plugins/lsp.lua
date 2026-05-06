@@ -3,6 +3,7 @@ if vim.g.vscode then
 end
 
 ---@module "lazy"
+---@module "conform"
 
 ---@type LazyPluginSpec
 local lsp_config = {
@@ -18,12 +19,14 @@ local conform = {
 	"stevearc/conform.nvim",
 	event = { "BufWritePre" },
 	cmd = { "ConformInfo" },
+	---@type conform.setupOpts
 	opts = {
 		formatters_by_ft = {
 			lua = { "stylua" },
 			python = { "ruff_format" },
 			yaml = { "prettier" },
 			json = { "prettier" },
+			markdown = { "prettier" },
 			toml = { "taplo" },
 			rust = { "rustfmt" },
 		},

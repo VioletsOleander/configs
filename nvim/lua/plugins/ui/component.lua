@@ -43,4 +43,10 @@ local gitsigns = {
 	},
 }
 
-return { treesitter_context, mini_icons, gitsigns }
+---@type LazyPluginSpec
+local markview = {
+	"OXY2DEV/markview.nvim",
+	ft = "markdown",
+}
+
+return { treesitter_context, mini_icons, gitsigns, markview }
