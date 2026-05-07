@@ -107,7 +107,7 @@ local function set_snacks_keymap()
 	end, { desc = "Find recent files" })
 
 	-- Grep (g)
-	map("n", "<Leader>g", function()
+	map("n", "<Leader>/", function()
 		Snacks.picker.grep()
 	end, { desc = "Grep search" })
 	map("n", "<Leader>gb", function()
