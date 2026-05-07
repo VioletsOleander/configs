@@ -26,7 +26,7 @@ local conform = {
 			python = { "ruff_format" },
 			yaml = { "prettier" },
 			json = { "prettier" },
-			markdown = { "prettier" },
+			markdown = { "dprint" },
 			toml = { "taplo" },
 			rust = { "rustfmt" },
 		},
