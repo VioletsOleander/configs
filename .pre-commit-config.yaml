@@ -18,3 +18,9 @@ repos:
         entry: dprint --check
         language: system
         types: [markdown]
+
+      - id: taplo-check
+        name: Taplo check
+        entry: taplo check
+        language: system
+        types: [toml]
