@@ -34,6 +34,9 @@ opt.timeoutlen = 500
 -- Vertically split to right
 opt.splitright = true
 
+-- Do not automatically wrap, in order to avoid weird look of colorcolumn in splitview
+opt.wrap = false
+
 -- If performing an operation that would fail due to unsaved changes in the buffer (like `:q`), raise a dialog asking if we wish to save the current file(s)
 opt.confirm = true
 
