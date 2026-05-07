@@ -23,4 +23,5 @@
     "vivid/",
     "nushell/",
     "nushell/autoload/net.nu.template",
+    "dprint/",
 }
