@@ -11,4 +11,10 @@ repos:
         name: Prettier check
         entry: prettier --check
         language: system
-        types: [json, yaml]
+        types_or: [json, yaml]
+
+      - id: dprint-check
+        name: Dprint check
+        entry: dprint --check
+        language: system
+        types: [markdown]
