@@ -23,16 +23,18 @@ local blink_opts = {
 	keymap = {
 		preset = "default",
 		["<Tab>"] = { "select_and_accept", "snippet_forward", "fallback" },
+		["<C-e>"] = { "hide", "fallback" },
+		["<C-y>"] = { "select_and_accept", "fallback" },
 		["<C-k>"] = { "select_prev", "fallback" },
 		["<C-j>"] = { "select_next", "fallback" },
 		["<C-p>"] = { "select_prev", "fallback" },
 		["<C-n>"] = { "select_next", "fallback" },
-		["<C-f>"] = { "show", "show_documentation", "fallback" },
+		["<C-f>"] = { "show", "show_documentation", "hide_documentation", "fallback" },
 	},
 	signature = { enabled = true, window = { show_documentation = true } },
 	cmdline = { enabled = false },
 	appearance = { nerd_font_variant = "mono" },
-	completion = { documentation = { auto_show = true } },
+	completion = { documentation = { auto_show = false } },
 	sources = {
 		default = { "lsp", "copilot", "path", "snippets", "buffer" },
 		providers = {
