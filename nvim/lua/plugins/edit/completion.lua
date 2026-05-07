@@ -44,17 +44,18 @@ local blink_opts = {
 			},
 		},
 	},
-	fuzzy = { implementation = "prefer_rust_with_warning" },
+	fuzzy = { implementation = "rust" },
 }
 
 ---@type LazyPluginSpec
 local blink_cmp = {
 	"saghen/blink.cmp",
 	event = { "InsertEnter" },
-	dependencies = { "rafamadriz/friendly-snippets", "fang2hou/blink-copilot" },
-	version = "1.*",
+	build = function()
+		require("blink.cmp").build():wait(60000)
+	end,
+	dependencies = { "saghen/blink.lib", "rafamadriz/friendly-snippets", "fang2hou/blink-copilot" },
 	opts = blink_opts,
-	opts_extend = { "sources.default" },
 }
 
 return { copilot, blink_cmp }
