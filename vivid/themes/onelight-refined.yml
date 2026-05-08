@@ -5,7 +5,7 @@ colors:
   green: "327a2e"
   yellow: "73732b"
   blue: "2153e8"
-  pink: "d01b93"
+  pink: "dd0562"
   cyan: "2e7a78"
 
   black: "2a2c33"
@@ -72,8 +72,7 @@ core:
 
 text:
   special:
-    foreground: background_color
-    background: yellow
+    foreground: yellow
 
   todo:
     font-style: bold
