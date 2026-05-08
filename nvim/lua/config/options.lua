@@ -78,8 +78,9 @@ local cursor_config = {
 }
 opt.guicursor = table.concat(cursor_config, ",")
 
--- Fload window border
+-- Float window border and popup menu border
 opt.winborder = "rounded"
+opt.pumborder = "rounded"
 
 -- Not display tabline
 opt.showtabline = 0
