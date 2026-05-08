@@ -3,7 +3,8 @@ $env.config.buffer_editor = "nvim"
 
 # Edit
 $env.config.edit_mode = "vi"
-$env.config.keybindings ++= [ {
+$env.config.keybindings ++= [
+  {
     name: "ctrl-[ escape"
     modifier: Control 
     keycode: Char_u00005b
@@ -11,8 +12,20 @@ $env.config.keybindings ++= [ {
     event: {
         send: ViChangeMode
         mode: normal # This is case senstive, see https://github.com/nushell/reedline/pull/932
+    },
+  }
+  {
+    name: "ctrl-l escape"
+    modifier: Control,
+    keycode: Char_l
+    mode: [Vi_Insert]
+    event : {
+      send: ViChangeMode
+      mode: normal
     }
-} ]
+  }
+]
+
 $env.config.cursor_shape.vi_insert = "line"
 $env.config.cursor_shape.vi_normal = "block"
 
