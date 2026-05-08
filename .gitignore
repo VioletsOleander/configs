@@ -1,5 +1,11 @@
+# Files
 /variables.yaml
-/Microsoft/Windows Terminal/state.json
 /recnys.log
-/.lua_modules
-lazy-lock.json
+/nvim/lazy-lock.json
+
+# Dirs
+/Microsoft/Windows Terminal/state.json
+/yazi/config/plugins/
+/yazi/state/
+/.lua_modules/
+
