@@ -41,6 +41,9 @@ $env.LS_COLORS = (vivid generate onelight-refined)
 # Misc
 $env.config.rm.always_trash = true
 $env.config.show_banner = false
+if $nu.os-info.name == "windows" {
+  $env.YAZI_FILE_ONE = 'C:\Users\Vios\scoop\apps\git\current\usr\bin\file.exe'
+}
 
 # Nu scripts
 const third_party = ($nu.default-config-dir | path join "third_party")
