@@ -1,3 +1,4 @@
+# Set proxy
 export def --env proxy-on [proxy_url: string = "{{ proxy_url }}", --slient] {
     $env.http_proxy = $proxy_url
     $env.https_proxy = $proxy_url
@@ -7,6 +8,7 @@ export def --env proxy-on [proxy_url: string = "{{ proxy_url }}", --slient] {
     }
 }
 
+# Disable proxy
 export def --env proxy-off [] {
     hide-env http_proxy
     hide-env https_proxy
@@ -14,6 +16,7 @@ export def --env proxy-off [] {
     print "Proxy disabled."
 }
 
+# Show proxy infomatoin
 export def proxy-status [] {
   $env | select -o http_proxy https_proxy no_proxy
 }
