@@ -192,7 +192,7 @@ map({ "i", "c" }, "<C-j>", function()
 	if pum_is_visible() then
 		return "<C-n>"
 	else
-		return "<C-j>"
+		return "<Esc>"
 	end
 end, { expr = true, desc = "Select next completion or go into insert mode" })
 
@@ -200,6 +200,6 @@ map({ "i", "c" }, "<C-k>", function()
 	if pum_is_visible() then
 		return "<C-p>"
 	else
-		return "<C-k>"
+		return "<Esc>"
 	end
 end, { expr = true, desc = "Select previous completion" })
