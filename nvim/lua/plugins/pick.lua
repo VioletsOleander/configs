@@ -213,7 +213,6 @@ end
 ---@type LazyPluginSpec
 local snacks = {
 	"folke/snacks.nvim",
-	lazy = false,
 	priority = 1000,
 	config = function()
 		vim.g.snacks_animate = false
@@ -228,6 +227,7 @@ local snacks = {
 ---@type LazyPluginSpec
 local oil = {
 	"stevearc/oil.nvim",
+	cmd = "Oil",
 	---@type oil.SetupOpts
 	opts = {
 		default_file_explorer = false,
