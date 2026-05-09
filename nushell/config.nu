@@ -12,17 +12,24 @@ $env.config.keybindings ++= [
     event: {
         send: ViChangeMode
         mode: normal # This is case senstive, see https://github.com/nushell/reedline/pull/932
-    },
-  }
+    }
+  },
   {
     name: "ctrl-l escape"
     modifier: Control,
     keycode: Char_l
     mode: [Vi_Insert]
     event : {
-      send: ViChangeMode
+      send: Enter
       mode: normal
     }
+  },
+  {
+    name: "ctrl-m enter"
+    modifier: Control,
+    keycode: Char_m
+    mode: [Vi_Insert]
+    event : { send: Enter }
   }
 ]
 
