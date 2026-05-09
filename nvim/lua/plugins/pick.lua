@@ -30,6 +30,10 @@ local snacks_opts = {
 			goto_normal = function()
 				vim.cmd("stopinsert")
 			end,
+			emit_esc = function()
+				local esc = vim.api.nvim_replace_termcodes("<Esc>", true, false, true)
+				vim.api.nvim_feedkeys(esc, "n", false)
+			end,
 		},
 		win = {
 			input = {
@@ -59,6 +63,20 @@ local snacks_opts = {
 			explorer = {
 				hidden = true,
 				ignored = true,
+				win = {
+					-- The toggle of explorer is controlled by leader+e, so
+					-- let esc works like esc
+					input = {
+						keys = {
+							["<Esc>"] = "emit_esc",
+						},
+					},
+					list = {
+						keys = {
+							["<Esc>"] = "emit_esc",
+						},
+					},
+				},
 			},
 			files = {
 				hidden = true,
