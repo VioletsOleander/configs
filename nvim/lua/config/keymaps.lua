@@ -103,10 +103,18 @@ end
 map("n", "<Leader>c", function()
 	vim.cmd("nohlsearch")
 	Snacks.notifier.hide()
+	-- Close non-snacks related float windows
+	-- (avoid closing leave the explorer)
 	for _, win in ipairs(vim.api.nvim_list_wins()) do
-		-- Find float windows
-		if vim.api.nvim_win_get_config(win).relative ~= "" then
-			vim.api.nvim_win_close(win, false)
+		local config = vim.api.nvim_win_get_config(win)
+
+		if config.relative ~= "" then
+			local buf = vim.api.nvim_win_get_buf(win)
+			local ft = vim.api.nvim_get_option_value("filetype", { buf = buf })
+
+			if ft ~= "snacks_picker_list" and ft ~= "snacks_picker_input" then
+				vim.api.nvim_win_close(win, false)
+			end
 		end
 	end
 end, { desc = "Clear Screen (including search highlight, notifications, floating windows)" })
@@ -118,7 +126,6 @@ map("n", "zz", function()
 end, { desc = "Center Screen and Clear Search Highlight" })
 
 -- Insert mode to normal mode
-map("i", "jj", "<Esc>", { desc = "Switch to normal mode" })
 map("i", "<C-l>", "<Esc>", { desc = "Switch to normal mode" })
 
 -- Move between panes
