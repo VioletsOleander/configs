@@ -27,9 +27,6 @@ local snacks_opts = {
 			list_up_5 = function(picker)
 				picker.list:move(-5)
 			end,
-			goto_normal = function()
-				vim.cmd("stopinsert")
-			end,
 			emit_esc = function()
 				local esc = vim.api.nvim_replace_termcodes("<Esc>", true, false, true)
 				vim.api.nvim_feedkeys(esc, "n", false)
@@ -38,23 +35,22 @@ local snacks_opts = {
 		win = {
 			input = {
 				keys = {
-					["jj"] = { "goto_normal", mode = "i" },
-					["jk"] = { "confirm", mode = { "i", "n" } },
+					["/"] = { "toggle_focus", mode = { "i", "n" } },
 					["<Esc>"] = { "close", mode = { "i", "n" } },
 					["<C-q>"] = { "close", mode = { "i", "n" } },
 					["<C-j>"] = { "list_down", mode = { "i", "n" } },
 					["<C-k>"] = { "list_up", mode = { "i", "n" } },
+					["jk"] = { "confirm", mode = { "i", "n" } },
 					["<Leader>v"] = { "edit_vsplit", mode = { "i", "n" } },
 				},
 			},
 			list = {
 				keys = {
-					["jj"] = { "goto_normal", mode = "i" },
-					["jk"] = { "confirm", mode = { "i", "n" } },
 					["<Esc>"] = { "close", mode = { "i", "n" } },
 					["<C-q>"] = { "close", mode = { "i", "n" } },
 					["<C-j>"] = { "list_down_5", mode = { "i", "n" } },
 					["<C-k>"] = { "list_up_5", mode = { "i", "n" } },
+					["jk"] = { "confirm", mode = { "i", "n" } },
 					["<Leader>v"] = { "edit_vsplit", mode = { "i", "n" } },
 				},
 			},
