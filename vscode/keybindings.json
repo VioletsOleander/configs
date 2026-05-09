@@ -1,91 +1,90 @@
 // Place your key bindings in this file to override the defaults
 [
-  // ctrl+j to vim escape
   {
     "key": "ctrl+j",
     "command": "vscode-neovim.escape",
-    "when": "editorTextFocus && neovim.init && editorLangId not in 'neovim.editorLangIdExclusions'",
+    "when": "editorTextFocus && neovim.init && editorLangId not in 'neovim.editorLangIdExclusions'&& neovim.mode == 'insert'"
   },
   // let vscode handle tab
   {
     "key": "tab",
     "command": "-vscode-neovim.send",
-    "when": "neovim.init && neovim.recording || editorTextFocus && neovim.init && neovim.mode != 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'",
+    "when": "neovim.init && neovim.recording || editorTextFocus && neovim.init && neovim.mode != 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'"
   },
   {
     "key": "shift+tab",
     "command": "-vscode-neovim.send",
-    "when": "neovim.init && neovim.recording || editorTextFocus && neovim.init && neovim.mode != 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'",
+    "when": "neovim.init && neovim.recording || editorTextFocus && neovim.init && neovim.mode != 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'"
   },
   // ctrl+j/k to navigate up/down in various scenarios
   // quick open selection
   {
     "key": "ctrl+j",
     "command": "workbench.action.quickOpenSelectNext",
-    "when": "inQuickOpen",
+    "when": "inQuickOpen"
   },
   {
     "key": "ctrl+k",
     "command": "workbench.action.quickOpenSelectPrevious",
-    "when": "inQuickOpen",
+    "when": "inQuickOpen"
   },
   // code action menu
   {
     "key": "ctrl+j",
     "command": "selectNextCodeAction",
-    "when": "codeActionMenuVisible",
+    "when": "codeActionMenuVisible"
   },
   {
     "key": "ctrl+k",
     "command": "selectPrevCodeAction",
-    "when": "codeActionMenuVisible",
+    "when": "codeActionMenuVisible"
   },
   // suggestion widget
   {
     "key": "ctrl+j",
     "command": "selectNextSuggestion",
-    "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus || suggestWidgetVisible && textInputFocus && !suggestWidgetHasFocusedSuggestion",
+    "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus || suggestWidgetVisible && textInputFocus && !suggestWidgetHasFocusedSuggestion"
   },
   {
     "key": "ctrl+k",
     "command": "selectPrevSuggestion",
-    "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus || suggestWidgetVisible && textInputFocus && !suggestWidgetHasFocusedSuggestion",
+    "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus || suggestWidgetVisible && textInputFocus && !suggestWidgetHasFocusedSuggestion"
   },
   // reference search
   {
     "key": "ctrl+j",
     "command": "goToNextReference",
-    "when": "referenceSearchVisible && !referenceSearchTreeFocused",
+    "when": "referenceSearchVisible && !referenceSearchTreeFocused"
   },
   {
     "key": "ctrl+k",
     "command": "goToPreviousReference",
-    "when": "referenceSearchVisible && !referenceSearchTreeFocused",
+    "when": "referenceSearchVisible && !referenceSearchTreeFocused"
   },
   {
     "key": "ctrl+j",
     "command": "list.focusDown",
-    "when": "referenceSearchVisible && referenceSearchTreeFocused",
+    "when": "referenceSearchVisible && referenceSearchTreeFocused"
   },
   {
     "key": "ctrl+k",
     "command": "list.focusUp",
-    "when": "referenceSearchVisible && referenceSearchTreeFocused",
+    "when": "referenceSearchVisible && referenceSearchTreeFocused"
   },
   // alt+l/r to toggle sidebar/auxiliary bar
   {
     "key": "alt+l",
-    "command": "workbench.action.toggleSidebarVisibility",
+    "command": "workbench.action.toggleSidebarVisibility"
   },
   {
     "key": "alt+r",
-    "command": "workbench.action.toggleAuxiliaryBar",
+    "command": "workbench.action.toggleAuxiliaryBar"
   },
   // alt+j/k to toggle panel focus
   {
     "key": "alt+k",
     "command": "workbench.action.focusActiveEditorGroup",
-    "when": "terminalFocus || inDebugRepl",
+    "when": "terminalFocus || inDebugRepl"
   },
   {
     "key": "alt+j",
@@ -96,28 +95,28 @@
   {
     "key": "ctrl+shift+i",
     "command": "-workbench.action.chat.openagent",
-    "when": "config.chat.agent.enabled && !chatSetupDisabled && !chatSetupHidden",
+    "when": "config.chat.agent.enabled && !chatSetupDisabled && !chatSetupHidden"
   },
   {
     "key": "ctrl+shift+i",
     "command": "inlineChat.start",
-    "when": "editorFocus && inlineChatHasEditsAgent && inlineChatPossible && !editorReadonly && !editorSimpleInput || editorFocus && inlineChatHasNotebookAgent && inlineChatPossible && !editorReadonly && !editorSimpleInput && activeEditor == 'workbench.editor.notebook' || editorFocus && inlineChatHasNotebookInline && inlineChatPossible && !editorReadonly && !editorSimpleInput && activeEditor == 'workbench.editor.notebook'",
+    "when": "editorFocus && inlineChatHasEditsAgent && inlineChatPossible && !editorReadonly && !editorSimpleInput || editorFocus && inlineChatHasNotebookAgent && inlineChatPossible && !editorReadonly && !editorSimpleInput && activeEditor == 'workbench.editor.notebook' || editorFocus && inlineChatHasNotebookInline && inlineChatPossible && !editorReadonly && !editorSimpleInput && activeEditor == 'workbench.editor.notebook'"
   },
   {
     "key": "escape",
     "command": "editor.action.inlineSuggest.hide",
-    "when": "inlineSuggestionVisible || inlineEditIsVisible",
+    "when": "inlineSuggestionVisible || inlineEditIsVisible"
   },
   // let ctrl+e not work in termial
   {
     "key": "ctrl+e",
-    "command": "-workbench.action.quickOpen",
+    "command": "-workbench.action.quickOpen"
   },
   // quit hover by q
   {
     "command": "workbench.action.focusActiveEditorGroup",
     "key": "q",
-    "when": "editorHoverFocused",
+    "when": "editorHoverFocused"
   },
   // ctrl-n for toggle panel
   {
@@ -126,7 +125,7 @@
   },
   {
     "key": "ctrl+n",
-    "command": "-workbench.action.files.newUntitledFile",
+    "command": "-workbench.action.files.newUntitledFile"
   },
   {
     "key": "ctrl+n",
@@ -186,11 +185,11 @@
   // ctrl+w for window management
   {
     "key": "ctrl+w",
-    "command": "-workbench.action.closeActiveEditor",
+    "command": "-workbench.action.closeActiveEditor"
   },
   {
     "key": "ctrl+shift+w",
-    "command": "-workbench.action.closeWindow",
+    "command": "-workbench.action.closeWindow"
   },
   {
     "key": "ctrl+w o",

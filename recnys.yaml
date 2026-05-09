@@ -1,27 +1,46 @@
 {
+    # Shells
     ".bashrc.template": { dest: { Windows: "", Linux: "my_bashrc" } },
-    ".inputrc": { dest: { Windows: "", Linux: ".inputrc" } },
-    ".tmux.conf": { dest: { Windows: "", Linux: ".tmux.conf" } },
-    ".gitconfig": { dest: { Windows: ".gitconfig", Linux: ".gitconfig" } },
-    ".tridactylrc":
-        { dest: { Windows: ".tridactylrc", Linux: ".tridactylrc" } },
-    "nvim/": { dest: { Windows: "AppData/Local/nvim" } },
-    "vim/": { dest: { Windows: "vimfiles/" } },
-    "yazi/",
-    "lazygit/",
-    "Microsoft/Windows Terminal/":
+    "nushell/",
+    "nushell/autoload/net.nu.template",
+    # Terminals
+    "windows-terminal/settings.json":
         {
             dest:
                 {
-                    Windows: "AppData/Local/Microsoft/Windows Terminal/",
+                    Windows: "AppData/Local/Microsoft/Windows Terminal/settings.json",
                     Linux: "",
                 },
         },
-    "Code/User/settings.json",
-    "Code/User/keybindings.json",
     "alacritty/",
+    "wezterm/": { dest: { Windows: ".config/wezterm/" } },
+    # Editors
+    "nvim/": { dest: { Windows: "AppData/Local/nvim/" } },
+    "vim/": { dest: { Windows: "vimfiles/" } },
+    "vscode/settings.json":
+        {
+            dest:
+                {
+                    Windows: "AppData/Roaming/Code/User/settings.json",
+                    Linux: ".config/Code/User/settings.json",
+                },
+        },
+    "vscode/keybindings.json":
+        {
+            dest:
+                {
+                    Windows: "AppData/Roaming/Code/User/keybindings.json",
+                    Linux: ".config/Code/User/keybindings.json",
+                },
+        },
+    # Tools
+    ".gitconfig": { dest: { Windows: ".gitconfig", Linux: ".gitconfig" } },
+    ".inputrc": { dest: { Windows: "", Linux: ".inputrc" } },
+    ".tmux.conf": { dest: { Windows: "", Linux: ".tmux.conf" } },
+    ".tridactylrc":
+        { dest: { Windows: ".tridactylrc", Linux: ".tridactylrc" } },
+    "yazi/",
+    "lazygit/",
     "vivid/",
-    "nushell/",
-    "nushell/autoload/net.nu.template",
     "dprint/",
 }

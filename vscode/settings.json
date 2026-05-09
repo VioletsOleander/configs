@@ -3,15 +3,15 @@
   "vscode-neovim.compositeKeys": {
     "jj": {
       "command": "vscode-neovim.escape",
-      "args": [],
-    },
+      "args": []
+    }
   },
   "vscode-neovim.compositeTimeout": 300,
   "vscode-neovim.highlightGroups.highlights": {
     "Cursor": {
       "backgroundColor": "#526fffcc",
-      "foregroundColor": "#ffffff",
-    },
+      "foregroundColor": "#ffffff"
+    }
   },
   "vscode-neovim.ctrlKeysForNormalMode": [
     "a",
@@ -36,7 +36,7 @@
     "y",
     "z",
     "/",
-    "]",
+    "]"
   ],
   "workbench.editor.restoreEditors": true,
   "workbench.editor.showTabs": "single",
@@ -48,15 +48,15 @@
       "editorCursor.foreground": "#526fffcc",
       "editorCursor.background": "#ffffff",
       "terminalCursor.foreground": "#526fffcc",
-      "terminalCursor.background": "#ffffff",
+      "terminalCursor.background": "#ffffff"
     },
     "[Tokyo Night Light]": {
       // "editor.foreground":"#343b59",
       // "editor.background": "#e6e7ed",
       // let the editor ground header looks like is merged with the editor background,
       "editorGroupHeader.noTabsBackground": "#e6e7ed",
-      "editorGroupHeader.border": "#e6e7ed",
-    },
+      "editorGroupHeader.border": "#e6e7ed"
+    }
   },
   "workbench.activityBar.location": "hidden",
   "window.menuBarVisibility": "hidden",
@@ -70,9 +70,7 @@
   "editor.inlayHints.enabled": "off",
   "editor.fontSize": 15,
   "editor.fontFamily": "Fira Code Retina, Consolas, monospace",
-  "editor.rulers": [
-    110
-  ],
+  "editor.rulers": [110],
   "editor.minimap.renderCharacters": false,
   "editor.lightbulb.enabled": "off",
   "editor.renderLineHighlight": "none",
@@ -84,36 +82,34 @@
   "[markdown]": {
     "editor.wordWrap": "wordWrapColumn",
     "editor.wordWrapColumn": 110,
-    "editor.rulers": [
-      110
-    ],
+    "editor.rulers": [110],
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.wordBasedSuggestions": "currentDocument",
     "editor.quickSuggestions": {
       "other": "off",
       "strings": "off",
-      "comments": "off",
-    },
+      "comments": "off"
+    }
   },
   "[python]": {
     "editor.defaultFormatter": "charliermarsh.ruff",
     "editor.codeActionsOnSave": {
-      "source.organizeImports": "always",
-    },
+      "source.organizeImports": "always"
+    }
   },
   "[json]": {
-    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.defaultFormatter": "vscode.json-language-features"
   },
   "[toml]": {
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "tamasfe.even-better-toml",
+    "editor.defaultFormatter": "tamasfe.even-better-toml"
   },
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features",
     "editor.quickSuggestions": {
-      "strings": true,
+      "strings": true
     },
-    "editor.suggest.insertMode": "replace",
+    "editor.suggest.insertMode": "replace"
   },
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -123,11 +119,11 @@
     "editor.quickSuggestions": {
       "other": "on",
       "comments": "on",
-      "strings": "on",
-    },
+      "strings": "on"
+    }
   },
   "[lua]": {
-    "editor.defaultFormatter": "JohnnyMorganz.stylua",
+    "editor.defaultFormatter": "JohnnyMorganz.stylua"
   },
   "[rust]": {
     "editor.defaultFormatter": "rust-lang.rust-analyzer"
@@ -135,12 +131,12 @@
   "files.autoSave": "afterDelay",
   "files.readonlyInclude": {
     ".venv/**": true,
-    ".pixi/**": true,
+    ".pixi/**": true
   },
   "files.insertFinalNewline": true,
   "files.associations": {
     ".bash.template": "shellscript",
-    "config.nu.template": "nushell",
+    "config.nu.template": "nushell"
   },
   "terminal.integrated.fontFamily": "Fira Code Retina, Fira Code Nerd Font Mono",
   "terminal.integrated.fontSize": 14,
@@ -152,24 +148,24 @@
   "terminal.integrated.profiles.windows": {
     "Nushell": {
       "path": "nu.exe",
-      "icon": "terminal-bash",
+      "icon": "terminal-bash"
     },
     "PowerShell": {
       "source": "PowerShell",
-      "icon": "terminal-powershell",
+      "icon": "terminal-powershell"
     },
     "Command Prompt": {
       "path": [
         "${env:windir}\\Sysnative\\cmd.exe",
-        "${env:windir}\\System32\\cmd.exe",
+        "${env:windir}\\System32\\cmd.exe"
       ],
       "args": [],
-      "icon": "terminal-cmd",
+      "icon": "terminal-cmd"
     },
     "Git Bash": {
       "source": "Git Bash",
-      "icon": "terminal-git-bash",
-    },
+      "icon": "terminal-git-bash"
+    }
   },
   "terminal.integrated.defaultProfile.windows": "Nushell",
   "terminal.integrated.confirmOnKill": "never",
@@ -177,14 +173,12 @@
   "terminal.integrated.allowChords": false,
   "security.workspace.trust.untrustedFiles": "open",
   "remote.extensionKind": {
-    "GitHub.copilot-chat": [
-      "ui"
-    ],
+    "GitHub.copilot-chat": ["ui"]
   },
   "git.openRepositoryInParentFolders": "never",
   "extensions.experimental.affinity": {
     "vscodevim.vim": 1,
-    "asvetliakov.vscode-neovim": 1,
+    "asvetliakov.vscode-neovim": 1
   },
   "markdown.preview.doubleClickToSwitchToEditor": false,
   "markdown.preview.fontFamily": "Inter, SimHei, Microsoft YaHei, sans-serif",
@@ -205,7 +199,7 @@
     "https://aka.ms/terminal-profiles-schema": true,
     "https://esm.sh/gh/catppuccin/vscode@catppuccin-vsc-v3.18.1/packages/catppuccin-vsc/schemas": true,
     "https://raw.githubusercontent.com/DavidAnson/markdownlint/v0.40.0/schema": true,
-    "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/": true,
+    "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/": true
   },
   "github.copilot.nextEditSuggestions.enabled": true,
   "github.copilot.selectedCompletionModel": "",
@@ -218,5 +212,5 @@
     "scminput": false
   },
   "cSpell.enabled": false,
-  "editor.inlineSuggest.edits.showCollapsed": true,
+  "editor.inlineSuggest.edits.showCollapsed": true
 }
