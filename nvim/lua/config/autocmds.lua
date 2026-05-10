@@ -70,17 +70,13 @@ au("LspAttach", {
 		-- LSP shows
 		map_local("n", "gr", vim.lsp.buf.references, "Show references")
 
-		map_local({ "n", "i" }, "gk", function()
-			vim.lsp.buf.signature_help({ close_events = { "CursorMoved", "BufHidden", "InsertLeave" } })
-		end, "Show signature help")
-		map_local({ "n", "i" }, "gK", function()
+		map_local("n", "gk", vim.lsp.buf.signature_help, "Show signature help")
+		map_local("n", "gK", function()
 			vim.lsp.buf.signature_help({ close_events = { "BufHidden" } })
 		end, "Show persist signature help (requires manual close)")
 
-		map_local({ "n", "i" }, "ga", function()
-			vim.diagnostic.open_float({ close_events = { "CursorMoved", "BufHidden", "InsertLeave" } })
-		end, "Show diagnostics")
-		map_local({ "n", "i" }, "gA", function()
+		map_local("n", "ga", vim.diagnostic.open_float, "Show diagnostics")
+		map_local("n", "gA", function()
 			vim.diagnostic.open_float({ close_events = { "BufHidden" } })
 		end, "Show persist diagnostic (requires manual close)")
 
