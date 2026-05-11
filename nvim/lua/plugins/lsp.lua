@@ -10,7 +10,7 @@ local lsp_config = {
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
-		vim.lsp.enable({ "lua_ls", "stylua", "ty", "ruff", "yamlls", "jsonls", "rust_analyzer" })
+		vim.lsp.enable({ "lua_ls", "stylua", "ty", "ruff", "yamlls", "jsonls", "rust_analyzer", "vtsls", "biome" })
 	end,
 }
 
@@ -29,6 +29,7 @@ local conform = {
 			markdown = { "dprint" },
 			toml = { "taplo" },
 			rust = { "rustfmt" },
+			typescript = { "biome", "biome-organize-imports" },
 		},
 		format_on_save = {
 			lsp_format = "fallback",
