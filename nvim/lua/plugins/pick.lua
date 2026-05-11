@@ -31,6 +31,12 @@ local snacks_opts = {
 				local esc = vim.api.nvim_replace_termcodes("<Esc>", true, false, true)
 				vim.api.nvim_feedkeys(esc, "n", false)
 			end,
+			emit_slash = function()
+				vim.api.nvim_feedkeys("/", "n", false)
+			end,
+			clear_hl = function()
+				vim.cmd("nohlsearch")
+			end,
 		},
 		win = {
 			input = {
@@ -42,16 +48,19 @@ local snacks_opts = {
 					["<C-k>"] = { "list_up", mode = { "i", "n" } },
 					["jk"] = { "confirm", mode = { "i", "n" } },
 					["<Leader>v"] = { "edit_vsplit", mode = { "i", "n" } },
+					["<Leader>c"] = { "clear_hl", mode = { "i", "n" } },
 				},
 			},
 			list = {
 				keys = {
-					["<Esc>"] = { "close", mode = { "i", "n" } },
-					["<C-q>"] = { "close", mode = { "i", "n" } },
-					["<C-j>"] = { "list_down_5", mode = { "i", "n" } },
-					["<C-k>"] = { "list_up_5", mode = { "i", "n" } },
-					["jk"] = { "confirm", mode = { "i", "n" } },
-					["<Leader>v"] = { "edit_vsplit", mode = { "i", "n" } },
+					["/"] = { "emit_slash", mode = "n" },
+					["<Esc>"] = { "close", mode = "n" },
+					["<C-q>"] = { "close", mode = "n" },
+					["<C-j>"] = { "list_down_5", mode = "n" },
+					["<C-k>"] = { "list_up_5", mode = "n" },
+					["jk"] = { "confirm", mode = "n" },
+					["<Leader>v"] = { "edit_vsplit", mode = "n" },
+					["<Leader>c"] = { "clear_hl", mode = "n" },
 				},
 			},
 		},
