@@ -196,10 +196,18 @@
   "evenBetterToml.formatter.columnWidth": 120,
   "evenBetterToml.formatter.trailingNewline": true,
   "json.schemaDownload.trustedDomains": {
+    "https://schemastore.azurewebsites.net/": true,
+    "https://raw.githubusercontent.com/microsoft/vscode/": true,
+    "https://raw.githubusercontent.com/devcontainers/spec/": true,
+    "https://www.schemastore.org/": true,
+    "https://json.schemastore.org/": true,
+    "https://json-schema.org/": true,
+    "https://developer.microsoft.com/json-schemas/": true,
     "https://aka.ms/terminal-profiles-schema": true,
     "https://esm.sh/gh/catppuccin/vscode@catppuccin-vsc-v3.18.1/packages/catppuccin-vsc/schemas": true,
     "https://raw.githubusercontent.com/DavidAnson/markdownlint/v0.40.0/schema": true,
-    "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/": true
+    "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/": true,
+    "https://biomejs.dev": true
   },
   "github.copilot.nextEditSuggestions.enabled": true,
   "github.copilot.selectedCompletionModel": "",
