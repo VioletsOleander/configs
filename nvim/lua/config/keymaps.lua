@@ -209,4 +209,4 @@ map({ "i", "c" }, "<C-k>", function()
 	else
 		return "<Esc>"
 	end
-end, { expr = true, desc = "Select previous completion" })
+end, { expr = true, desc = "Select previous completion or go into insert mode" })
