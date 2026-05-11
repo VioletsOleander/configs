@@ -3,4 +3,3 @@ if vim.g.vscode then
 end
 
 vim.opt_local.colorcolumn = "120"
-vim.opt_local.formatoptions:remove({ "r", "o" })
