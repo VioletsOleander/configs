@@ -36,7 +36,7 @@ local blink_opts = {
 	appearance = { nerd_font_variant = "mono" },
 	completion = { documentation = { auto_show = false } },
 	sources = {
-		default = { "lsp", "copilot", "path", "snippets", "buffer" },
+		default = { "lsp", "copilot", "snippets", "buffer" },
 		providers = {
 			copilot = {
 				name = "copilot",
