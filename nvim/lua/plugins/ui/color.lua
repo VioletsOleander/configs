@@ -5,7 +5,6 @@ end
 ---@module "lazy"
 
 ---@alias colortheme
----| '"everforest"'
 ---| '"gruvbox-material"'
 ---| '"edge"'
 ---| '"tokyonight-day"'
@@ -24,18 +23,6 @@ local gruvbox = {
 		vim.g.gruvbox_material_better_performance = 1
 		vim.g.gruvbox_material_background = "medium"
 		vim.cmd("colorscheme gruvbox-material")
-	end,
-}
-
----@type LazyPluginSpec
-local everforest = {
-	"sainnhe/everforest",
-	lazy = (current_theme ~= "everforest"),
-	priority = 1000,
-	config = function()
-		vim.g.everforest_better_performance = 1
-		vim.g.everforest_background = "medium"
-		vim.cmd("colorscheme everforest")
 	end,
 }
 
@@ -108,4 +95,4 @@ local onelight = {
 	end,
 }
 
-return { gruvbox, everforest, edge, tokyonight_day, dayfox, onelight }
+return { gruvbox, edge, tokyonight_day, dayfox, onelight }
