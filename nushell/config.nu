@@ -20,7 +20,7 @@ $env.config.keybindings ++= [
     keycode: Char_l
     mode: [Vi_Insert]
     event : {
-      send: Enter
+      send: ViChangeMode
       mode: normal
     }
   },
