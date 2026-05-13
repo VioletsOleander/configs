@@ -2,25 +2,13 @@ repos:
   - repo: local
     hooks:
       - id: stylua-check
-        name: Stylua Check
+        name: Stylua check
         entry: stylua --check
         language: system
         types: [lua]
 
-      - id: prettier-check
-        name: Prettier check
-        entry: prettier --check
-        language: system
-        types_or: [json, yaml]
-
       - id: dprint-check
         name: Dprint check
-        entry: dprint --check
+        entry: dprint check
         language: system
-        types: [markdown]
-
-      - id: taplo-check
-        name: Taplo check
-        entry: taplo check
-        language: system
-        types: [toml]
+        types_or: [markdown, json, toml, yaml]
