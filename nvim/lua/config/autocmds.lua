@@ -90,7 +90,7 @@ au("LspAttach", {
 -- Readonly files
 au("BufRead", {
 	group = native_group,
-	pattern = { "*/.rustup/*", "*/.cargo/*", "*/.venv/*" },
+	pattern = { "*/.rustup/*", "*/.cargo/*", "*/.venv/*", "*/node_modules/*" },
 	callback = function()
 		vim.opt_local.readonly = true
 		vim.opt_local.modifiable = false
