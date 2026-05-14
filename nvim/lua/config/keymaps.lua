@@ -129,18 +129,23 @@ end, { desc = "Center Screen and Clear Search Highlight" })
 map("i", "<C-l>", "<Esc>", { desc = "Switch to normal mode" })
 
 -- Move between panes
-map("n", "<C-h>", "<C-w>h", { desc = "Move to the left pane" })
-map("n", "<C-l>", "<C-w>l", { desc = "Move to the right pane" })
+map("n", "<C-h>", "<C-w>h", { desc = "Move to the left window" })
+map("n", "<C-l>", "<C-w>l", { desc = "Move to the right window" })
+map("n", "<C-n>", "<C-w>j", { desc = "Move to the below window" })
+map("n", "<C-p>", "<C-w>k", { desc = "Move to the upper window" })
 
 -- Switch between buffers
 map("n", "<BS>", "<C-^>", { desc = "Switch to alternate file" })
 
 -- Quit
-map({ "i", "n" }, "<C-q>", "<Cmd>quit<CR>", { desc = "Quit Current Window" })
+map("n", "<C-q>", "<Cmd>quit<CR>", { desc = "Quit Current Window" })
 
 -- Save
 map("n", "<Leader>w", "<Cmd>w<CR>", { desc = "Save File", silent = true })
 map("n", "<Leader><CR>", "<Cmd>w<CR>", { desc = "Save File", silent = true })
+
+-- Correct spell
+map("i", "<C-a>", "<C-g>u<Esc>[s1z=`]a<C-g>u", { desc = "Correc last spell using the first suggestion" })
 
 --- Return the character after cursor
 ---
