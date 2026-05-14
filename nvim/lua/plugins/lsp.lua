@@ -23,8 +23,11 @@ local lsp_config = {
 			"yamlls",
 			-- Rust
 			"rust_analyzer",
-			-- Typescript
+			-- Typescript, HTML, CSS, Svelte
 			"vtsls",
+			"html",
+			"cssls",
+			"svelte",
 			"oxlint",
 		})
 	end,
@@ -41,12 +44,13 @@ local conform = {
 			lua = { "stylua" },
 			rust = { "rustfmt" },
 			python = { "ruff_format", "ruff_organize_imports" },
+			toml = { "dprint" },
+			markdown = { "dprint" },
 			typescript = { "dprint" },
 			yaml = { "dprint" },
 			json = { "dprint" },
 			jsonc = { "dprint" },
-			toml = { "dprint" },
-			markdown = { "dprint" },
+			svelte = { "dprint" },
 		},
 		format_on_save = {
 			lsp_format = "fallback",
