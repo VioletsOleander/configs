@@ -32,7 +32,6 @@ local blink_opts = {
 		["<C-f>"] = { "show", "show_documentation", "hide_documentation", "fallback" },
 	},
 	signature = { enabled = true, window = { show_documentation = true } },
-	cmdline = { enabled = false },
 	appearance = { nerd_font_variant = "mono" },
 	completion = { documentation = { auto_show = false } },
 	sources = {
@@ -47,6 +46,28 @@ local blink_opts = {
 		},
 	},
 	fuzzy = { implementation = "rust" },
+	cmdline = {
+		enabled = false,
+		keymap = {
+			preset = "none",
+			["<Tab>"] = { "select_next", "fallback" },
+			["<S-Tab>"] = { "select_prev", "fallback" },
+			["<C-e>"] = { "hide", "fallback" },
+			["<C-j>"] = { "select_next", "fallback" },
+			["<C-k>"] = { "select_prev", "fallback" },
+			["<C-p>"] = { "select_prev", "fallback" },
+			["<C-n>"] = { "select_next", "fallback" },
+		},
+		completion = {
+			menu = { auto_show = true },
+			list = {
+				selection = {
+					preselect = false,
+					auto_insert = true,
+				},
+			},
+		},
+	},
 }
 
 ---@type LazyPluginSpec

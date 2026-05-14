@@ -23,7 +23,8 @@ if vim.g.user_use_builtin_completion then
 		end,
 	})
 else
-	-- Cmdline autocompletion (Cmdline completion of blink.cmp is weird, so resort to default method)
+	-- Cmdline autocompletion (blink's cmdline completion does not support :s/old/new)
+	-- (but the builin completion feels more laggy comapred to blink when complete :!, :checkhealth)
 	au("CmdlineChanged", {
 		group = native_group,
 		pattern = { ":", "/", "?" },
