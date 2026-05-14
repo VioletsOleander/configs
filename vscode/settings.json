@@ -70,7 +70,9 @@
   "editor.inlayHints.enabled": "off",
   "editor.fontSize": 15,
   "editor.fontFamily": "Fira Code Retina, Consolas, monospace",
-  "editor.rulers": [110],
+  "editor.rulers": [
+    110
+  ],
   "editor.minimap.renderCharacters": false,
   "editor.lightbulb.enabled": "off",
   "editor.renderLineHighlight": "none",
@@ -82,7 +84,9 @@
   "[markdown]": {
     "editor.wordWrap": "wordWrapColumn",
     "editor.wordWrapColumn": 110,
-    "editor.rulers": [110],
+    "editor.rulers": [
+      110
+    ],
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.wordBasedSuggestions": "currentDocument",
     "editor.quickSuggestions": {
@@ -173,7 +177,9 @@
   "terminal.integrated.allowChords": false,
   "security.workspace.trust.untrustedFiles": "open",
   "remote.extensionKind": {
-    "GitHub.copilot-chat": ["ui"]
+    "GitHub.copilot-chat": [
+      "ui"
+    ]
   },
   "git.openRepositoryInParentFolders": "never",
   "extensions.experimental.affinity": {
@@ -220,5 +226,6 @@
     "scminput": false
   },
   "cSpell.enabled": false,
-  "editor.inlineSuggest.edits.showCollapsed": true
+  "editor.inlineSuggest.edits.showCollapsed": true,
+  "svelte.enable-ts-plugin": true
 }
