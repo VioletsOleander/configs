@@ -78,9 +78,12 @@ local onelight = {
 			blue = "#426ce8",
 			cyan = "#2e7a78",
 			red = "#be342c",
+			pink = "#ba0251",
+			white = "#fafafa",
 		}
 		local highlights = {
 			ModeMsg = { fg = "$black" },
+			FlashLabel = { fg = "$white", bg = "$pink" },
 		}
 
 		local opts = {
