@@ -1,8 +1,8 @@
 {
   "excludes": [
     ".git/",
-    ".recnys/",
-    ".lua_modules/",
+    "/.recnys/",
+    "/.lua_modules/",
     "/nushell/third_party/",
     "/yazi/config/plugins/"
   ],
