@@ -7,12 +7,12 @@ map({ "n", "x", "o" }, "H", "^", { desc = "Jump to line start" })
 map({ "n", "x", "o" }, "L", "$", { desc = "Jump to line end" })
 
 -- Jump to top/bottom of screen
-map({ "n", "x", "o" }, "<Leader>H", "H", { desc = "Jump to top of screen" })
-map({ "n", "x", "o" }, "<Leader>L", "L", { desc = "Jump to bottom of screen" })
+map({ "n", "x", "o" }, "gh", "H", { desc = "Jump to top of screen" })
+map({ "n", "x", "o" }, "gl", "L", { desc = "Jump to bottom of screen" })
 
 -- Jump 5 lines up/down
-map({ "n", "x", "o" }, "<C-j>", "5j", { desc = "Jump 5 lines down" })
-map({ "n", "x", "o" }, "<C-k>", "5k", { desc = "Jump 5 lines up" })
+map({ "n", "x", "o" }, "<C-n>", "5j", { desc = "Jump 5 lines down" })
+map({ "n", "x", "o" }, "<C-p>", "5k", { desc = "Jump 5 lines up" })
 
 -- Copy/paste to system clipboard
 map({ "n", "v" }, "<Leader>y", '"+y', { desc = "Yank to system clipboard" })
@@ -119,11 +119,19 @@ map("n", "<Leader>c", function()
 	end
 end, { desc = "Clear Screen (including search highlight, notifications, floating windows)" })
 
--- Center screen and clear screen
+-- Redraw screen and clear screen
 map("n", "zz", function()
 	vim.cmd("normal! zz")
 	vim.cmd("nohlsearch")
-end, { desc = "Center Screen and Clear Search Highlight" })
+end, { desc = "Make cursor line in screen center and clear highlight" })
+map("n", "zt", function()
+	vim.cmd("normal! zt")
+	vim.cmd("nohlsearch")
+end, { desc = "Make cursor line in screen top and clear highlight" })
+map("n", "zb", function()
+	vim.cmd("normal! zb")
+	vim.cmd("nohlsearch")
+end, { desc = "Make cursor line in screen bottom and clear highlight" })
 
 -- Insert mode to normal mode
 map("i", "<C-l>", "<Esc>", { desc = "Switch to normal mode" })
@@ -131,14 +139,17 @@ map("i", "<C-l>", "<Esc>", { desc = "Switch to normal mode" })
 -- Move between panes
 map("n", "<C-h>", "<C-w>h", { desc = "Move to the left window" })
 map("n", "<C-l>", "<C-w>l", { desc = "Move to the right window" })
-map("n", "<C-n>", "<C-w>j", { desc = "Move to the below window" })
-map("n", "<C-p>", "<C-w>k", { desc = "Move to the upper window" })
+map("n", "<C-j>", "<C-w>j", { desc = "Move to the below window" })
+map("n", "<C-k>", "<C-w>k", { desc = "Move to the upper window" })
 
 -- Switch between buffers
 map("n", "<BS>", "<C-^>", { desc = "Switch to alternate file" })
 
+-- Close
+map("n", "<C-c>", "<Cmd>close<CR>", { desc = "Close current window" })
+
 -- Quit
-map("n", "<C-q>", "<Cmd>quit<CR>", { desc = "Quit Current Window" })
+map("n", "<C-q>", "<Cmd>quit<CR>", { desc = "Quit current window" })
 
 -- Save
 map("n", "<Leader>w", "<Cmd>w<CR>", { desc = "Save File", silent = true })
