@@ -3,6 +3,7 @@ if vim.g.vscode then
 end
 
 ---@module "lazy"
+---@module "flash"
 
 ---@type LazyPluginSpec
 local flash_nvim = {
@@ -32,7 +33,14 @@ local flash_nvim = {
 			flash.treesitter_search()
 		end, { desc = "jump to the syntax node containing searched pattern in current screen" })
 
+		---@type Flash.Config
 		local opts = {
+			highlight = {
+				backdrop = false,
+			},
+			label = {
+				uppercase = false,
+			},
 			modes = {
 				char = {
 					highlight = {
