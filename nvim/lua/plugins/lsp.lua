@@ -28,7 +28,7 @@ local lsp_config = {
 			"html",
 			"cssls",
 			"svelte",
-			"oxlint",
+			"eslint",
 		})
 	end,
 }
@@ -47,6 +47,7 @@ local conform = {
 			toml = { "dprint" },
 			markdown = { "dprint" },
 			typescript = { "dprint" },
+			javascript = { "dprint" },
 			yaml = { "dprint" },
 			json = { "dprint" },
 			jsonc = { "dprint" },
