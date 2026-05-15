@@ -78,6 +78,7 @@ alias re = recnys
 alias vn = vanillian
 alias nv = nvim
 alias ex = exa
+alias np = npm
 # the completion command will shadow the original command
 # for consulting help message, the original command should be preferred
 # while ^ is hard to type, so use , to replace it.
