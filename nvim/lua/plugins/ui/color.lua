@@ -83,7 +83,7 @@ local onelight = {
 		}
 		local highlights = {
 			ModeMsg = { fg = "$black" },
-			FlashLabel = { fg = "$white", bg = "$pink" },
+			FlashLabel = { fg = "$white", bg = "$cyan" },
 		}
 
 		local opts = {
