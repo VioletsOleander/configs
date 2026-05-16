@@ -35,6 +35,17 @@ local flash_nvim = {
 
 		---@type Flash.Config
 		local opts = {
+			search = {
+				-- The cursor will flick when search multi_window, so disable it
+				multi_window = false,
+				exclude = {
+					"snacks_picker_input",
+					"flash_prompt",
+					function(win)
+						return not vim.api.nvim_win_get_config(win).focusable
+					end,
+				},
+			},
 			highlight = {
 				backdrop = false,
 			},
