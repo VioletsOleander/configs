@@ -35,6 +35,41 @@ else
 	})
 end
 
+local treesitter_fts = {
+	-- Program
+	"lua",
+	"python",
+	"rust",
+	"typescript",
+	"javascript",
+	-- Markup
+	"html",
+	"css",
+	"svelte",
+	"markdown",
+	-- Configuration
+	"json",
+	"jsonc",
+	"toml",
+	"yaml",
+	"vim",
+	-- Shell
+	"bash",
+	"nu",
+	-- Other
+	"gitcommit",
+	"help",
+}
+
+-- Enable treesitter highlight
+au("FileType", {
+	group = native_group,
+	pattern = treesitter_fts,
+	callback = function()
+		vim.treesitter.start()
+	end,
+})
+
 -- Help
 au("BufWinEnter", {
 	group = native_group,
