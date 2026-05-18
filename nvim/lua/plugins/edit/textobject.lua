@@ -30,12 +30,18 @@ local mini_ai = {
 			a = spec_treesitter({ a = "@parameter.outer", i = "@parameter.inner" }),
 			-- call/invocation
 			v = spec_treesitter({ a = "@call.outer", i = "@call.inner" }),
+			-- tag
+			t = { "<([%p%w]-)%f[^<%w][^<>]->.-</%1>", "^<.->().*()</[^/]->$" },
 		}
 
 		local opts = {
 			n_lines = 500,
-			search_method = "cover_or_next",
+			search_method = "cover",
 			custom_textobjects = custom_textobjects,
+			mappings = {
+				around_next = "",
+				inside_next = "",
+			},
 		}
 
 		mini_ai.setup(opts)
