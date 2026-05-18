@@ -30,7 +30,7 @@ if vim.g.vscode then
 		action("closeMarkersNavigation")
 	end, { desc = "Clear Search Highlight and Close Markers Navigation" })
 
-	--- Helper function to redraw screen and re-put line
+	---Helper function to redraw screen and re-put line
 	---
 	---@param pos string
 	local function reveal_line(pos)
@@ -53,7 +53,7 @@ if vim.g.vscode then
 		vim.cmd("nohlsearch")
 	end, { desc = "Bottom Screen and Clear Search Highlight" })
 
-	--- Helper function to map key to a vscode action
+	---Helper function to map key to a vscode action
 	---
 	---@param key string
 	---@param action_name string
@@ -158,7 +158,7 @@ map("n", "<Leader><CR>", "<Cmd>w<CR>", { desc = "Save File", silent = true })
 -- Correct spell
 map("i", "<C-a>", "<C-g>u<Esc>[s1z=`]a<C-g>u", { desc = "Correc last spell using the first suggestion" })
 
---- Return the character after cursor
+---Return the character after cursor
 ---
 ---@return string
 local function get_next_char()
@@ -167,8 +167,8 @@ local function get_next_char()
 	return line:sub(col + 1, col + 1)
 end
 
---- Return true if the char after cursor is jumpable
---- Jumpable chars including: ] } " ' ` > ) ,
+---Return true if the char after cursor is jumpable
+---Jumpable chars including: ] } " ' ` > ) ,
 ---
 ---@return boolean
 local function next_is_jumpable()
@@ -184,7 +184,7 @@ local function next_is_jumpable()
 	return false
 end
 
---- Return true if the completion menu is visible
+---Return true if the completion menu is visible
 ---
 ---@return boolean
 local function pum_is_visible()
@@ -210,19 +210,52 @@ map("c", "<S-Tab>", function()
 	return pum_is_visible() and "<C-p>" or "<S-Tab>"
 end, { expr = true, desc = "Select previous completion item" })
 
--- Ctrl-j/k for selecting completion items
-map({ "i", "c" }, "<C-j>", function()
-	if pum_is_visible() then
-		return "<C-n>"
-	else
-		return "<Esc>"
-	end
-end, { expr = true, desc = "Select next completion or go into insert mode" })
+---Inert newline above or below current line without moving the cursor.
+---@param direction "above" | "below"
+local function insert_newline(direction)
+	local current_pos = vim.api.nvim_win_get_cursor(0)
+	local row = current_pos[1]
 
-map({ "i", "c" }, "<C-k>", function()
+	if direction == "below" then
+		vim.api.nvim_buf_set_lines(0, row, row, false, { "" })
+		vim.api.nvim_win_set_cursor(0, current_pos)
+	elseif direction == "above" then
+		vim.api.nvim_buf_set_lines(0, row - 1, row - 1, false, { "" })
+		vim.api.nvim_win_set_cursor(0, { row + 1, current_pos[2] })
+	end
+end
+
+-- Ctrl-j/k for selecting completion items
+map("i", "<C-j>", function()
+	if pum_is_visible() then
+		local key = vim.keycode("<C-n>")
+		vim.api.nvim_feedkeys(key, "n", false)
+	else
+		insert_newline("below")
+	end
+end, { desc = "Select next completion or insert newline below" })
+
+map("i", "<C-k>", function()
+	if pum_is_visible() then
+		local key = vim.keycode("<C-p>")
+		vim.api.nvim_feedkeys(key, "n", false)
+	else
+		insert_newline("above")
+	end
+end, { desc = "Select previous completion or insert newline above" })
+
+map("c", "<C-j>", function()
 	if pum_is_visible() then
 		return "<C-p>"
 	else
-		return "<Esc>"
+		return "<C-j>"
 	end
-end, { expr = true, desc = "Select previous completion or go into insert mode" })
+end, { expr = true, desc = "Select previous completion" })
+
+map("c", "<C-k>", function()
+	if pum_is_visible() then
+		return "<C-p>"
+	else
+		return "<C-k>"
+	end
+end, { expr = true, desc = "Select previous completion" })
