@@ -31,7 +31,7 @@ local blink_opts = {
 		["<C-n>"] = { "select_next", "fallback" },
 		["<C-f>"] = { "show", "show_documentation", "hide_documentation", "fallback" },
 	},
-	signature = { enabled = true, window = { show_documentation = true } },
+	signature = { enabled = false, window = { show_documentation = true } },
 	appearance = { nerd_font_variant = "mono" },
 	completion = { documentation = { auto_show = false } },
 	sources = {
