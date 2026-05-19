@@ -1,0 +1,4 @@
+*.json linguist-detectable
+*.toml linguist-detectable
+*.yaml linguist-detectable
+*.yml linguist-detectable
