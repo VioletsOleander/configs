@@ -30,7 +30,7 @@ if vim.g.vscode then
 		action("closeMarkersNavigation")
 	end, { desc = "Clear Search Highlight and Close Markers Navigation" })
 
-	---Helper function to redraw screen and re-put line
+	--- Helper function to redraw screen and re-put line
 	---
 	---@param pos string
 	local function reveal_line(pos)
@@ -53,7 +53,7 @@ if vim.g.vscode then
 		vim.cmd("nohlsearch")
 	end, { desc = "Bottom Screen and Clear Search Highlight" })
 
-	---Helper function to map key to a vscode action
+	--- Helper function to map key to a vscode action
 	---
 	---@param key string
 	---@param action_name string
@@ -158,7 +158,7 @@ map("n", "<Leader><CR>", "<Cmd>w<CR>", { desc = "Save File", silent = true })
 -- Correct spell
 map("i", "<C-a>", "<C-g>u<Esc>[s1z=`]a<C-g>u", { desc = "Correc last spell using the first suggestion" })
 
----Return the character after cursor
+--- Return the character after cursor
 ---
 ---@return string
 local function get_next_char()
@@ -167,8 +167,8 @@ local function get_next_char()
 	return line:sub(col + 1, col + 1)
 end
 
----Return true if the char after cursor is jumpable
----Jumpable chars including: ] } " ' ` > ) ,
+--- Return true if the char after cursor is jumpable
+--- Jumpable chars including: ] } " ' ` > ) ,
 ---
 ---@return boolean
 local function next_is_jumpable()
@@ -184,7 +184,7 @@ local function next_is_jumpable()
 	return false
 end
 
----Return true if the completion menu is visible
+--- Return true if the completion menu is visible
 ---
 ---@return boolean
 local function pum_is_visible()
@@ -210,7 +210,7 @@ map("c", "<S-Tab>", function()
 	return pum_is_visible() and "<C-p>" or "<S-Tab>"
 end, { expr = true, desc = "Select previous completion item" })
 
----Inert newline above or below current line without moving the cursor.
+--- Insert newline above or below current line without moving the cursor.
 ---@param direction "above" | "below"
 local function insert_newline(direction)
 	local current_pos = vim.api.nvim_win_get_cursor(0)
