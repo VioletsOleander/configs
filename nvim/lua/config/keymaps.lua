@@ -210,39 +210,24 @@ map("c", "<S-Tab>", function()
 	return pum_is_visible() and "<C-p>" or "<S-Tab>"
 end, { expr = true, desc = "Select previous completion item" })
 
---- Insert newline above or below current line without moving the cursor.
----@param direction "above" | "below"
-local function insert_newline(direction)
-	local current_pos = vim.api.nvim_win_get_cursor(0)
-	local row = current_pos[1]
-
-	if direction == "below" then
-		vim.api.nvim_buf_set_lines(0, row, row, false, { "" })
-		vim.api.nvim_win_set_cursor(0, current_pos)
-	elseif direction == "above" then
-		vim.api.nvim_buf_set_lines(0, row - 1, row - 1, false, { "" })
-		vim.api.nvim_win_set_cursor(0, { row + 1, current_pos[2] })
-	end
-end
-
 -- Ctrl-j/k for selecting completion items
 map("i", "<C-j>", function()
 	if pum_is_visible() then
 		local key = vim.keycode("<C-n>")
 		vim.api.nvim_feedkeys(key, "n", false)
 	else
-		insert_newline("below")
+		vim.cmd("move .+1")
 	end
-end, { desc = "Select next completion or insert newline below" })
+end, { desc = "Select next completion or move current line down" })
 
 map("i", "<C-k>", function()
 	if pum_is_visible() then
 		local key = vim.keycode("<C-p>")
 		vim.api.nvim_feedkeys(key, "n", false)
 	else
-		insert_newline("above")
+		vim.cmd("move .-2")
 	end
-end, { desc = "Select previous completion or insert newline above" })
+end, { desc = "Select previous completion or move current line up" })
 
 map("c", "<C-j>", function()
 	if pum_is_visible() then
