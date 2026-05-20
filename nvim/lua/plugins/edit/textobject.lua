@@ -8,7 +8,7 @@ end
 local mini_ai = {
 	"nvim-mini/mini.ai",
 	version = "*",
-	event = { "BufReadPre", "BufNewFile" },
+	event = "VeryLazy",
 	config = function()
 		local mini_ai = require("mini.ai")
 		local spec_treesitter = mini_ai.gen_spec.treesitter
@@ -58,7 +58,7 @@ local nvim_treesitter = {
 local nvim_treesitter_textobjects = {
 	"nvim-treesitter/nvim-treesitter-textobjects",
 	branch = "main",
-	event = { "BufReadPre", "BufNewFile" },
+	event = "VeryLazy",
 	init = function()
 		-- Disable built-in ftplugin mappings to avoid conflicts.
 		vim.g.no_python_maps = true

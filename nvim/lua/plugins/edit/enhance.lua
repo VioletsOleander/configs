@@ -14,12 +14,4 @@ local nvim_autopair = {
 	opts = {},
 }
 
----@type LazyPluginSpec
-local nvim_ts_autotag = {
-	"windwp/nvim-ts-autotag",
-	cond = not vim.g.vscode,
-	ft = { "svelte", "html" },
-	opts = {},
-}
-
-return { nvim_surround, nvim_autopair, nvim_ts_autotag }
+return { nvim_surround, nvim_autopair }

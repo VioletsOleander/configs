@@ -22,7 +22,7 @@ local mini_icons = {
 ---@type LazyPluginSpec
 local gitsigns = {
 	"lewis6991/gitsigns.nvim",
-	event = { "BufReadPost", "BufNewFile" },
+	cmd = "Gitsigns",
 	opts = {
 		signs = {
 			add = { text = "┃" },
@@ -46,7 +46,7 @@ local gitsigns = {
 ---@type LazyPluginSpec
 local markview = {
 	"OXY2DEV/markview.nvim",
-	ft = "markdown",
+	cmd = "Markview",
 }
 
 return { treesitter_context, mini_icons, gitsigns, markview }
