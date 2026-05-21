@@ -1,3 +1,5 @@
+---@module "snacks"
+
 local map = vim.keymap.set
 
 -- Keymaps shared by VSCode and Neovim
@@ -70,16 +72,6 @@ if vim.g.vscode then
 	key_to_action("]d", "editor.action.marker.next", "Go to Next Problem/Diagnostic")
 	key_to_action("[d", "editor.action.marker.prev", "Go to Previous Problem/Diagnostic")
 
-	-- somehow the nextInFiles/prevInFiles doesn't work well
-	-- go to next problem/diagnostic in all files
-	-- map('n', ']D', function()
-	--     action('editor.action.marker.nextInFiles')
-	-- end)
-	-- go to previous problem/diagnostic in all files
-	-- map('n', '[D', function()
-	--     action('editor.action.marker.prevInFiles')
-	-- end)
-
 	-- Explore
 	key_to_action("<Leader>/", "workbench.action.quickOpen", "Search files")
 	key_to_action("<Leader>e", "workbench.view.explorer", "Open and Focus on Explorer")
@@ -96,8 +88,6 @@ if vim.g.vscode then
 end
 
 -- Keymaps for Neovim only
-
----@module "snacks"
 
 -- Clear screen
 map("n", "<Leader>c", function()
@@ -119,7 +109,6 @@ map("n", "<Leader>c", function()
 	end
 end, { desc = "Clear Screen (including search highlight, notifications, floating windows)" })
 
--- Redraw screen and clear screen
 map("n", "zz", function()
 	vim.cmd("normal! zz")
 	vim.cmd("nohlsearch")
