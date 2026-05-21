@@ -12,7 +12,7 @@ end
 ---| '"onelight"'
 
 ---@type colortheme
-local current_theme = "onelight"
+local current_theme = "dayfox"
 
 ---@type LazyPluginSpec
 local gruvbox = {
@@ -80,6 +80,7 @@ local onelight = {
 			red = "#be342c",
 			pink = "#ba0251",
 			white = "#fafafa",
+			grey = "#737479",
 		}
 		local highlights = {
 			ModeMsg = { fg = "$black" },
