@@ -1,7 +1,7 @@
 ---@type vim.lsp.Config
 return {
 	settings = {
-		["ty"] = {
+		ty = {
 			completions = {
 				autoImport = false,
 			},
