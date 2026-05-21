@@ -3,7 +3,7 @@
 ---@type LazyPluginSpec
 local nvim_surround = {
 	"kylechui/nvim-surround",
-	event = { "BufReadPre", "BufNewFile" },
+	event = "VeryLazy",
 }
 
 ---@type LazyPluginSpec
