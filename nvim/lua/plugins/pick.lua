@@ -28,7 +28,7 @@ local snacks_opts = {
 				picker.list:move(-5)
 			end,
 			emit_esc = function()
-				local esc = vim.api.nvim_replace_termcodes("<Esc>", true, false, true)
+				local esc = vim.keycode("<Esc>")
 				vim.api.nvim_feedkeys(esc, "n", false)
 			end,
 			emit_slash = function()
