@@ -107,6 +107,8 @@ local nvim_treesitter_textobjects = {
 		map_motion({ query = "@block.outer", name = "block", lower = "k", upper = "K" })
 		-- l for loop
 		map_motion({ query = "@loop.outer", name = "loop", lower = "l", upper = "L" })
+		-- i for conditional
+		map_motion({ query = "@conditional.outer", name = "conditional", lower = "i", upper = "I" })
 
 		-- Swap
 		local swap = require("nvim-treesitter-textobjects.swap")
