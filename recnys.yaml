@@ -4,9 +4,9 @@
   "nushell/",
   "nushell/autoload/net.nu.template",
   # Terminals
-  "windows-terminal/settings.json": {
+  "windows-terminal/": {
     dest: {
-      Windows: "AppData/Local/Microsoft/Windows Terminal/settings.json",
+      Windows: "AppData/Local/Microsoft/Windows Terminal/",
       Linux: "",
     },
   },
