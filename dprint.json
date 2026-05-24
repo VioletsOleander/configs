@@ -4,7 +4,8 @@
     "/.recnys/",
     "/.lua_modules/",
     "/nushell/third_party/",
-    "/yazi/config/plugins/"
+    "/yazi/config/plugins/",
+    "/windows-terminal/settings.json"
   ],
   "plugins": [
     "https://plugins.dprint.dev/json-0.21.3.wasm",
