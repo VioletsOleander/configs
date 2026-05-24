@@ -33,7 +33,15 @@ local blink_opts = {
 	},
 	signature = { enabled = false, window = { show_documentation = true } },
 	appearance = { nerd_font_variant = "mono" },
-	completion = { documentation = { auto_show = false } },
+	completion = {
+		accept = {
+			dot_repeat = false,
+			auto_brackets = {
+				enabled = false,
+			},
+		},
+		documentation = { auto_show = false },
+	},
 	sources = {
 		default = { "lsp", "copilot", "snippets", "buffer" },
 		providers = {
