@@ -9,10 +9,11 @@ end
 ---| '"edge"'
 ---| '"tokyonight-day"'
 ---| '"dayfox"'
+---| '"rosepine"'
 ---| '"onelight"'
 
 ---@type colortheme
-local current_theme = "dayfox"
+local current_theme = "onelight"
 
 ---@type LazyPluginSpec
 local gruvbox = {
@@ -65,6 +66,21 @@ local dayfox = {
 }
 
 ---@type LazyPluginSpec
+local rosepine = {
+	"rose-pine/neovim",
+	lazy = (current_theme ~= "rosepine"),
+	name = "rose-pine",
+	config = function()
+		require("rose-pine").setup({
+			styles = {
+				italic = false,
+			},
+		})
+		vim.cmd("colorscheme rose-pine")
+	end,
+}
+
+---@type LazyPluginSpec
 local onelight = {
 	"navarasu/onedark.nvim",
 	lazy = (current_theme ~= "onelight"),
@@ -90,6 +106,13 @@ local onelight = {
 		local opts = {
 			style = "light",
 			toggle_style_list = { "light" },
+			code_style = {
+				comments = "none",
+				keywords = "none",
+				functions = "none",
+				strings = "none",
+				variables = "none",
+			},
 			highlights = highlights,
 			colors = colors,
 		}
@@ -99,4 +122,4 @@ local onelight = {
 	end,
 }
 
-return { gruvbox, edge, tokyonight_day, dayfox, onelight }
+return { gruvbox, edge, tokyonight_day, dayfox, rosepine, onelight }
