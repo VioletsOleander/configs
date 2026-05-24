@@ -84,3 +84,16 @@ opt.pumborder = "rounded"
 
 -- Not display tabline
 opt.showtabline = 0
+
+-- Shell
+-- Reference: https://github.com/nushell/integrations/blob/main/nvim/init.lua
+opt.shell = "nu"
+
+opt.shellredir = "out+err> %s"
+opt.shellcmdflag = "--stdin --no-newline -c"
+
+opt.shellxescape = ""
+opt.shellxquote = ""
+opt.shellquote = ""
+
+opt.shellpipe = "| complete | update stderr { ansi strip } | tee { get stderr | save --force --raw %s } | into record"
