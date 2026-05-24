@@ -47,7 +47,6 @@ local snacks_opts = {
 					["<C-j>"] = { "list_down", mode = { "i", "n" } },
 					["<C-k>"] = { "list_up", mode = { "i", "n" } },
 					["jk"] = { "confirm", mode = { "i", "n" } },
-					["<Leader>v"] = { "edit_vsplit", mode = { "i", "n" } },
 					["<Leader>c"] = { "clear_hl", mode = { "i", "n" } },
 				},
 			},
@@ -59,7 +58,6 @@ local snacks_opts = {
 					["<C-j>"] = { "list_down_5", mode = "n" },
 					["<C-k>"] = { "list_up_5", mode = "n" },
 					["jk"] = { "confirm", mode = "n" },
-					["<Leader>v"] = { "edit_vsplit", mode = "n" },
 					["<Leader>c"] = { "clear_hl", mode = "n" },
 				},
 			},
@@ -157,7 +155,7 @@ local function set_snacks_keymap()
 	map("n", "<Leader>sn", function()
 		Snacks.picker.notifications()
 	end, { desc = "Show notification history" })
-	map("n", '<Leader>sg"', function()
+	map("n", '<Leader>s"', function()
 		Snacks.picker.registers()
 	end, { desc = "Search registers" })
 	map("n", "<Leader>s/", function()
