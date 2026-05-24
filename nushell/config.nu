@@ -72,6 +72,7 @@ const nu_themes = ($nu_scripts | path join "themes/nu-themes")
 # Alias
 alias la = ls -a
 alias ll = ls -l
+
 alias g = git
 alias lg = lazygit
 alias re = recnys
@@ -79,6 +80,9 @@ alias vn = vanillian
 alias nv = nvim
 alias ex = exa
 alias np = npm
+
+alias new-pr = gh pr new --title (git log -1 --format=%s) --body (git log -1 --format=%b)
+alias new-c = git commit -m "update" 
 # the completion command will shadow the original command
 # for consulting help message, the original command should be preferred
 # while ^ is hard to type, so use , to replace it.
