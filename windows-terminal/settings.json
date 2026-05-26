@@ -51,6 +51,7 @@
         "defaults": 
         {
             "adjustIndistinguishableColors": "never",
+            "bellStyle": "none",
             "colorScheme": "AtomOneLight-Refined",
             "font": 
             {
