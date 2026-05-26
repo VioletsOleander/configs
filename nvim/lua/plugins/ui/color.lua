@@ -10,10 +10,12 @@ end
 ---| '"tokyonight-day"'
 ---| '"dayfox"'
 ---| '"rosepine"'
+---| '"catppuccin-latte"'
+---| '"kanagawa-lotus"'
 ---| '"onelight"'
 
 ---@type colortheme
-local current_theme = "onelight"
+local current_theme = "gruvbox-material"
 
 ---@type LazyPluginSpec
 local gruvbox = {
@@ -21,6 +23,7 @@ local gruvbox = {
 	lazy = (current_theme ~= "gruvbox-material"),
 	priority = 1000,
 	config = function()
+		vim.g.gruvbox_material_disable_italic_comment = 1
 		vim.g.gruvbox_material_better_performance = 1
 		vim.g.gruvbox_material_background = "medium"
 		vim.cmd("colorscheme gruvbox-material")
@@ -69,6 +72,7 @@ local dayfox = {
 local rosepine = {
 	"rose-pine/neovim",
 	lazy = (current_theme ~= "rosepine"),
+	priority = 1000,
 	name = "rose-pine",
 	config = function()
 		require("rose-pine").setup({
@@ -81,6 +85,34 @@ local rosepine = {
 }
 
 ---@type LazyPluginSpec
+local catppuccin_latte = {
+	"catppuccin/nvim",
+	lazy = (current_theme ~= "catppuccin_latte"),
+	priority = 1000,
+	name = "catppuccin",
+	config = function()
+		require("catppuccin").setup({
+			flavor = "latte",
+			no_italic = true,
+		})
+		vim.cmd("colorscheme catppuccin-latte")
+	end,
+}
+
+local kanagawa_lotus = {
+	"rebelot/kanagawa.nvim",
+	lazy = (current_theme ~= "kanagawa-lotus"),
+	priority = 1000,
+	config = function()
+		require("kanagawa").setup({
+			commentStyle = { italic = false },
+			keywordStyle = { italic = false },
+		})
+		vim.cmd("colorscheme kanagawa-lotus")
+	end,
+}
+
+---@type LazyPluginSpec
 local onelight = {
 	"navarasu/onedark.nvim",
 	lazy = (current_theme ~= "onelight"),
@@ -88,7 +120,7 @@ local onelight = {
 	config = function()
 		local colors = {
 			bg_blue = "#4078f2",
-			purple = "#950095",
+			purple = "#9b229b",
 			green = "#327a2e",
 			orange = "#bc6b0b",
 			blue = "#426ce8",
@@ -122,4 +154,4 @@ local onelight = {
 	end,
 }
 
-return { gruvbox, edge, tokyonight_day, dayfox, rosepine, onelight }
+return { gruvbox, edge, tokyonight_day, dayfox, rosepine, catppuccin_latte, kanagawa_lotus, onelight }
