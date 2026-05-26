@@ -139,6 +139,7 @@ map("n", "<C-c>", "<Cmd>close<CR>", { desc = "Close current window" })
 
 -- Quit
 map("n", "<C-q>", "<Cmd>quit<CR>", { desc = "Quit current window" })
+map("n", "<Leader>qq", "<Cmd>qall<CR>", { desc = "Exit Neovim" })
 
 -- Save
 map("n", "<Leader>w", "<Cmd>w<CR>", { desc = "Save File", silent = true })
