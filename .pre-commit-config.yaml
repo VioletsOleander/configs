@@ -9,6 +9,6 @@ repos:
 
       - id: dprint-check
         name: Dprint check
-        entry: dprint check
+        entry: dprint check --allow-no-files
         language: system
         types_or: [markdown, json, toml, yaml]

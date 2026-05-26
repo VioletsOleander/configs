@@ -43,7 +43,8 @@ $env.config.color_config.shape_external_resolved = "yellow_bold"
 $env.config.color_config.shape_nothing = "cyan"
 $env.config.color_config.shape_raw_string = "purple"
 
-$env.LS_COLORS = (vivid generate onelight-refined)
+# $env.LS_COLORS = (vivid generate onelight-refined)
+$env.LS_COLORS = (vivid generate gruvbox-light)
 
 # Misc
 $env.config.rm.always_trash = true
@@ -87,7 +88,7 @@ alias new-c = git commit -m "update"
 # for consulting help message, the original command should be preferred
 # while ^ is hard to type, so use , to replace it.
 alias ,git = ^git
-alias ,scoope = ^scoope
+alias ,scoop = ^scoop
 alias ,uv = ^uv
 alias ,pytest = ^pytest
 alias ,cargo = ^cargo
