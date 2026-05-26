@@ -1,4 +1,6 @@
-# Config Editor
+## Environment
+
+# Editor
 $env.config.buffer_editor = "nvim"
 
 # Edit
@@ -53,6 +55,8 @@ if $nu.os-info.name == "windows" {
   $env.YAZI_FILE_ONE = 'C:\Users\Vios\scoop\apps\git\current\usr\bin\file.exe'
 }
 
+## Source
+
 # Nu scripts
 const third_party = ($nu.default-config-dir | path join "third_party")
 const nu_scripts = ($third_party | path join "nu_scripts")
@@ -70,7 +74,8 @@ source ($custom_completions | path join "gh/gh-completions.nu")
 # color theme
 const nu_themes = ($nu_scripts | path join "themes/nu-themes")
 
-# Alias
+## Alias
+
 alias la = ls -a
 alias ll = ls -l
 
@@ -81,9 +86,11 @@ alias vn = vanillian
 alias nv = nvim
 alias ex = exa
 alias np = npm
+alias cat = bat
 
 alias new-pr = gh pr new --title (git log -1 --format=%s) --body (git log -1 --format=%b)
 alias new-c = git commit -m "update" 
+
 # the completion command will shadow the original command
 # for consulting help message, the original command should be preferred
 # while ^ is hard to type, so use , to replace it.
