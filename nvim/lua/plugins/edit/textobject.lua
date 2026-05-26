@@ -86,12 +86,12 @@ local nvim_treesitter_textobjects = {
 
 			-- ]upper to next end
 			map({ "n", "x", "o" }, "]" .. args.upper, function()
-				move.goto_next_start(args.query, "textobjects")
+				move.goto_next_end(args.query, "textobjects")
 			end, { desc = "Go to next " .. args.name .. " end" })
 
 			-- [upper to previous end
 			map({ "n", "x", "o" }, "[" .. args.upper, function()
-				move.goto_previous_start(args.query, "textobjects")
+				move.goto_previous_end(args.query, "textobjects")
 			end, { desc = "Go to previous " .. args.name .. " end" })
 		end
 
