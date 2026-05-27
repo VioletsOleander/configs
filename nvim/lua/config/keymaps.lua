@@ -16,6 +16,10 @@ map({ "n", "x", "o" }, "gl", "L", { desc = "Jump to bottom of screen" })
 map({ "n", "x", "o" }, "<C-n>", "5j", { desc = "Jump 5 lines down" })
 map({ "n", "x", "o" }, "<C-p>", "5k", { desc = "Jump 5 lines up" })
 
+-- Scroll 5 lines up/down
+map({ "n", "x", "o" }, "<C-e>", "5<C-e>", { desc = "Jump 5 lines up" })
+map({ "n", "x", "o" }, "<C-y>", "5<C-y>", { desc = "Jump 5 lines up" })
+
 -- Copy/paste to system clipboard
 map({ "n", "v" }, "<Leader>y", '"+y', { desc = "Yank to system clipboard" })
 map({ "n", "v" }, "<Leader>p", '"+p', { desc = "Paste from system clipboard" })
