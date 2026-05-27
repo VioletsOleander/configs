@@ -34,26 +34,14 @@ $env.config.keybindings ++= [
     event : { send: Enter }
   },
   {
-    name: "ctrl-e word completion",
-    modifier: Control,
-    keycode: Char_e
-    mode: [Vi_Insert]
-    event: {
-      until: [
-        { send: HistoryHintWordComplete }
-        { edit: MoveWordRight, select: false }
-      ]
-    }
-  },
-  {
-    name: "ctrl-f line completion",
+    name: "ctrl-f word completion",
     modifier: Control,
     keycode: Char_f
     mode: [Vi_Insert]
     event: {
       until: [
-        { send: HistoryHintComplete }
-        { edit: MoveToLineEnd, select: false }
+        { send: HistoryHintWordComplete }
+        { edit: MoveWordRight, select: false }
       ]
     }
   },
