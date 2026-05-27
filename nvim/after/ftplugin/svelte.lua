@@ -1,10 +1,5 @@
-if vim.g.vscode then
-	return nil
-end
-
 vim.opt_local.tabstop = 2
 vim.opt_local.shiftwidth = 2
-vim.opt_local.softtabstop = 2
 
 -- Modify the code in `vim.lsp.buf` module to filter some redundent message
 
