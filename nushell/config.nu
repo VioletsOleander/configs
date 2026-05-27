@@ -6,52 +6,46 @@ $env.config.buffer_editor = "nvim"
 # Edit
 $env.config.edit_mode = "vi"
 $env.config.keybindings ++= [
-  {
-    name: "ctrl-[ escape"
-    modifier: Control 
-    keycode: Char_u00005b
-    mode: [Vi_Insert]
-    event: {
-        send: ViChangeMode
-        mode: normal # This is case senstive, see https://github.com/nushell/reedline/pull/932
+    {
+        name: "ctrl-[ escape"
+        modifier: Control
+        keycode: Char_u00005b
+        mode: [Vi_Insert]
+        event: {send: ViChangeMode, mode: normal}
     }
-  },
-  {
-    name: "ctrl-l escape"
-    modifier: Control,
-    keycode: Char_l
-    mode: [Vi_Insert]
-    event : {
-      send: ViChangeMode
-      mode: normal
+    {
+        name: "ctrl-l escape"
+        modifier: Control
+        keycode: Char_l
+        mode: [Vi_Insert]
+        event: {send: ViChangeMode, mode: normal}
     }
-  },
-  {
-    name: "ctrl-m enter"
-    modifier: Control,
-    keycode: Char_m
-    mode: [Vi_Insert]
-    event : { send: Enter }
-  },
-  {
-    name: "ctrl-f word completion",
-    modifier: Control,
-    keycode: Char_f
-    mode: [Vi_Insert]
-    event: {
-      until: [
-        { send: HistoryHintWordComplete }
-        { edit: MoveWordRight, select: false }
-      ]
+    {
+        name: "ctrl-m enter"
+        modifier: Control
+        keycode: Char_m
+        mode: [Vi_Insert]
+        event: {send: Enter}
     }
-  },
-  {
-    name: "ctrl-u cut line",
-    modifier: Control,
-    keycode: Char_u
-    mode: [Vi_Insert]
-    event: { edit: CutFromStart }
-  }
+    {
+        name: "ctrl-f word completion"
+        modifier: Control
+        keycode: Char_f
+        mode: [Vi_Insert]
+        event: {
+            until: [
+                {send: HistoryHintWordComplete}
+                {edit: MoveWordRight, select: false}
+            ]
+        }
+    }
+    {
+        name: "ctrl-u cut line"
+        modifier: Control
+        keycode: Char_u
+        mode: [Vi_Insert]
+        event: {edit: CutFromStart}
+    }
 ]
 
 $env.config.cursor_shape.vi_insert = "line"
@@ -71,17 +65,17 @@ $env.LS_COLORS = (vivid generate gruvbox-light)
 $env.config.rm.always_trash = true
 $env.config.show_banner = false
 if $nu.os-info.name == "windows" {
-  $env.YAZI_FILE_ONE = 'C:\Users\Vios\scoop\apps\git\current\usr\bin\file.exe'
+    $env.YAZI_FILE_ONE = 'C:\Users\Vios\scoop\apps\git\current\usr\bin\file.exe'
 }
 
 ## Source
 
 # Nu scripts
-const third_party = ($nu.default-config-dir | path join "third_party")
-const nu_scripts = ($third_party | path join "nu_scripts")
+const third_party = $nu.default-config-dir | path join "third_party"
+const nu_scripts = $third_party | path join "nu_scripts"
 
 # completion
-const custom_completions = ($nu_scripts | path join "custom-completions")
+const custom_completions = $nu_scripts | path join "custom-completions"
 source ($custom_completions | path join "git/git-completions.nu")
 source ($custom_completions | path join "scoop/scoop-completions.nu")
 source ($custom_completions | path join "uv/uv-completions.nu")
@@ -91,7 +85,7 @@ source ($custom_completions | path join "rustup/rustup-completions.nu")
 source ($custom_completions | path join "gh/gh-completions.nu")
 
 # color theme
-const nu_themes = ($nu_scripts | path join "themes/nu-themes")
+const nu_themes = $nu_scripts | path join "themes/nu-themes"
 
 ## Alias
 
@@ -108,7 +102,7 @@ alias np = npm
 alias cat = bat
 
 alias new-pr = gh pr new --title (git log -1 --format=%s) --body (git log -1 --format=%b)
-alias new-c = git commit -m "update" 
+alias new-c = git commit -m "update"
 
 # the completion command will shadow the original command
 # for consulting help message, the original command should be preferred
