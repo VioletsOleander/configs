@@ -56,6 +56,13 @@ $env.config.keybindings ++= [
         { edit: MoveToLineEnd, select: false }
       ]
     }
+  },
+  {
+    name: "ctrl-u cut line",
+    modifier: Control,
+    keycode: Char_u
+    mode: [Vi_Insert]
+    event: { edit: CutFromStart }
   }
 ]
 
