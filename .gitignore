@@ -2,6 +2,7 @@
 /variables.yaml
 /recnys.log
 /nvim/lazy-lock.json
+/nvim/spell/*.spl
 /windows-terminal/state.json
 
 # Dirs

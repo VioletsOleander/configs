@@ -101,3 +101,6 @@ opt.shellxquote = ""
 opt.shellquote = ""
 
 opt.shellpipe = "| complete | update stderr { ansi strip } | tee { get stderr | save --force --raw %s } | into record"
+
+-- Spell
+opt.spellfile = vim.fs.joinpath(vim.fn.stdpath("config"), "spell", "en.utf-8.add")
