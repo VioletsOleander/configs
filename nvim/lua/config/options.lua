@@ -9,8 +9,8 @@ opt.ignorecase = true
 -- Tab and Shift(>>, <<) use 4 spaces
 opt.expandtab = true
 opt.tabstop = 4
+opt.softtabstop = -1
 opt.shiftwidth = 4
-opt.softtabstop = 4
 
 -- Insert indent after a line ending with { and before a line starting with }
 opt.smartindent = true
@@ -24,6 +24,10 @@ if vim.g.vscode then
 end
 
 -- Neovim-specific configurations
+
+-- Max column number 120
+opt.textwidth = 120
+opt.colorcolumn = "120"
 
 -- Wait time of mapped sequence
 opt.timeoutlen = 500
