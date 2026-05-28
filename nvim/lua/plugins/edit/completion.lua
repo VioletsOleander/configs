@@ -21,18 +21,14 @@ local copilot = {
 ---@type blink.cmp.Config
 local blink_opts = {
 	keymap = {
-		preset = "default",
+		preset = "none",
 		["<Tab>"] = { "select_and_accept", "snippet_forward", "fallback" },
 		["<C-e>"] = { "hide", "fallback" },
-		["<C-y>"] = { "select_and_accept", "fallback" },
 		["<C-k>"] = { "select_prev", "fallback" },
 		["<C-j>"] = { "select_next", "fallback" },
-		["<C-p>"] = { "select_prev", "fallback" },
-		["<C-n>"] = { "select_next", "fallback" },
 		["<C-f>"] = { "show", "show_documentation", "hide_documentation", "fallback" },
 	},
 	signature = { enabled = false, window = { show_documentation = true } },
-	appearance = { nerd_font_variant = "mono" },
 	completion = {
 		accept = {
 			dot_repeat = false,
@@ -63,8 +59,6 @@ local blink_opts = {
 			["<C-e>"] = { "hide", "fallback" },
 			["<C-j>"] = { "select_next", "fallback" },
 			["<C-k>"] = { "select_prev", "fallback" },
-			["<C-p>"] = { "select_prev", "fallback" },
-			["<C-n>"] = { "select_next", "fallback" },
 		},
 		completion = {
 			menu = { auto_show = true },
@@ -81,6 +75,7 @@ local blink_opts = {
 ---@type LazyPluginSpec
 local blink_cmp = {
 	"saghen/blink.cmp",
+	pin = true,
 	event = { "InsertEnter" },
 	build = function()
 		require("blink.cmp").build():wait(60000)
