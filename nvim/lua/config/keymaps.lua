@@ -238,3 +238,6 @@ map("c", "<C-k>", function()
 		return "<C-k>"
 	end
 end, { expr = true, desc = "Select previous completion" })
+
+-- Exit terminal mode
+map("t", [[<C-\><C-\>]], [[<C-\><C-n>]], { desc = "Exit terminal mode" })
