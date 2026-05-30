@@ -28,6 +28,8 @@ local lsp_config = {
 			"cssls",
 			"svelte",
 			"eslint",
+			-- Nushell
+			"nushell",
 		})
 	end,
 }
