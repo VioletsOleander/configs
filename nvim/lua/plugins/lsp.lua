@@ -30,6 +30,8 @@ local lsp_config = {
 			"eslint",
 			-- Nushell
 			"nushell",
+			-- Latex
+			"texlab",
 		})
 	end,
 }

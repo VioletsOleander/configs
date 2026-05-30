@@ -47,7 +47,6 @@ local treesitter_fts = {
 	"css",
 	"svelte",
 	"markdown",
-	"tex",
 	-- Configuration
 	"json",
 	"jsonc",

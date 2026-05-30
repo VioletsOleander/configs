@@ -25,6 +25,7 @@ local conform = {
 			jsonc = { "dprint" },
 			svelte = { "dprint" },
 			nu = { "nufmt" },
+			tex = { "tex-fmt" },
 		},
 		format_on_save = {
 			lsp_format = "fallback",
