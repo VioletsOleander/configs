@@ -75,6 +75,7 @@ local blink_opts = {
 ---@type LazyPluginSpec
 local blink_cmp = {
 	"saghen/blink.cmp",
+	pin = true,
 	event = { "InsertEnter" },
 	build = function()
 		require("blink.cmp").build():wait(60000)

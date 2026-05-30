@@ -127,6 +127,8 @@ map("n", "zb", function()
 end, { desc = "Make cursor line in screen bottom and clear highlight" })
 
 -- Insert mode to normal mode
+-- Notice that in CTRL-X CTRL-L mode this will not work because vim does not allow this, which is kind of annoying
+-- sometimes
 map("i", "<C-l>", "<Esc>", { desc = "Switch to normal mode" })
 
 -- Move between panes

@@ -2,7 +2,7 @@ local g = vim.g
 
 -- Leader key
 g.mapleader = " "
-g.maplocalleader = "\\"
+g.maplocalleader = [[\]]
 
 -- Avoid loading some builtin plugins
 g.loaded_netrw = 1

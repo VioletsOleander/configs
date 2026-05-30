@@ -15,7 +15,7 @@ end
 ---| '"onelight"'
 
 ---@type colortheme
-local current_theme = "gruvbox-material"
+local current_theme = "dayfox"
 
 ---@type LazyPluginSpec
 local gruvbox = {
