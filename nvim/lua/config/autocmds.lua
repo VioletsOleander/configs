@@ -43,7 +43,6 @@ local treesitter_fts = {
   "css",
   "svelte",
   "markdown",
-  "tex",
   -- Configuration
   "json",
   "jsonc",
@@ -57,6 +56,9 @@ local treesitter_fts = {
   "gitcommit",
   "gitignore",
   "help",
+  -- Typesetting
+  "tex",
+  "typst",
 }
 
 -- Enable treesitter highlight

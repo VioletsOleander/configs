@@ -1,4 +1,5 @@
 ---@module "lazy"
+---@module "markview"
 
 ---@type LazyPluginSpec
 local treesitter_context = {
@@ -43,6 +44,22 @@ local gitsigns = {
 local markview = {
   "OXY2DEV/markview.nvim",
   cmd = "Markview",
+  ---@type markview.config
+  opts = {
+    latex = {
+      enable = false,
+    },
+    ---@diagnostic disable-next-line:missing-fields
+    typst = {
+      enable = false,
+    },
+  },
 }
 
-return { treesitter_context, mini_icons, gitsigns, markview }
+---@type LazyPluginSpec
+local typst_preview = {
+  "chomosuke/typst-preview.nvim",
+  cmd = "TypstPreview",
+}
+
+return { treesitter_context, mini_icons, gitsigns, markview, typst_preview }

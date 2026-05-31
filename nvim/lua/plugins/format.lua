@@ -22,6 +22,7 @@ local conform = {
       svelte = { "dprint" },
       nu = { "nufmt" },
       tex = { "tex-fmt" },
+      typst = { "typstyle" },
     },
     format_on_save = {
       lsp_format = "fallback",

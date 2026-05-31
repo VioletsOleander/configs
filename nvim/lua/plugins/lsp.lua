@@ -28,6 +28,8 @@ local lsp_config = {
       "nushell",
       -- Latex
       "texlab",
+      -- Typst
+      "tinymist",
     })
   end,
 }
