@@ -1,21 +1,5 @@
 // Place your key bindings in this file to override the defaults
 [
-  {
-    "key": "ctrl+j",
-    "command": "vscode-neovim.escape",
-    "when": "editorTextFocus && neovim.init && editorLangId not in 'neovim.editorLangIdExclusions'&& neovim.mode == 'insert'"
-  },
-  // let vscode handle tab
-  {
-    "key": "tab",
-    "command": "-vscode-neovim.send",
-    "when": "neovim.init && neovim.recording || editorTextFocus && neovim.init && neovim.mode != 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'"
-  },
-  {
-    "key": "shift+tab",
-    "command": "-vscode-neovim.send",
-    "when": "neovim.init && neovim.recording || editorTextFocus && neovim.init && neovim.mode != 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'"
-  },
   // ctrl+j/k to navigate up/down in various scenarios
   // quick open selection
   {
@@ -130,7 +114,7 @@
   {
     "key": "ctrl+n",
     "command": "-workbench.action.quickOpenSelectNext",
-    "when": "inQuickOpen && neovim.mode != 'cmdline'"
+    "when": "inQuickOpen"
   },
   {
     "key": "ctrl+n",
@@ -171,7 +155,7 @@
   {
     "key": "ctrl+p",
     "command": "-workbench.action.quickOpenSelectPrevious",
-    "when": "inQuickOpen && neovim.mode != 'cmdline'"
+    "when": "inQuickOpen"
   },
   {
     "key": "ctrl+p",
@@ -281,22 +265,22 @@
   {
     "key": "ctrl+w s",
     "command": "workbench.action.splitEditorDown",
-    "when": "editorTextFocus && !terminalFocus && neovim.mode != 'cmdline'"
+    "when": "editorTextFocus && !terminalFocus"
   },
   {
     "key": "ctrl+w v",
     "command": "workbench.action.splitEditorRight",
-    "when": "editorTextFocus && !terminalFocus && neovim.mode != 'cmdline'"
+    "when": "editorTextFocus && !terminalFocus"
   },
   {
     "key": "ctrl+w w",
     "command": "workbench.action.focusNextGroup",
-    "when": "editorTextFocus && !filesExplorerFocus && !inSearchEditor && !replaceInputBoxFocus && !searchViewletFocus && !terminalFocus && neovim.mode != 'cmdline'"
+    "when": "editorTextFocus && !filesExplorerFocus && !inSearchEditor && !replaceInputBoxFocus && !searchViewletFocus && !terminalFocus"
   },
   {
     "key": "ctrl+w ctrl+w",
     "command": "workbench.action.focusNextGroup",
-    "when": "editorTextFocus && !filesExplorerFocus && !inSearchEditor && !replaceInputBoxFocus && !searchViewletFocus && !terminalFocus && neovim.mode != 'cmdline'"
+    "when": "editorTextFocus && !filesExplorerFocus && !inSearchEditor && !replaceInputBoxFocus && !searchViewletFocus && !terminalFocus"
   },
   {
     "key": "ctrl+g w",
