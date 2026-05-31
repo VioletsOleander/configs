@@ -58,8 +58,7 @@ $env.config.color_config.shape_external_resolved = "yellow_bold"
 $env.config.color_config.shape_nothing = "cyan"
 $env.config.color_config.shape_raw_string = "purple"
 
-# $env.LS_COLORS = (vivid generate onelight-refined)
-$env.LS_COLORS = (vivid generate gruvbox-light)
+$env.LS_COLORS = (vivid generate onelight-refined)
 
 # Misc
 $env.config.rm.always_trash = true
