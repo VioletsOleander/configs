@@ -1,6 +1,6 @@
 -- Directly return if current buffer is for floating window
 if vim.bo.buftype == "nofile" then
-	return
+    return
 end
 
 vim.opt_local.spell = true
