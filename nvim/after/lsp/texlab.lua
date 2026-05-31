@@ -3,6 +3,7 @@ return {
   settings = {
     texlab = {
       build = {
+        onSave = true,
         executable = "tectonic",
         args = {
           "-X",
