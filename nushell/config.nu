@@ -99,6 +99,7 @@ alias nv = nvim
 alias ex = exa
 alias np = npm
 alias cat = bat
+alias tec = tectonic
 
 alias new-pr = gh pr new --title (git log -1 --format=%s) --body (git log -1 --format=%b)
 alias new-c = git commit -m "update"
