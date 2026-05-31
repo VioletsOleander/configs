@@ -1,10 +1,10 @@
 ---@type vim.lsp.Config
 return {
-    settings = {
-        ty = {
-            completions = {
-                autoImport = false,
-            },
-        },
+  settings = {
+    ty = {
+      completions = {
+        autoImport = false,
+      },
     },
+  },
 }

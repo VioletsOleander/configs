@@ -20,7 +20,7 @@ opt.smartindent = true
 opt.inccommand = "split"
 
 if vim.g.vscode then
-    return
+  return
 end
 
 -- Neovim-specific configurations
@@ -48,21 +48,21 @@ opt.confirm = true
 opt.autowrite = true
 
 if vim.g.user_use_builtin_completion then
-    -- Insert autocomplete
-    -- The popup menu will flash quickly as typing, so disable now
-    -- opt.autocomplete = true
-    -- opt.infercase = true
-    -- opt.autocompletedelay = 500 -- does not control ominifunc
-    -- opt.completeopt = "menuone,popup,preinsert"
+  -- Insert autocomplete
+  -- The popup menu will flash quickly as typing, so disable now
+  -- opt.autocomplete = true
+  -- opt.infercase = true
+  -- opt.autocompletedelay = 500 -- does not control ominifunc
+  -- opt.completeopt = "menuone,popup,preinsert"
 else
-    -- Insert manualcomplete
-    opt.autocomplete = false
-    opt.completeopt = "menuone,popup,noinsert"
+  -- Insert manualcomplete
+  opt.autocomplete = false
+  opt.completeopt = "menuone,popup,noinsert"
 
-    -- Cmdline completion (Cmdline completion of blink.cmp is weird, so use default method)
-    opt.wildmenu = true
-    opt.wildmode = "noselect:lastused,full"
-    opt.wildoptions = "pum,fuzzy,tagfile"
+  -- Cmdline completion (Cmdline completion of blink.cmp is weird, so use default method)
+  opt.wildmenu = true
+  opt.wildmode = "noselect:lastused,full"
+  opt.wildoptions = "pum,fuzzy,tagfile"
 end
 
 -- Popup meun height
@@ -74,11 +74,11 @@ opt.background = "light"
 
 -- Gui cursor
 local cursor_config = {
-    "n-v-c:block",
-    "i-c-ci-ve:ver25",
-    "r-cr:block",
-    "o:hor20",
-    "a:blinkon0-Cursor",
+  "n-v-c:block",
+  "i-c-ci-ve:ver25",
+  "r-cr:block",
+  "o:hor20",
+  "a:blinkon0-Cursor",
 }
 opt.guicursor = table.concat(cursor_config, ",")
 
