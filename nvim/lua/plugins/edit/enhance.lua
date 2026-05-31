@@ -9,7 +9,6 @@ local nvim_surround = {
 ---@type LazyPluginSpec
 local nvim_autopair = {
   "windwp/nvim-autopairs",
-  cond = not vim.g.vscode,
   event = "InsertEnter",
   opts = {},
 }

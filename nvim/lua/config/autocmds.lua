@@ -1,7 +1,3 @@
-if vim.g.vscode then
-  return nil
-end
-
 local au = vim.api.nvim_create_autocmd
 local aug = vim.api.nvim_create_augroup
 

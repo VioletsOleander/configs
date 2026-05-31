@@ -1,6 +1,4 @@
-if vim.g.vscode then
-  return {}
-elseif vim.g.user_use_builtin_completion then
+if vim.g.user_use_builtin_completion then
   return {}
 end
 

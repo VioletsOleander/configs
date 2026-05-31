@@ -1,7 +1,5 @@
 local opt = vim.opt
 
--- Shared configurations between neovim and vscode
-
 -- Case-insensitive searching unless \C or one or more capital letters in the search term
 opt.smartcase = true
 opt.ignorecase = true
@@ -18,12 +16,6 @@ opt.smartindent = true
 -- Preview substitutions as we typing
 -- if necessary, show previews in a split preview window
 opt.inccommand = "split"
-
-if vim.g.vscode then
-  return
-end
-
--- Neovim-specific configurations
 
 -- Max column number 120
 opt.textwidth = 120
