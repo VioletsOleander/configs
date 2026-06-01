@@ -96,3 +96,6 @@ opt.shellpipe = "| complete | update stderr { ansi strip } | tee { get stderr | 
 
 -- Spell
 opt.spellfile = vim.fs.joinpath(vim.fn.stdpath("config"), "spell", "en.utf-8.add")
+
+-- Always use LF
+opt.fileformat = "unix"
