@@ -1,78 +1,14 @@
 local au = vim.api.nvim_create_autocmd
 local aug = vim.api.nvim_create_augroup
 
--- Hold autocmds done by native functions
-local native_group = aug("user.native", { clear = true })
--- Hold autocmds done by lsp-related functions
+-- Hold autocmds related with buffer/lsp/other(unclassified)
+local buf_group = aug("user.buf", { clear = true })
 local lsp_group = aug("user.lsp", { clear = true })
-
-if vim.g.user_use_builtin_completion then
-  -- Lsp autocompletion
-  au("LspAttach", {
-    group = lsp_group,
-    pattern = "*",
-    callback = function(ev)
-      local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
-      if not client:supports_method("textDocument/completion") then
-        vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
-      end
-    end,
-  })
-else
-  -- Cmdline autocompletion (blink's cmdline completion does not support :s/old/new)
-  -- (but the builin completion feels more laggy comapred to blink when complete :!, :checkhealth)
-  au("CmdlineChanged", {
-    group = native_group,
-    pattern = { ":", "/", "?" },
-    callback = function()
-      vim.fn.wildtrigger()
-    end,
-    desc = "Automatically show popup menu when typing in cmd line",
-  })
-end
-
-local treesitter_fts = {
-  -- Program
-  "lua",
-  "python",
-  "rust",
-  "typescript",
-  "javascript",
-  -- Markup
-  "html",
-  "css",
-  "svelte",
-  "markdown",
-  -- Configuration
-  "json",
-  "jsonc",
-  "toml",
-  "yaml",
-  "vim",
-  -- Shell
-  "bash",
-  "nu",
-  -- Other
-  "gitcommit",
-  "gitignore",
-  "help",
-  -- Typesetting
-  "tex",
-  "typst",
-}
-
--- Enable treesitter highlight
-au("FileType", {
-  group = native_group,
-  pattern = treesitter_fts,
-  callback = function()
-    vim.treesitter.start()
-  end,
-})
+local other_group = aug("user.other", { clear = true })
 
 -- Help
 au("BufWinEnter", {
-  group = native_group,
+  group = buf_group,
   pattern = "*",
   callback = function()
     if vim.bo.filetype == "help" then
@@ -80,6 +16,16 @@ au("BufWinEnter", {
     end
   end,
   desc = "Show help in vertical split window",
+})
+
+-- Readonly files
+au("BufRead", {
+  group = buf_group,
+  pattern = { "*/.rustup/*", "*/.cargo/*", "*/.venv/*", "*/node_modules/*" },
+  callback = function()
+    vim.opt_local.readonly = true
+    vim.opt_local.modifiable = false
+  end,
 })
 
 -- Lsp keymaps
@@ -126,12 +72,13 @@ au("LspAttach", {
   end,
 })
 
--- Readonly files
-au("BufRead", {
-  group = native_group,
-  pattern = { "*/.rustup/*", "*/.cargo/*", "*/.venv/*", "*/node_modules/*" },
+-- Cmdline autocompletion (blink's cmdline completion does not support :s/old/new)
+-- (but the builin completion feels more laggy comapred to blink when complete :!, :checkhealth)
+au("CmdlineChanged", {
+  group = other_group,
+  pattern = { ":", "/", "?" },
   callback = function()
-    vim.opt_local.readonly = true
-    vim.opt_local.modifiable = false
+    vim.fn.wildtrigger()
   end,
+  desc = "Automatically show popup menu when typing in cmd line",
 })

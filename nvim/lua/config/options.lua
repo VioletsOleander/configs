@@ -17,15 +17,8 @@ opt.smartindent = true
 -- if necessary, show previews in a split preview window
 opt.inccommand = "split"
 
--- Max column number 120
-opt.textwidth = 120
-opt.colorcolumn = "+1"
-
 -- Wait time of mapped sequence
 opt.timeoutlen = 500
-
--- Enable undo/redo changes even after closing and reopening a file
--- opt.undofile = true
 
 -- Vertically split to right
 opt.splitright = true
