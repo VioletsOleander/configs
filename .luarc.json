@@ -5,11 +5,21 @@
   },
   "runtime": {
     "version": "LuaJIT",
+    "pathStrict": true,
     "path": ["?.lua", "?/init.lua", "lua/?.lua", "lua/?/init.lua"]
   },
   "workspace": {
     "checkThirdParty": false,
-    "library": ["${workspaceFolder}/.lua_modules"],
+    "library": [
+      "${workspaceFolder}/.lua_modules/vim",
+      "${workspaceFolder}/.lua_modules/uv",
+      "${workspaceFolder}/.lua_modules/lazy/snacks.nvim",
+      "${workspaceFolder}/.lua_modules/lazy/lazy.nvim",
+      "${workspaceFolder}/.lua_modules/lazy/blink.cmp",
+      "${workspaceFolder}/.lua_modules/lazy/blink.lib",
+      "${workspaceFolder}/.lua_modules/lazy/conform.nvim",
+      "${workspaceFolder}/.lua_modules/lazy/markview.nvim"
+    ],
     "ignoreDir": [
       ".vscode",
       ".git",
