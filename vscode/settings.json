@@ -208,5 +208,6 @@
   "cSpell.enabled": false,
   "editor.inlineSuggest.edits.showCollapsed": true,
   "svelte.enable-ts-plugin": true,
-  "chat.disableAIFeatures": true
+  "chat.disableAIFeatures": true,
+  "files.eol": "\n"
 }
