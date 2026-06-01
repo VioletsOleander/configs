@@ -78,7 +78,7 @@ local blink_cmp = {
   build = function()
     require("blink.cmp").build():wait(60000)
   end,
-  dependencies = { "saghen/blink.lib", "rafamadriz/friendly-snippets", "fang2hou/blink-copilot" },
+  dependencies = { { "saghen/blink.lib", pin = true }, "rafamadriz/friendly-snippets", "fang2hou/blink-copilot" },
   opts = blink_opts,
 }
 
