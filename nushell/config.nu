@@ -112,6 +112,7 @@ alias ,scoop = ^scoop
 alias ,uv = ^uv
 alias ,pytest = ^pytest
 alias ,cargo = ^cargo
+alias ,rustup = ^rustup
 
 # Plugin
 # const NU_PLUGIN_DIRS = [
