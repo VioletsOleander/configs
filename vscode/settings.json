@@ -69,7 +69,7 @@
     "editor.wordWrap": "wordWrapColumn",
     "editor.wordWrapColumn": 110,
     "editor.rulers": [110],
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "dprint.dprint",
     "editor.wordBasedSuggestions": "currentDocument",
     "editor.quickSuggestions": {
       "other": "off",
@@ -84,21 +84,21 @@
     }
   },
   "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "dprint.dprint"
   },
   "[toml]": {
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "tamasfe.even-better-toml"
   },
   "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "dprint.dprint",
     "editor.quickSuggestions": {
       "strings": true
     },
     "editor.suggest.insertMode": "replace"
   },
   "[yaml]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "dprint.dprint",
     "editor.insertSpaces": true,
     "editor.tabSize": 4,
     "editor.autoIndent": "full",
@@ -207,5 +207,6 @@
   },
   "cSpell.enabled": false,
   "editor.inlineSuggest.edits.showCollapsed": true,
-  "svelte.enable-ts-plugin": true
+  "svelte.enable-ts-plugin": true,
+  "chat.disableAIFeatures": true
 }
