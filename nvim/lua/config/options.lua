@@ -19,7 +19,7 @@ opt.inccommand = "split"
 
 -- Max column number 120
 opt.textwidth = 120
-opt.colorcolumn = "120"
+opt.colorcolumn = "+1"
 
 -- Wait time of mapped sequence
 opt.timeoutlen = 500
