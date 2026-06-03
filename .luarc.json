@@ -13,12 +13,16 @@
     "library": [
       "${workspaceFolder}/.lua_modules/vim",
       "${workspaceFolder}/.lua_modules/uv",
-      "${workspaceFolder}/.lua_modules/lazy/snacks.nvim",
-      "${workspaceFolder}/.lua_modules/lazy/lazy.nvim",
-      "${workspaceFolder}/.lua_modules/lazy/blink.cmp",
-      "${workspaceFolder}/.lua_modules/lazy/blink.lib",
-      "${workspaceFolder}/.lua_modules/lazy/conform.nvim",
-      "${workspaceFolder}/.lua_modules/lazy/markview.nvim"
+      "${workspaceFolder}/.lua_modules/lazy/snacks.nvim/lua/snacks/init.lua",
+      "${workspaceFolder}/.lua_modules/lazy/snacks.nvim/lua/snacks/meta",
+      "${workspaceFolder}/.lua_modules/lazy/snacks.nvim/lua/snacks/picker/config",
+      "${workspaceFolder}/.lua_modules/lazy/snacks.nvim/lua/snacks/picker/types.lua",
+      "${workspaceFolder}/.lua_modules/lazy/snacks.nvim/lua/snacks/notifier.lua",
+      "${workspaceFolder}/.lua_modules/lazy/lazy.nvim/lua/lazy/types.lua",
+      "${workspaceFolder}/.lua_modules/lazy/blink.cmp/lua/blink/cmp/config",
+      "${workspaceFolder}/.lua_modules/lazy/blink.cmp/lua/blink/cmp/types.lua",
+      "${workspaceFolder}/.lua_modules/lazy/conform.nvim/lua/conform/types.lua",
+      "${workspaceFolder}/.lua_modules/lazy/markview.nvim/lua/markview/config"
     ],
     "ignoreDir": [
       ".vscode",
