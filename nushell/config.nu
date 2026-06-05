@@ -67,6 +67,9 @@ if $nu.os-info.name == "windows" {
     $env.YAZI_FILE_ONE = 'C:\Users\Vios\scoop\apps\git\current\usr\bin\file.exe'
 }
 
+# Disable localization
+$env.LANG = "C.UTF-8"
+
 ### Source
 
 const third_party = $nu.default-config-dir | path join "third_party"
