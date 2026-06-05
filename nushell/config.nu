@@ -96,6 +96,7 @@ alias g = git
 alias "g b" = git branch
 alias "g bd" = git branch -D
 alias "g bdr" = git branch -D --remotes
+alias "g sw" = git switch
 
 alias lg = lazygit
 alias re = recnys
@@ -105,8 +106,6 @@ alias ex = exa
 alias np = npm
 alias cat = bat
 alias tec = tectonic
-
-alias new-pr = gh pr new --title (git log -1 --format=%s) --body (git log -1 --format=%b)
 
 # The completion command will shadow the original command
 # for consulting help message, the original command should be preferred
