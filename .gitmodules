@@ -1,3 +1,5 @@
 [submodule "nushell/third_party/nu_scripts"]
 	path = nushell/third_party/nu_scripts
 	url = https://github.com/nushell/nu_scripts.git
+    ignore = dirty
+    shallow = true
