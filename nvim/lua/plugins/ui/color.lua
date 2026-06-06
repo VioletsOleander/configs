@@ -59,7 +59,13 @@ local dayfox = {
   lazy = (current_theme ~= "dayfox"),
   priority = 1000,
   config = function()
-    require("nightfox").setup()
+    require("nightfox").setup({
+      groups = {
+        all = {
+          ["@markup.raw"] = { style = "" },
+        },
+      },
+    })
     vim.cmd("colorscheme dayfox")
   end,
 }
