@@ -7,8 +7,7 @@ opt.ignorecase = true
 -- Tab and Shift(>>, <<) use 4 spaces
 opt.expandtab = true
 opt.tabstop = 4
-opt.softtabstop = -1
-opt.shiftwidth = 4
+opt.shiftwidth = 0
 
 -- Insert indent after a line ending with { and before a line starting with }
 opt.smartindent = true
