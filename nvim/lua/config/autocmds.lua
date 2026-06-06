@@ -47,7 +47,7 @@ au("LspAttach", {
     map_local("n", "gd", vim.lsp.buf.definition, "Go to definition")
     map_local("n", "gD", vim.lsp.buf.declaration, "Go to declaration")
     map_local("n", "gy", vim.lsp.buf.type_definition, "Go to type definition")
-    map_local("n", "gi", vim.lsp.buf.implementation, "Go to implementation")
+    map_local("n", "gI", vim.lsp.buf.implementation, "Go to implementation")
 
     -- LSP shows
     map_local("n", "gr", vim.lsp.buf.references, "Show references")
