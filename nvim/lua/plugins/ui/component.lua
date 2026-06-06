@@ -44,12 +44,10 @@ local gitsigns = {
 local markview = {
   "OXY2DEV/markview.nvim",
   cmd = "Markview",
-  ---@type markview.config
   opts = {
     latex = {
       enable = false,
     },
-    ---@diagnostic disable-next-line:missing-fields
     typst = {
       enable = false,
     },

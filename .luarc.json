@@ -21,8 +21,7 @@
       "${workspaceFolder}/.lua_modules/lazy/lazy.nvim/lua/lazy/types.lua",
       "${workspaceFolder}/.lua_modules/lazy/blink.cmp/lua/blink/cmp/config",
       "${workspaceFolder}/.lua_modules/lazy/blink.cmp/lua/blink/cmp/types.lua",
-      "${workspaceFolder}/.lua_modules/lazy/conform.nvim/lua/conform/types.lua",
-      "${workspaceFolder}/.lua_modules/lazy/markview.nvim/lua/markview/config"
+      "${workspaceFolder}/.lua_modules/lazy/conform.nvim/lua/conform/types.lua"
     ],
     "ignoreDir": [
       ".vscode",
