@@ -1,7 +1,3 @@
-if vim.g.user_use_builtin_completion then
-  return {}
-end
-
 ---@module "lazy"
 ---@module "blink.cmp"
 
