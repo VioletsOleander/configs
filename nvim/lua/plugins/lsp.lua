@@ -16,6 +16,8 @@ local lsp_config = {
       "jsonls",
       -- Yaml
       "yamlls",
+      -- Toml
+      "taplo",
       -- Rust
       "rust_analyzer",
       -- Typescript, HTML, CSS, Svelte
