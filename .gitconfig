@@ -21,6 +21,7 @@
 	autocrlf = false
 	quotepath = false
 	ignorecase = false
+	commentString = //
 [interactive]
     diffFilter = delta --color-only
 [credential]
@@ -32,3 +33,5 @@
     line-numbers = true
 [push]
 	autoSetupRemote = true
+[log]
+	date = iso
