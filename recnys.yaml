@@ -30,6 +30,7 @@
   # Tools
   ".gitconfig": { dest: { Windows: ".gitconfig", Linux: ".gitconfig" } },
   ".inputrc": { dest: { Windows: "", Linux: ".inputrc" } },
+  ".lesskey": { dest: { Windows: "_lesskey", Linux: ".lesskey" } },
   ".tmux.conf": { dest: { Windows: "", Linux: ".tmux.conf" } },
   ".tridactylrc": { dest: { Windows: ".tridactylrc", Linux: ".tridactylrc" } },
   "yazi/config/",
