@@ -63,8 +63,12 @@ $env.LS_COLORS = (vivid generate onelight-refined)
 ## Misc
 $env.config.rm.always_trash = true
 $env.config.show_banner = false
+
+## Tool
 if $nu.os-info.name == "windows" {
     $env.YAZI_FILE_ONE = 'C:\Users\Vios\scoop\apps\git\current\usr\bin\file.exe'
+
+    $env.DELTA_PAGER = $"less --lesskey-src=\"([$env.HOMEDRIVE, $env.HOMEPATH, "_lesskey"] | path join)\""
 }
 
 # Disable localization
