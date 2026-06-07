@@ -30,7 +30,9 @@
     conflictStyle = zdiff3
 [delta]
     navigate = true    # use n and N to move between diff sections
+    hyperlinks = true
     line-numbers = true
+    side-by-side = true
 [push]
 	autoSetupRemote = true
 [log]
