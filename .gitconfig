@@ -11,7 +11,8 @@
 	bd = branch -D
 	bdr = branch -r -d
 	sw = switch
-    l = log --oneline
+    l = log
+    ll = log --oneline
     ls = log --oneline -10
 	retry = !git commit -e -F .git/COMMIT_EDITMSG
     re = retry
