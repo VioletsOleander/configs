@@ -66,8 +66,7 @@ $env.config.show_banner = false
 
 ## Tool
 if $nu.os-info.name == "windows" {
-    $env.YAZI_FILE_ONE = 'C:\Users\Vios\scoop\apps\git\current\usr\bin\file.exe'
-
+    $env.YAZI_FILE_ONE = [$env.HOMEDRIVE, $env.HOMEPATH, "scoop\\apps\\git\\current\\usr\\bin\\file.exe"] | path join
     $env.DELTA_PAGER = $"less --lesskey-src=\"([$env.HOMEDRIVE, $env.HOMEPATH, "_lesskey"] | path join)\""
 }
 
