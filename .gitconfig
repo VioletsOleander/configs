@@ -22,7 +22,6 @@
 	autocrlf = false
 	quotepath = false
 	ignorecase = false
-	commentString = //
 [interactive]
     diffFilter = delta --color-only
 [credential]
