@@ -15,6 +15,7 @@
     ls = log --oneline -10
 	retry = !git commit -e -F .git/COMMIT_EDITMSG
     re = retry
+    diff-s = -c delta.features=side-by-side diff
 [core]
     editor = nvim
     pager = delta
@@ -32,7 +33,6 @@
     navigate = true    # use n and N to move between diff sections
     hyperlinks = true
     line-numbers = true
-    side-by-side = true
 [push]
 	autoSetupRemote = true
 [log]
