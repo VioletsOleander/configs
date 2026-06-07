@@ -36,4 +36,4 @@
 [push]
 	autoSetupRemote = true
 [log]
-	date = iso
+	date = format:"%Y-%m-%d (%a) %H:%M:%S"
