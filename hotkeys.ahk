@@ -1,4 +1,4 @@
-﻿ProcessSetPriority "High"
+ProcessSetPriority "High"
 
 SetCapsLockState "AlwaysOff"
 
