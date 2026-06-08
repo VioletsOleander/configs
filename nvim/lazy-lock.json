@@ -1,4 +1,5 @@
 {
+  "LuaSnip": { "branch": "master", "commit": "0abc8f390b278c3b4aabc4c004ac8a088b65cf24" },
   "blink-copilot": { "branch": "main", "commit": "7ad8209b2f880a2840c94cdcd80ab4dc511d4f39" },
   "blink.cmp": { "branch": "main", "commit": "1b8809dcbb20f023b7cc69ec560e927ae858f9b2" },
   "blink.lib": { "branch": "main", "commit": "2cb62890cee636fe46722d03b7b2331e54fb3755" },

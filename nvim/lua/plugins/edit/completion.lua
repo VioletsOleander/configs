@@ -12,6 +12,13 @@ local copilot = {
   },
 }
 
+---@type LazyPluginSpec
+local luasnip = {
+  "L3MON4D3/LuaSnip",
+  cmd = "LuaSnip",
+  build = "make install_jsregexp",
+}
+
 ---@type blink.cmp.Config
 local blink_opts = {
   keymap = {
@@ -78,4 +85,4 @@ local blink_cmp = {
   opts = blink_opts,
 }
 
-return { copilot, blink_cmp }
+return { copilot, blink_cmp, luasnip }
