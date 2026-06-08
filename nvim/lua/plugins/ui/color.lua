@@ -62,7 +62,7 @@ local dayfox = {
     require("nightfox").setup({
       groups = {
         all = {
-          ["@markup.raw"] = { style = "" },
+          ["@markup.raw"] = { style = "NONE" },
         },
       },
     })
