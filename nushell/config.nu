@@ -1,34 +1,34 @@
 ### Environment
 
 ## Editor
-$env.config.buffer_editor = "nvim"
+$env.config.buffer_editor = 'nvim'
 
 ## Edit
-$env.config.edit_mode = "vi"
+$env.config.edit_mode = 'vi'
 $env.config.keybindings ++= [
     {
-        name: "ctrl-[ escape"
+        name: 'ctrl-[ escape'
         modifier: Control
         keycode: Char_u00005b
         mode: [Vi_Insert]
         event: {send: ViChangeMode, mode: normal}
     }
     {
-        name: "ctrl-l escape"
+        name: 'ctrl-l escape'
         modifier: Control
         keycode: Char_l
         mode: [Vi_Insert]
         event: {send: ViChangeMode, mode: normal}
     }
     {
-        name: "ctrl-m enter"
+        name: 'ctrl-m enter'
         modifier: Control
         keycode: Char_m
         mode: [Vi_Insert]
         event: {send: Enter}
     }
     {
-        name: "ctrl-f word completion"
+        name: 'ctrl-f word completion'
         modifier: Control
         keycode: Char_f
         mode: [Vi_Insert]
@@ -40,7 +40,7 @@ $env.config.keybindings ++= [
         }
     }
     {
-        name: "ctrl-u cut line"
+        name: 'ctrl-u cut line'
         modifier: Control
         keycode: Char_u
         mode: [Vi_Insert]
@@ -48,15 +48,15 @@ $env.config.keybindings ++= [
     }
 ]
 
-$env.config.cursor_shape.vi_insert = "line"
-$env.config.cursor_shape.vi_normal = "block"
+$env.config.cursor_shape.vi_insert = 'line'
+$env.config.cursor_shape.vi_normal = 'block'
 
 ## Color
-$env.config.color_config.bool = "cyan"
-$env.config.color_config.shape_bool = "cyan"
-$env.config.color_config.shape_external_resolved = "yellow_bold"
-$env.config.color_config.shape_nothing = "cyan"
-$env.config.color_config.shape_raw_string = "purple"
+$env.config.color_config.bool = 'cyan'
+$env.config.color_config.shape_bool = 'cyan'
+$env.config.color_config.shape_external_resolved = 'yellow_bold'
+$env.config.color_config.shape_nothing = 'cyan'
+$env.config.color_config.shape_raw_string = 'purple'
 
 $env.LS_COLORS = (vivid generate onelight-refined)
 
@@ -65,31 +65,31 @@ $env.config.rm.always_trash = true
 $env.config.show_banner = false
 
 ## Tool
-if $nu.os-info.name == "windows" {
-    $env.YAZI_FILE_ONE = [$env.HOMEDRIVE, $env.HOMEPATH, "scoop\\apps\\git\\current\\usr\\bin\\file.exe"] | path join
-    $env.DELTA_PAGER = $"less --lesskey-src=\"([$env.HOMEDRIVE, $env.HOMEPATH, "_lesskey"] | path join)\""
+if $nu.os-info.name == 'windows' {
+    $env.YAZI_FILE_ONE = [$env.HOMEDRIVE, $env.HOMEPATH, 'scoop\apps\git\current\usr\bin\file.exe'] | path join
+    $env.DELTA_PAGER = $'less --lesskey-src="([$env.HOMEDRIVE, $env.HOMEPATH, "_lesskey"] | path join)"'
 }
 
 # Disable localization
-$env.LANG = "C.UTF-8"
+$env.LANG = 'C.UTF-8'
 
 ### Source
 
-const third_party = $nu.default-config-dir | path join "third_party"
-const nu_scripts = $third_party | path join "nu_scripts"
+const third_party = $nu.default-config-dir | path join 'third_party'
+const nu_scripts = $third_party | path join 'nu_scripts'
 
 ## Completion
-const custom_completions = $nu_scripts | path join "custom-completions"
-source ($custom_completions | path join "git/git-completions.nu")
-source ($custom_completions | path join "scoop/scoop-completions.nu")
-source ($custom_completions | path join "uv/uv-completions.nu")
-source ($custom_completions | path join "pytest/pytest-completions.nu")
-source ($custom_completions | path join "cargo/cargo-completions.nu")
-source ($custom_completions | path join "rustup/rustup-completions.nu")
-source ($custom_completions | path join "gh/gh-completions.nu")
+const custom_completions = $nu_scripts | path join 'custom-completions'
+source ($custom_completions | path join 'git/git-completions.nu')
+source ($custom_completions | path join 'scoop/scoop-completions.nu')
+source ($custom_completions | path join 'uv/uv-completions.nu')
+source ($custom_completions | path join 'pytest/pytest-completions.nu')
+source ($custom_completions | path join 'cargo/cargo-completions.nu')
+source ($custom_completions | path join 'rustup/rustup-completions.nu')
+source ($custom_completions | path join 'gh/gh-completions.nu')
 
 ## Color theme
-const nu_themes = $nu_scripts | path join "themes/nu-themes"
+const nu_themes = $nu_scripts | path join 'themes/nu-themes'
 
 ### Alias
 
@@ -99,10 +99,10 @@ alias ll = ls -l
 ## Git
 alias g = git
 # Set alias in shell to enable completion for branch name
-alias "g b" = git branch
-alias "g bd" = git branch -D
-alias "g bdr" = git branch -D --remotes
-alias "g sw" = git switch
+alias 'g b' = git branch
+alias 'g bd' = git branch -D
+alias 'g bdr' = git branch -D --remotes
+alias 'g sw' = git switch
 
 alias lg = lazygit
 alias re = recnys
