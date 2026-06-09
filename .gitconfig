@@ -7,6 +7,7 @@
 	c = commit
 	a = add
 	s = status
+	p = push
 	b = branch
 	bd = branch -D
 	bdr = branch -r -d
