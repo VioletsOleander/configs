@@ -13,8 +13,8 @@ map({ "n", "x", "o" }, "gh", "H", { desc = "Jump to top of screen" })
 map({ "n", "x", "o" }, "gl", "L", { desc = "Jump to bottom of screen" })
 
 -- Jump 5 lines up/down
-map({ "n", "x", "o" }, "<C-n>", "5j", { desc = "Jump 5 lines down" })
-map({ "n", "x", "o" }, "<C-p>", "5k", { desc = "Jump 5 lines up" })
+map({ "n", "x", "o" }, "<C-j>", "5j", { desc = "Jump 5 lines down" })
+map({ "n", "x", "o" }, "<C-k>", "5k", { desc = "Jump 5 lines up" })
 
 -- Scroll 5 lines up/down
 map({ "n", "x", "o" }, "<C-e>", "5<C-e>", { desc = "Jump 5 lines up" })
@@ -65,8 +65,6 @@ map("i", "<C-l>", "<Esc>", { desc = "Switch to normal mode" })
 -- Move between panes
 map("n", "<C-h>", "<C-w>h", { desc = "Move to the left window" })
 map("n", "<C-l>", "<C-w>l", { desc = "Move to the right window" })
-map("n", "<C-j>", "<C-w>j", { desc = "Move to the below window" })
-map("n", "<C-k>", "<C-w>k", { desc = "Move to the upper window" })
 
 -- Switch between buffers
 map("n", "<BS>", "<C-^>", { desc = "Switch to alternate file" })
@@ -140,21 +138,19 @@ end, { expr = true, desc = "Select previous completion item" })
 -- Ctrl-j/k for selecting completion items
 map("i", "<C-j>", function()
   if pum_is_visible() then
-    local key = vim.keycode("<C-n>")
-    vim.api.nvim_feedkeys(key, "n", false)
+    return "<C-n>"
   else
-    vim.cmd("move .+1")
+    return "<Down>"
   end
-end, { desc = "Select next completion or move current line down" })
+end, { expr = true, desc = "Select next completion or move current line down" })
 
 map("i", "<C-k>", function()
   if pum_is_visible() then
-    local key = vim.keycode("<C-p>")
-    vim.api.nvim_feedkeys(key, "n", false)
+    return "<C-p>"
   else
-    vim.cmd("move .-2")
+    return "<Up>"
   end
-end, { desc = "Select previous completion or move current line up" })
+end, { expr = true, desc = "Select previous completion or move current line up" })
 
 map("c", "<C-j>", function()
   if pum_is_visible() then
