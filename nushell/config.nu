@@ -46,6 +46,30 @@ $env.config.keybindings ++= [
         mode: [Vi_Insert]
         event: {edit: CutFromStart}
     }
+    {
+        name: 'ctrl-j menu down'
+        modifier: Control
+        keycode: Char_j
+        mode: [Vi_Insert]
+        event: {
+            until: [
+                {send: MenuDown}
+                {send: Down}
+            ]
+        }
+    }
+    {
+        name: 'ctrl-k menu down'
+        modifier: Control
+        keycode: Char_k
+        mode: [Vi_Insert]
+        event: {
+            until: [
+                {send: MenuUp}
+                {send: Up}
+            ]
+        }
+    }
 ]
 
 $env.config.cursor_shape.vi_insert = 'line'
@@ -66,8 +90,8 @@ $env.config.show_banner = false
 
 ## Tool
 if $nu.os-info.name == 'windows' {
-    $env.YAZI_FILE_ONE = [$env.HOMEDRIVE, $env.HOMEPATH, 'scoop\apps\git\current\usr\bin\file.exe'] | path join
-    $env.DELTA_PAGER = $'less --lesskey-src="([$env.HOMEDRIVE, $env.HOMEPATH, "_lesskey"] | path join)"'
+    $env.YAZI_FILE_ONE = [$env.HOMEDRIVE $env.HOMEPATH 'scoop\apps\git\current\usr\bin\file.exe'] | path join
+    $env.DELTA_PAGER = $'less --lesskey-src="([$env.HOMEDRIVE $env.HOMEPATH "_lesskey"] | path join)"'
 }
 
 # Disable localization
