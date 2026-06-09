@@ -87,6 +87,10 @@ $env.LS_COLORS = (vivid generate onelight-refined)
 ## Misc
 $env.config.rm.always_trash = true
 $env.config.show_banner = false
+$env.PROMPT_COMMAND_RIGHT = {||
+    let time = date now | format date '%m/%d/%Y %a %I:%M:%S %p'
+    $'(ansi purple)($time)(ansi reset)'
+}
 
 ## Tool
 if $nu.os-info.name == 'windows' {
