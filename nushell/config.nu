@@ -83,6 +83,12 @@ $env.config.color_config.shape_nothing = 'cyan'
 $env.config.color_config.shape_raw_string = 'purple'
 $env.LS_COLORS = (vivid generate onelight-refined)
 
+## Tool
+if $nu.os-info.name == 'windows' {
+    $env.YAZI_FILE_ONE = [$env.HOMEDRIVE $env.HOMEPATH 'scoop\apps\git\current\usr\bin\file.exe'] | path join
+    $env.DELTA_PAGER = $'less --lesskey-src="([$env.HOMEDRIVE $env.HOMEPATH "_lesskey"] | path join)"'
+}
+
 ## Misc
 $env.config.rm.always_trash = true
 $env.config.show_banner = false
@@ -90,34 +96,15 @@ $env.PROMPT_COMMAND_RIGHT = {||
     let time = date now | format date '%m/%d/%Y %a %I:%M:%S %p'
     $'(ansi purple)($time)(ansi reset)'
 }
-
-## Tool
-if $nu.os-info.name == 'windows' {
-    $env.YAZI_FILE_ONE = [$env.HOMEDRIVE $env.HOMEPATH 'scoop\apps\git\current\usr\bin\file.exe'] | path join
-    $env.DELTA_PAGER = $'less --lesskey-src="([$env.HOMEDRIVE $env.HOMEPATH "_lesskey"] | path join)"'
-}
-
-# Disable localization
-$env.LANG = 'C.UTF-8'
+$env.LANG = 'C.UTF-8' # Disable localization
 
 ### Source
-
 const third_party = $nu.default-config-dir | path join 'third_party'
 const nu_scripts = $third_party | path join 'nu_scripts'
 
 ## Completion
-source ($nu.cache-dir | path join 'carapace.nu')
-
-# Additional note: remember to append a '| first <number>' fliter after the result returned by carpace.
-# This limit can prevent screen flicker on scrolling through completion items. The possible reason for
-# screen filcker is that too many completion items normally requires nushell to take longer time to compute
-# the layout for those items. If nushell finds this may take too much time, it will send partial computed layout
-# in batch to the terminal, causing the terminal have to redraw the screen frequently.
-# Therefore a number limitation will solve this problem, it can also avoid unnecessary graphics rendering.
-# The corresponding code snippet in $nu.cache-dir/carapace.nu is:
-# carapace $spans.0 nushell ...$spans
-# | from json
-# | first 25
+const custom_completions = $nu_scripts | path join 'custom-completions'
+source ($custom_completions | path join 'git/git-completions.nu')
 
 ## Color theme
 const nu_themes = $nu_scripts | path join 'themes/nu-themes'
@@ -145,6 +132,11 @@ alias ex = exa
 alias np = npm
 alias cat = bat
 alias tec = tectonic
+
+# The completion command will shadow the original command
+# for consulting help message, the original command should be preferred
+# while ^ is hard to type, so use , to replace it.
+alias ,git = ^git
 
 ### Plugin
 # const NU_PLUGIN_DIRS = [
