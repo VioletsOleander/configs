@@ -76,12 +76,12 @@ local blink_opts = {
 ---@type LazyPluginSpec
 local blink_cmp = {
   "saghen/blink.cmp",
-  pin = true,
+  version = "1.*",
   event = { "InsertEnter" },
   build = function()
     require("blink.cmp").build():wait(60000)
   end,
-  dependencies = { { "saghen/blink.lib", pin = true }, "rafamadriz/friendly-snippets", "fang2hou/blink-copilot" },
+  dependencies = { "rafamadriz/friendly-snippets", "fang2hou/blink-copilot" },
   opts = blink_opts,
 }
 
