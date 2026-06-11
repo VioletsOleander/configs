@@ -9,6 +9,7 @@ CapsLock::Control
 ^j::Send "{Down}"  
 ^k::Send "{Up}"   
 ^m::Send "{Enter}"
+^l::Send "{Esc}"
 
 #HotIf
 
