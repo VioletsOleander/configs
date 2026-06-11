@@ -31,6 +31,7 @@
 [merge]
     conflictStyle = zdiff3
 [delta]
+    light = true
     navigate = true    # use n and N to move between diff sections
     hyperlinks = true
     line-numbers = true
