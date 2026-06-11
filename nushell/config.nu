@@ -118,7 +118,8 @@ alias cls = clear
 
 ## Tool
 alias g = git
-# Set alias in shell to enable completion for branch name
+# Set alias in shell to enable completion
+alias 'g a' = git add
 alias 'g b' = git branch
 alias 'g bd' = git branch -D
 alias 'g bdr' = git branch -D --remotes
