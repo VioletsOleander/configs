@@ -92,11 +92,11 @@ if $nu.os-info.name == 'windows' {
 ## Misc
 $env.config.rm.always_trash = true
 $env.config.show_banner = false
+$env.LANG = 'C.UTF-8' # Disable localization
 $env.PROMPT_COMMAND_RIGHT = {||
     let time = date now | format date '%m/%d/%Y %a %I:%M:%S %p'
     $'(ansi purple)($time)(ansi reset)'
 }
-$env.LANG = 'C.UTF-8' # Disable localization
 
 ### Source
 const third_party = $nu.default-config-dir | path join 'third_party'
@@ -118,11 +118,20 @@ alias cls = clear
 
 ## Tool
 alias g = git
-# Set alias in shell to enable completion
+
+alias gs = git status
+
+alias ga = git add
 alias 'g a' = git add
+
+alias gb = git branch
+alias gbd = git branch -D
+alias gbdr = git branch -D --remotes
 alias 'g b' = git branch
 alias 'g bd' = git branch -D
 alias 'g bdr' = git branch -D --remotes
+
+alias gsw = git switch
 alias 'g sw' = git switch
 
 alias lg = lazygit
