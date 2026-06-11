@@ -75,13 +75,12 @@ $env.config.keybindings ++= [
 $env.config.cursor_shape.vi_insert = 'line'
 $env.config.cursor_shape.vi_normal = 'block'
 
-## Color
+## Display
 $env.config.color_config.bool = 'cyan'
 $env.config.color_config.shape_bool = 'cyan'
 $env.config.color_config.shape_external_resolved = 'yellow_bold'
 $env.config.color_config.shape_nothing = 'cyan'
 $env.config.color_config.shape_raw_string = 'purple'
-
 $env.LS_COLORS = (vivid generate onelight-refined)
 
 ## Misc
@@ -107,8 +106,18 @@ const third_party = $nu.default-config-dir | path join 'third_party'
 const nu_scripts = $third_party | path join 'nu_scripts'
 
 ## Completion
-# const custom_completions = $nu_scripts | path join 'custom-completions'
 source ($nu.cache-dir | path join 'carapace.nu')
+
+# Additional note: remember to append a '| first <number>' fliter after the result returned by carpace.
+# This limit can prevent screen flicker on scrolling through completion items. The possible reason for
+# screen filcker is that too many completion items normally requires nushell to take longer time to compute
+# the layout for those items. If nushell finds this may take too much time, it will send partial computed layout
+# in batch to the terminal, causing the terminal have to redraw the screen frequently.
+# Therefore a number limitation will solve this problem, it can also avoid unnecessary graphics rendering.
+# The corresponding code snippet in $nu.cache-dir/carapace.nu is:
+# carapace $spans.0 nushell ...$spans
+# | from json
+# | first 25
 
 ## Color theme
 const nu_themes = $nu_scripts | path join 'themes/nu-themes'
