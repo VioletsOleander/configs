@@ -107,14 +107,8 @@ const third_party = $nu.default-config-dir | path join 'third_party'
 const nu_scripts = $third_party | path join 'nu_scripts'
 
 ## Completion
-const custom_completions = $nu_scripts | path join 'custom-completions'
-source ($custom_completions | path join 'git/git-completions.nu')
-source ($custom_completions | path join 'scoop/scoop-completions.nu')
-source ($custom_completions | path join 'uv/uv-completions.nu')
-source ($custom_completions | path join 'pytest/pytest-completions.nu')
-source ($custom_completions | path join 'cargo/cargo-completions.nu')
-source ($custom_completions | path join 'rustup/rustup-completions.nu')
-source ($custom_completions | path join 'gh/gh-completions.nu')
+# const custom_completions = $nu_scripts | path join 'custom-completions'
+source ($nu.cache-dir | path join 'carapace.nu')
 
 ## Color theme
 const nu_themes = $nu_scripts | path join 'themes/nu-themes'
@@ -142,16 +136,6 @@ alias ex = exa
 alias np = npm
 alias cat = bat
 alias tec = tectonic
-
-# The completion command will shadow the original command
-# for consulting help message, the original command should be preferred
-# while ^ is hard to type, so use , to replace it.
-alias ,git = ^git
-alias ,scoop = ^scoop
-alias ,uv = ^uv
-alias ,pytest = ^pytest
-alias ,cargo = ^cargo
-alias ,rustup = ^rustup
 
 ### Plugin
 # const NU_PLUGIN_DIRS = [
