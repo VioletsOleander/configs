@@ -121,10 +121,12 @@ const nu_themes = $nu_scripts | path join 'themes/nu-themes'
 
 ### Alias
 
+## Built-in
 alias la = ls -a
 alias ll = ls -l
+alias cls = clear
 
-## Git
+## Tool
 alias g = git
 # Set alias in shell to enable completion for branch name
 alias 'g b' = git branch
