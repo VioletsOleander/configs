@@ -31,6 +31,11 @@ local blink_opts = {
   },
   signature = { enabled = false, window = { show_documentation = true } },
   completion = {
+    list = {
+      selection = {
+        auto_insert = false,
+      },
+    },
     accept = {
       dot_repeat = false,
       auto_brackets = {
@@ -76,11 +81,8 @@ local blink_opts = {
 ---@type LazyPluginSpec
 local blink_cmp = {
   "saghen/blink.cmp",
-  version = "1.*",
+  version = "1.x",
   event = { "InsertEnter" },
-  build = function()
-    require("blink.cmp").build():wait(60000)
-  end,
   dependencies = { "rafamadriz/friendly-snippets", "fang2hou/blink-copilot" },
   opts = blink_opts,
 }

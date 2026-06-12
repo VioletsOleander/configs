@@ -10,7 +10,9 @@ local nvim_surround = {
 local nvim_autopair = {
   "windwp/nvim-autopairs",
   event = "InsertEnter",
-  opts = {},
+  opts = {
+    check_ts = true,
+  },
 }
 
 return { nvim_surround, nvim_autopair }
