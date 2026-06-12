@@ -12,10 +12,6 @@ map({ "n", "x", "o" }, "L", "$", { desc = "Jump to line end" })
 map({ "n", "x", "o" }, "gh", "H", { desc = "Jump to top of screen" })
 map({ "n", "x", "o" }, "gl", "L", { desc = "Jump to bottom of screen" })
 
--- Jump 5 lines up/down
-map({ "n", "x", "o" }, "<C-j>", "5j", { desc = "Jump 5 lines down" })
-map({ "n", "x", "o" }, "<C-k>", "5k", { desc = "Jump 5 lines up" })
-
 -- Scroll 5 lines up/down
 map({ "n", "x", "o" }, "<C-e>", "5<C-e>", { desc = "Jump 5 lines up" })
 map({ "n", "x", "o" }, "<C-y>", "5<C-y>", { desc = "Jump 5 lines up" })
@@ -65,6 +61,8 @@ map("i", "<C-l>", "<Esc>", { desc = "Switch to normal mode" })
 -- Move between panes
 map("n", "<C-h>", "<C-w>h", { desc = "Move to the left window" })
 map("n", "<C-l>", "<C-w>l", { desc = "Move to the right window" })
+map("n", "<C-j>", "<C-w>j", { desc = "Move to the down window" })
+map("n", "<C-k>", "<C-w>k", { desc = "Move to the up window" })
 
 -- Switch between buffers
 map("n", "<BS>", "<C-^>", { desc = "Switch to alternate file" })
