@@ -26,6 +26,8 @@ local mini_ai = {
       a = spec_treesitter({ a = "@parameter.outer", i = "@parameter.inner" }),
       -- call/invocation
       v = spec_treesitter({ a = "@call.outer", i = "@call.inner" }),
+      -- assignment
+      m = spec_treesitter({ a = "@assignment.outer", i = "@assignment.inner" }),
       -- tag
       t = { "<([%p%w]-)%f[^<%w][^<>]->.-</%1>", "^<.->().*()</[^/]->$" },
     }
@@ -105,6 +107,8 @@ local nvim_treesitter_textobjects = {
     map_motion({ query = "@loop.outer", name = "loop", lower = "l", upper = "L" })
     -- i for conditional
     map_motion({ query = "@conditional.outer", name = "conditional", lower = "i", upper = "I" })
+    -- m for assignment
+    map_motion({ query = "@assignment.outer", name = "assignment", lower = "m", upper = "M" })
 
     -- Swap
     local swap = require("nvim-treesitter-textobjects.swap")
