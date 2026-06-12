@@ -11,23 +11,24 @@ local flash_nvim = {
 
     map({ "n", "o", "x" }, "s", function()
       flash.jump()
-    end, { desc = "jump to any visible position in current screen" })
+    end, { desc = "Jump to visible position by searching" })
 
-    map({ "n", "o", "x" }, "gs", function()
+    map("n", "gs", function()
+      flash.treesitter({ jump = { pos = "start" }, label = { after = false } })
+    end, { desc = "Jump to visible parent treesitter node's start" })
+    map({ "o", "x" }, "gs", function()
       flash.treesitter()
-    end, { desc = "jump to any syntax node in current screen" })
+    end, { desc = "Select visible parent treesitter node" })
 
-    map({ "o" }, "r", function()
+    map("o", "r", function()
       flash.remote()
     end, {
-      desc = "perform any motion like jump, treesitter etc. "
-        .. "the operator will be executed to the target position, "
-        .. "and original position will be jumped back.",
+      desc = "Jump to visible potisoin by searching and enter operator pending mode. Jump back after finishing operator",
     })
 
     map({ "o", "x" }, "R", function()
       flash.treesitter_search()
-    end, { desc = "jump to the syntax node containing searched pattern in current screen" })
+    end, { desc = "Select range by searching neighboring treesitter node" })
 
     ---@type Flash.Config
     local opts = {
@@ -53,6 +54,9 @@ local flash_nvim = {
           highlight = {
             backdrop = false,
           },
+        },
+        treesitter = {
+          jump = { autojump = false },
         },
       },
     }
