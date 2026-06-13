@@ -1,6 +1,8 @@
 ---@module "snacks"
 
 local map = vim.keymap.set
+local cmd = vim.cmd
+local api = vim.api
 
 -- Keymaps shared by VSCode and Neovim
 
@@ -12,9 +14,13 @@ map({ "n", "x", "o" }, "L", "$", { desc = "Jump to line end" })
 map({ "n", "x", "o" }, "gh", "H", { desc = "Jump to top of screen" })
 map({ "n", "x", "o" }, "gl", "L", { desc = "Jump to bottom of screen" })
 
+-- Jump 5 lines up/down
+map({ "n", "x", "o" }, "<C-k>", "5k", { desc = "Jump 5 lines up" })
+map({ "n", "x", "o" }, "<C-j>", "5j", { desc = "Jump 5 lines down" })
+
 -- Scroll 5 lines up/down
-map({ "n", "x", "o" }, "<C-e>", "5<C-e>", { desc = "Jump 5 lines up" })
 map({ "n", "x", "o" }, "<C-y>", "5<C-y>", { desc = "Jump 5 lines up" })
+map({ "n", "x", "o" }, "<C-e>", "5<C-e>", { desc = "Jump 5 lines down" })
 
 -- Copy/paste to system clipboard
 map({ "n", "v" }, "<Leader>y", '"+y', { desc = "Yank to system clipboard" })
@@ -22,35 +28,34 @@ map({ "n", "v" }, "<Leader>p", '"+p', { desc = "Paste from system clipboard" })
 
 -- Clear screen
 map("n", "<Leader>c", function()
-  vim.cmd("nohlsearch")
+  cmd("nohlsearch")
   Snacks.notifier.hide()
-  -- Close non-snacks related float windows
-  -- (avoid closing leave the explorer)
-  for _, win in ipairs(vim.api.nvim_list_wins()) do
-    local config = vim.api.nvim_win_get_config(win)
+  -- Close lsp float windows
+  for _, win in ipairs(api.nvim_list_wins()) do
+    local config = api.nvim_win_get_config(win)
 
     if config.relative ~= "" then
-      local buf = vim.api.nvim_win_get_buf(win)
-      local ft = vim.api.nvim_get_option_value("filetype", { buf = buf })
+      local buf = api.nvim_win_get_buf(win)
+      local ft = api.nvim_get_option_value("filetype", { buf = buf })
 
-      if ft ~= "snacks_picker_list" and ft ~= "snacks_picker_input" then
-        vim.api.nvim_win_close(win, false)
+      if ft == "markdown" then
+        api.nvim_win_close(win, false)
       end
     end
   end
-end, { desc = "Clear Screen (including search highlight, notifications, floating windows)" })
+end, { desc = "Clear Screen (including search highlight, notifications, lsp floating windows)" })
 
 map("n", "zz", function()
-  vim.cmd("normal! zz")
-  vim.cmd("nohlsearch")
+  cmd("normal! zz")
+  cmd("nohlsearch")
 end, { desc = "Make cursor line in screen center and clear highlight" })
 map("n", "zt", function()
-  vim.cmd("normal! zt")
-  vim.cmd("nohlsearch")
+  cmd("normal! zt")
+  cmd("nohlsearch")
 end, { desc = "Make cursor line in screen top and clear highlight" })
 map("n", "zb", function()
-  vim.cmd("normal! zb")
-  vim.cmd("nohlsearch")
+  cmd("normal! zb")
+  cmd("nohlsearch")
 end, { desc = "Make cursor line in screen bottom and clear highlight" })
 
 -- Insert mode to normal mode
@@ -61,8 +66,6 @@ map("i", "<C-l>", "<Esc>", { desc = "Switch to normal mode" })
 -- Move between panes
 map("n", "<C-h>", "<C-w>h", { desc = "Move to the left window" })
 map("n", "<C-l>", "<C-w>l", { desc = "Move to the right window" })
-map("n", "<C-j>", "<C-w>j", { desc = "Move to the down window" })
-map("n", "<C-k>", "<C-w>k", { desc = "Move to the up window" })
 
 -- Switch between buffers
 map("n", "<BS>", "<C-^>", { desc = "Switch to alternate file" })
@@ -85,8 +88,8 @@ map("i", "<C-a>", "<C-g>u<Esc>[s1z=`]a<C-g>u", { desc = "Correc last spell using
 ---
 ---@return string
 local function get_next_char()
-  local line = vim.api.nvim_get_current_line()
-  local col = vim.api.nvim_win_get_cursor(0)[2]
+  local line = api.nvim_get_current_line()
+  local col = api.nvim_win_get_cursor(0)[2]
   return line:sub(col + 1, col + 1)
 end
 
