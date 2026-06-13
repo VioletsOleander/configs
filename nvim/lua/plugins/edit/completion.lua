@@ -33,17 +33,7 @@ local blink_opts = {
     },
     documentation = { auto_show = false },
   },
-  sources = {
-    default = { "lsp", "copilot", "snippets", "buffer" },
-    providers = {
-      copilot = {
-        name = "copilot",
-        module = "blink-copilot",
-        score_offset = 100,
-        async = true,
-      },
-    },
-  },
+  sources = { default = { "lsp", "snippets", "buffer" } },
   fuzzy = { implementation = "rust" },
   cmdline = {
     enabled = false,
