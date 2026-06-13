@@ -24,10 +24,12 @@ local conform = {
       tex = { "tex-fmt" },
       typst = { "typstyle" },
     },
-    format_on_save = {
-      lsp_format = "fallback",
-      timeout_ms = 3000,
-    },
+    format_on_save = function()
+      if vim.g.disable_autoformat then
+        return
+      end
+      return { lsp_format = "fallback", timeout_ms = 3000 }
+    end,
   },
 }
 
