@@ -2,17 +2,6 @@
 ---@module "blink.cmp"
 
 ---@type LazyPluginSpec
-local copilot = {
-  "zbirenbaum/copilot.lua",
-  cmd = "Copilot",
-  opts = {
-    suggestion = { enabled = false },
-    panel = { enabled = false },
-    filetypes = { markdown = true },
-  },
-}
-
----@type LazyPluginSpec
 local luasnip = {
   "L3MON4D3/LuaSnip",
   cmd = "LuaSnip",
@@ -83,8 +72,8 @@ local blink_cmp = {
   "saghen/blink.cmp",
   version = "1.x",
   event = { "InsertEnter" },
-  dependencies = { "rafamadriz/friendly-snippets", "fang2hou/blink-copilot" },
+  dependencies = { "rafamadriz/friendly-snippets" },
   opts = blink_opts,
 }
 
-return { copilot, blink_cmp, luasnip }
+return { blink_cmp, luasnip }
