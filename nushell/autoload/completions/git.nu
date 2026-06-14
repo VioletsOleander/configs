@@ -1,0 +1,94 @@
+# Tips: Do not add `--help` flag, since it will let nushell take over the help display
+
+const state_descriptions = {
+    "??": "Untracked"
+    " M": "Modified and not staged"
+    " D": "Deleted and not staged"
+}
+
+# Subcommands for git
+def commands [] {
+    ^git help --all
+    | lines
+    | where {|line| $line | str starts-with "   " }
+    | parse --regex '\s+(?<value>\w+)\s+(?<description>.+)'
+}
+
+# Files in current working directory
+def files [] {
+    ^git status -u --porcelain=1
+    | lines
+    | parse --regex '(?<states>[ MTADRCU?!]{2}) (?<value>.+)'
+    | insert "description" {|row| $state_descriptions | get $row.states}
+}
+
+# Branches in current repository
+def branches [context: string] {
+    let segments = $context | split row " "
+    let branches = if ("-r" in $segments) or ("--remotes" in $segments) {
+        ^git branch --list --remotes --format='%(refname:lstrip=2)'
+    } else {
+        ^git branch --list --format='%(refname:lstrip=2)'
+    }
+
+    $branches | lines
+}
+
+# Subcommands for git config
+def config-commands [] {
+    [
+        {value: "list", description: "List all variables set in config file, along with their values."}
+        {value: "get", description: "Emits the value of the specified key."}
+        {value: "set", description: "Set value for one or more config options."}
+        {value: "unset", description: "Unset value for one or more config options."}
+    ]
+}
+
+export extern "main" [
+    --version (-v)
+    command?: string@commands 
+]
+
+export extern "git add" [
+    --all (-A) # Add changes from all tracked and untracked files.
+    --dry-run (-n) 
+    --verbose (-v)
+    ...pathspec: path@files 
+]
+
+export extern "git branch" [
+    --delete (-d) # Delete a branch.
+    -D # Shortcut for --delete --force.
+    --copy (-c) # Copy a branch, together with its config and reflog.
+    -C # Shortcut for --copy --force
+    --force (-f) # Reset <branch-name> to <start-point>, even if <branch-name> exists already.  In combination with -d (or --delete), allow deleting the branch irrespective of its merged status.
+    --list (-l) # List branches.
+    --remotes (-r) # List or delete (if used with -d) the remote-tracking branches.
+    --all (-a) # List both remote-tracking branches and local branches.
+    ...branch: string@branches
+]
+
+export extern "git switch" [
+    --create (-c): string # Create a new branch named <new-branch> starting at current branch.
+    --force (-f) # An alias for --discard-changes
+    --discard-changes # Proceed even if the index or the working tree differs from HEAD.
+    branch?: string@branches 
+]
+
+export extern "git pull" [
+    --prune (-p) # Before fetching, remove any remote-tracking references that no longer exist on the remote. 
+    --depth: int # Limit fetching to the specified number of commits from the tip of each remote branch history.
+    --dry-run
+]
+
+export extern "git config" [
+    --local # Write to or read from local .git/config file. This is the default behaviour.
+    --global # Write to or read from global ~/.gitconfig file.
+    command?: string@config-commands
+]
+
+export extern "git status" [
+    --untracked-files (-u) # Show untracked files and individual files in untracked directories.
+    --short (-s) # Give the output in the short-format.
+    --verbose (-v) # In addition to the names of files that have been changed, also show the textual changes that are staged to be committed.
+]
