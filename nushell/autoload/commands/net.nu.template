@@ -20,5 +20,3 @@ export def --env proxy-off [] {
 export def proxy-status [] {
   $env | select -o http_proxy https_proxy no_proxy
 }
-
-proxy-on --slient
