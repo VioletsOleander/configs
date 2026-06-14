@@ -58,10 +58,10 @@ map("n", "zb", function()
   cmd("nohlsearch")
 end, { desc = "Make cursor line in screen bottom and clear highlight" })
 
--- Insert mode to normal mode
+-- Insert/Visual/Select mode to normal mode
 -- Notice that in CTRL-X CTRL-L mode this will not work because vim does not allow this, which is kind of annoying
 -- sometimes
-map("i", "<C-l>", "<Esc>", { desc = "Switch to normal mode" })
+map({ "i", "v" }, "<C-l>", "<Esc>", { desc = "Switch to normal mode" })
 
 -- Move between panes
 map("n", "<C-h>", "<C-w>h", { desc = "Move to the left window" })
