@@ -1,5 +1,7 @@
 # Tips: Do not add `--help` flag, since it will let nushell take over the help display
 
+# A problem is that non-defined extern will use the completer of `git` for completion
+
 const state_descriptions = {
     "??": "Untracked"
     " M": "Modified and not staged"
@@ -73,6 +75,15 @@ export extern "git switch" [
     --force (-f) # An alias for --discard-changes
     --discard-changes # Proceed even if the index or the working tree differs from HEAD.
     branch?: string@branches 
+]
+
+export extern "git commit" [
+    --message (-m): string # Use <msg> as the commit message. If multiple -m options are given, their values are concatenated as separate paragraphs.
+    --amend # Replace the tip of the current branch by creating a new commit. 
+    --edit (-e) # Let the user further edit the message taken from <file> with -F <file>, command line with -m <message>, and from <commit> with -C <commit>.
+    --no-edit # Use the selected commit message without launching an editor.
+    --no-verify (-n) # Bypass the pre-commit and commit-msg hooks.
+    --allow-empty
 ]
 
 export extern "git pull" [
