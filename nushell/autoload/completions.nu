@@ -4,6 +4,7 @@ use completions\git.nu *
 
 alias g = git
 
+alias "git s" = git status
 alias 'git c' = git commit
 alias 'git a' = git add
 alias 'git b' = git branch
@@ -11,6 +12,7 @@ alias 'git bd' = git branch -D
 alias 'git bdr' = git branch -D --remotes
 alias 'git sw' = git switch
 
+alias "g s" = git status
 alias 'g c' = git commit
 alias 'g a' = git add
 alias 'g b' = git branch

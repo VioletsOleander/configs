@@ -32,8 +32,15 @@ def files [] {
     | insert "description" {|row| $state_descriptions | get $row.states}
 }
 
-def diff-files [] {
-    ^git diff --name-status
+def diff-files [context: string] {
+    let segments = $context | split row " "
+    let entries = if ("--cached" in $segments) or ("--staged" in $segments) {
+        ^git diff --cached --name-status
+    } else {
+        ^git diff --name-status
+    }
+
+    $entries
     | lines
     | parse --regex '(?<state>[ACDMRTUXB])\s+(?<value>.+)'
     | update "value" {|row| $'`($row.value)`' }
@@ -96,6 +103,8 @@ export extern "git switch" [
 export extern "git diff" [
     --name-only # Show only the name of each changed file in the post-image tree.
     --name-status # Show only the name(s) and status of each changed file. 
+    --cached # Compare index to HEAD.
+    --staged # Synonym of --cached.
     ...pathspec: path@diff-files
 ]
 
