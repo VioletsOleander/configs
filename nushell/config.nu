@@ -128,3 +128,4 @@ alias ex = exa
 alias np = npm
 alias cat = bat
 alias tec = tectonic
+alias gls = git ls
