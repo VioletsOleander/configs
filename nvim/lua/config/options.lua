@@ -83,3 +83,6 @@ opt.spellfile = vim.fs.joinpath(vim.fn.stdpath("config"), "spell", "en.utf-8.add
 
 -- Always use LF
 opt.fileformat = "unix"
+
+-- No swapfile
+opt.swapfile = false
