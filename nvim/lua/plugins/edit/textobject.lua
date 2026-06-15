@@ -113,11 +113,11 @@ local nvim_treesitter_textobjects = {
     -- Swap
     local swap = require("nvim-treesitter-textobjects.swap")
     -- l for left
-    map({ "n" }, "<Leader>l", function()
+    map({ "n" }, "<Leader>ml", function()
       swap.swap_next("@parameter.inner")
     end, { desc = "Swap next parameter" })
     -- r for right
-    map({ "n" }, "<Leader>h", function()
+    map({ "n" }, "<Leader>mh", function()
       swap.swap_previous("@parameter.inner")
     end, { desc = "Swap next parameter" })
 
