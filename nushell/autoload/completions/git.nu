@@ -8,6 +8,14 @@ const state_descriptions = {
     " D": "Deleted and not staged"
 }
 
+const diffstate_descriptions = {
+    "A": "Added"
+    "C": "Copied"
+    "M": "Modified"
+    "D": "Deleted"
+    "R": "Renamed"
+}
+
 # Subcommands for git
 def commands [] {
     ^git help --all
@@ -22,6 +30,14 @@ def files [] {
     | lines
     | parse --regex '(?<states>[ MTADRCU?!]{2}) (?<value>.+)'
     | insert "description" {|row| $state_descriptions | get $row.states}
+}
+
+def diff-files [] {
+    ^git diff --name-status
+    | lines
+    | parse --regex '(?<state>[ACDMRTUXB])\s+(?<value>.+)'
+    | update "value" {|row| $'`($row.value)`' }
+    | insert "description" {|row| $diffstate_descriptions | get $row.state}
 }
 
 # Branches in current repository
@@ -75,6 +91,12 @@ export extern "git switch" [
     --force (-f) # An alias for --discard-changes
     --discard-changes # Proceed even if the index or the working tree differs from HEAD.
     branch?: string@branches 
+]
+
+export extern "git diff" [
+    --name-only # Show only the name of each changed file in the post-image tree.
+    --name-status # Show only the name(s) and status of each changed file. 
+    ...pathspec: path@diff-files
 ]
 
 export extern "git commit" [
