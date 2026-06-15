@@ -155,7 +155,7 @@ end, { expr = true, desc = "Select previous completion or move current line up" 
 
 map("c", "<C-j>", function()
   if pum_is_visible() then
-    return "<C-p>"
+    return "<C-n>"
   else
     return "<C-j>"
   end

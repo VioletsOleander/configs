@@ -43,7 +43,7 @@ local snacks_opts = {
           ["<C-j>"] = { "list_down", mode = { "i", "n" } },
           ["<C-k>"] = { "list_up", mode = { "i", "n" } },
           ["jk"] = { "confirm", mode = { "i", "n" } },
-          ["<Leader>c"] = { "clear_hl", mode = { "i", "n" } },
+          ["<C-c>"] = { "clear_hl", mode = { "i", "n" } },
         },
       },
       list = {
@@ -54,7 +54,7 @@ local snacks_opts = {
           ["<C-j>"] = { "list_down_5", mode = "n" },
           ["<C-k>"] = { "list_up_5", mode = "n" },
           ["jk"] = { "confirm", mode = "n" },
-          ["<Leader>c"] = { "clear_hl", mode = "n" },
+          ["<C-c>"] = { "clear_hl", mode = "n" },
         },
       },
     },
