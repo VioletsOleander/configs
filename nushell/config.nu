@@ -21,6 +21,13 @@ $env.config.keybindings ++= [
         event: {send: ViChangeMode, mode: normal}
     }
     {
+        name: 'ctrl-l no-op'
+        modifier: Control
+        keycode: Char_l
+        mode: [Vi_Normal]
+        event: {send: None}
+    }
+    {
         name: 'ctrl-m enter'
         modifier: Control
         keycode: Char_m
