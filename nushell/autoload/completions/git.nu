@@ -89,7 +89,7 @@ def config-commands [] {
     ]
 }
 
-export extern "main" [
+export extern main [
     --version (-v)
     command?: string@commands 
 ]
@@ -135,6 +135,13 @@ export extern "git commit" [
     --no-edit # Use the selected commit message without launching an editor.
     --no-verify (-n) # Bypass the pre-commit and commit-msg hooks.
     --allow-empty
+]
+
+export extern "git push" [
+    --prune # Remove remote branches that don’t have a local counterpart. 
+    --delete (-d) # All listed refs are deleted from the remote repository.
+    --force (-f) 
+    --set-upstream (-u) # For every branch that is up to date or successfully pushed, add upstream (tracking) reference, used by argument-less git-pull[1] and other commands. 
 ]
 
 export extern "git pull" [
