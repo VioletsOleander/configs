@@ -2,11 +2,30 @@
 
 # A problem is that non-defined extern will use the completer of `git` for completion
 
-const state_descriptions = {
-    "??": "Untracked"
-    " M": "Modified and not staged"
-    " D": "Deleted and not staged"
-}
+const state_descriptions = [
+    {state: ' [A]', desc: 'Not updated'} # use [A] instead of [AMD] here, since [MD] case is covered by later states
+    {state: 'M[ MTD]', desc: 'Updated in index'}
+    {state: 'T[ MTD]', desc: 'Type changed in index'}
+    {state: 'A[ MTD]', desc: 'Added to index'}
+    {state: 'D ', desc: 'Deleted from index'}
+    {state: 'R[ MTD]', desc: 'Renamed in index'}
+    {state: 'C[ MTD]', desc: 'Copied in index'}
+    {state: '[MTARC] ', desc: 'Index and work tree matches'}
+    {state: '[ MTARC]M', desc: 'Modified but not staged'} # Work changed since index
+    {state: '[ MTARC]T', desc: 'Type changed in work tree since index'}
+    {state: '[ MTARC]D', desc: 'Deleted in work tree'}
+    {state: ' R', desc: 'Renamed in work tree'}
+    {state: ' C', desc: 'Copied in work tree'}
+    {state: 'DD', desc: 'Unmerged, both delted'}
+    {state: 'AU', desc: 'Unmerged, added by us'}
+    {state: 'UD', desc: 'Unmerged, deleted by them'}
+    {state: 'UA', desc: 'Unmerged, added by them'}
+    {state: 'DU', desc: 'Unmerged, deleted by us'}
+    {state: 'AA', desc: 'Unmerged, both added'}
+    {state: 'UU', desc: 'Unmerged, both modified'}
+    {state: '\?\?', desc: 'Untracked'}
+    {state: '!!', desc: 'Ignored'}
+]
 
 const diffstate_descriptions = {
     "A": "Added"
@@ -28,10 +47,11 @@ def commands [] {
 def files [] {
     ^git status -u --porcelain=1
     | lines
-    | parse --regex '(?<states>[ MTADRCU?!]{2}) (?<value>.+)'
-    | insert "description" {|row| $state_descriptions | get $row.states}
+    | parse --regex '(?<state>[ MTADRCU?!]{2}) (?<value>.+)'
+    | insert "description" {|line| $state_descriptions | where {|it| $line.state like $it.state} | get 0.desc}
 }
 
+# Files changed
 def diff-files [context: string] {
     let segments = $context | split row " "
     let entries = if ("--cached" in $segments) or ("--staged" in $segments) {
