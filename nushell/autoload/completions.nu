@@ -19,3 +19,7 @@ alias 'g b' = git branch
 alias 'g bd' = git branch -D
 alias 'g bdr' = git branch -D --remotes
 alias 'g sw' = git switch
+
+alias gs = git status
+alias gc = git commit
+alias ga = git add
