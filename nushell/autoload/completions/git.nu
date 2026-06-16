@@ -67,6 +67,22 @@ def diff-files [context: string] {
     | insert "description" {|row| $diffstate_descriptions | get $row.state}
 }
 
+#Files changed
+def restore-files [context: string] {
+    let segments = $context | split row " "
+    let entries = if ("--staged" in $segments) or ("-S" in $segments) {
+        ^git diff --cached --name-status
+    } else {
+        ^git diff --name-status
+    }
+
+    $entries
+    | lines
+    | parse --regex '(?<state>[ACDMRTUXB])\s+(?<value>.+)'
+    | update "value" {|row| $'`($row.value)`' }
+    | insert "description" {|row| $diffstate_descriptions | get $row.state}
+}
+
 # Branches in current repository
 def branches [context: string] {
     let segments = $context | split row " "
@@ -125,7 +141,15 @@ export extern "git diff" [
     --name-status # Show only the name(s) and status of each changed file. 
     --cached # Compare index to HEAD.
     --staged # Synonym of --cached.
+    --word-diff # Change diff granularity from line to word. By default, words are delimited by whitespace.
+    --word-diff-regex: string # Use <regex> to decide what a word is, instead of considering runs of non-whitespace to be a word. Also implies --word-diff unless it was already enabled. For example, --word-diff-regex=. will treat each character as a word and, correspondingly, show differences character by character.
     ...pathspec: path@diff-files
+]
+
+export extern "git restore" [
+    --staged (-S) # Specify the restore location to index to only restore the index. 
+    --worktree (-W) # Specify the restore location to worktree to only restore the worktree. If --staged, --worktree both not given, worktree is restored by default.
+    ...pathspec: path@restore-files
 ]
 
 export extern "git commit" [
