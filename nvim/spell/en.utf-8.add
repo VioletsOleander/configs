@@ -9,3 +9,5 @@ nushell
 Typst
 destructure
 destructuring
+whitespace
+struct
