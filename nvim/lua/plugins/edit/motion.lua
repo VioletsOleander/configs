@@ -13,10 +13,7 @@ local flash_nvim = {
       flash.jump()
     end, { desc = "Jump to visible position by searching" })
 
-    map("n", "gs", function()
-      flash.treesitter({ jump = { pos = "start" }, label = { after = false } })
-    end, { desc = "Jump to visible parent treesitter node's start" })
-    map({ "o", "x" }, "gs", function()
+    map({ "n", "o", "x" }, "gs", function()
       flash.treesitter()
     end, { desc = "Select visible parent treesitter node" })
 
