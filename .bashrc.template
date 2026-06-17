@@ -65,7 +65,7 @@ export CURRENT_UID=$(id -u)
 export CURRENT_GID=$(id -g)
 export CURRENT_NAME=$(whoami)
 export CURRENT_GROUPS=$(groups)
-export EDITOR=vim
+export EDITOR=nvim
 
 
 # === misc ===
@@ -91,9 +91,3 @@ function y() {
 	/bin/rm -f -- "$tmp"
 }
 
-# pnpm
-export PNPM_HOME="$HOME/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
