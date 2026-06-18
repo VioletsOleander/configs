@@ -2,14 +2,6 @@
 ---@module "markview"
 
 ---@type LazyPluginSpec
-local treesitter_context = {
-  "nvim-treesitter/nvim-treesitter-context",
-  event = "VeryLazy",
-  dependencies = { "nvim-treesitter/nvim-treesitter" },
-  opts = {},
-}
-
----@type LazyPluginSpec
 local mini_icons = {
   "nvim-mini/mini.icons",
   event = "VeryLazy",
@@ -60,4 +52,4 @@ local typst_preview = {
   cmd = "TypstPreview",
 }
 
-return { treesitter_context, mini_icons, gitsigns, markview, typst_preview }
+return { mini_icons, gitsigns, markview, typst_preview }
