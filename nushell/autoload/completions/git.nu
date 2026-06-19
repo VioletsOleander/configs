@@ -15,7 +15,7 @@ const filestate_descriptions = {
     'S': 'Tracked file that is skip-worktree'
     'M': 'Tracked file that is unmerged'
     'R': 'Tracked file with unstaged removal/deletion'
-    'C': 'Tracked file with unstaged modification/change'
+    'C': 'Modified but not staged' # 'Tracked file with unstaged modification/change'
     'K': 'Untracked paths which are part of file/directory conflicts which prevent checking out tracked files'
     '?': 'Untracked file'
     'U': 'File with resolve-undo information'
