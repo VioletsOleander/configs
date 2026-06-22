@@ -21,7 +21,7 @@ au("BufWinEnter", {
 -- Readonly files
 au("BufRead", {
   group = buf_group,
-  pattern = { "*/.rustup/*", "*/.cargo/*", "*/.venv/*", "*/node_modules/*" },
+  pattern = { "*/.rustup/*", "*/.cargo/*", "*/.venv/*", "*/node_modules/*", "*/.lua_modules/*" },
   callback = function()
     vim.opt_local.readonly = true
     vim.opt_local.modifiable = false
