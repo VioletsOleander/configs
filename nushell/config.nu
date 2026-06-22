@@ -97,6 +97,7 @@ if $nu.os-info.name == 'windows' {
 }
 
 ## Misc
+$env.config.completions.algorithm = "fuzzy"
 $env.config.rm.always_trash = true
 $env.config.show_banner = false
 $env.LANG = 'C.UTF-8' # Disable localization
