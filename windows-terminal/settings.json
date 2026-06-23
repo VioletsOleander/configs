@@ -25,6 +25,8 @@
         "CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc",
         "Windows.Terminal.Wsl"
     ],
+    "experimental.scrollToChangeOpacity": false,
+    "experimental.scrollToZoom": false,
     "initialCols": 128,
     "initialRows": 42,
     "keybindings": 
