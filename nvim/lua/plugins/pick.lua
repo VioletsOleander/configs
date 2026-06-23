@@ -17,19 +17,24 @@ local snacks_opts = {
   picker = {
     enabled = true,
     actions = {
+      ---@diagnostic disable-next-line: assign-type-mismatch
       list_down_5 = function(picker)
         picker.list:move(5)
       end,
+      ---@diagnostic disable-next-line: assign-type-mismatch
       list_up_5 = function(picker)
         picker.list:move(-5)
       end,
+      ---@diagnostic disable-next-line: assign-type-mismatch
       emit_esc = function()
         local esc = vim.keycode("<Esc>")
         vim.api.nvim_feedkeys(esc, "n", false)
       end,
+      ---@diagnostic disable-next-line: assign-type-mismatch
       emit_slash = function()
         vim.api.nvim_feedkeys("/", "n", false)
       end,
+      ---@diagnostic disable-next-line: assign-type-mismatch
       clear_hl = function()
         vim.cmd("nohlsearch")
       end,
