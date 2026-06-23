@@ -7,6 +7,6 @@ vim.lsp.log_levels = vim.log.levels.WARN
 vim.api.nvim_create_user_command("H", "vertical help <args>", { nargs = "*", complete = "help" })
 
 -- Experimental features
--- UI2
-require("vim._core.ui2").enable({ enable = true })
-vim.opt.cmdheight = 0
+-- UI2 (flicker in wildtrigger, disable now)
+-- require("vim._core.ui2").enable({ enable = true })
+-- vim.opt.cmdheight = 0
