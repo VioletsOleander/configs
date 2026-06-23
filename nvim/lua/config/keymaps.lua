@@ -1,8 +1,8 @@
 ---@module "snacks"
 
 local map = vim.keymap.set
-local cmd = vim.cmd
 local api = vim.api
+local cmd = vim.cmd
 
 -- Keymaps shared by VSCode and Neovim
 
@@ -22,11 +22,8 @@ map({ "n", "x", "o" }, "<C-e>", "5<C-e>", { desc = "Jump 5 lines down" })
 map({ "n", "v" }, "<Leader>y", '"+y', { desc = "Yank to system clipboard" })
 map({ "n", "v" }, "<Leader>p", '"+p', { desc = "Paste from system clipboard" })
 
--- Clear screen
-map("n", "<Leader>c", function()
-  cmd("nohlsearch")
-  Snacks.notifier.hide()
-  -- Close lsp float windows
+--- Close lsp float windows
+local function close_lsp_float_wins()
   for _, win in ipairs(api.nvim_list_wins()) do
     local config = api.nvim_win_get_config(win)
 
@@ -39,6 +36,13 @@ map("n", "<Leader>c", function()
       end
     end
   end
+end
+
+-- Clear screen
+map("n", "<Leader>c", function()
+  cmd("nohlsearch")
+  Snacks.notifier.hide()
+  close_lsp_float_wins()
 end, { desc = "Clear Screen (including search highlight, notifications, lsp floating windows)" })
 
 map("n", "zz", function()
@@ -164,6 +168,15 @@ map("c", "<C-k>", function()
     return "<C-k>"
   end
 end, { expr = true, desc = "Select previous completion" })
+
+-- Ctrl-e to hide completion menu or signature help
+map("i", "<C-e>", function()
+  if pum_is_visible() then
+    api.nvim_feedkeys(vim.keycode("<C-e>"), "n", false)
+  else
+    close_lsp_float_wins()
+  end
+end, { desc = "Hide completion menu or close lsp float windows" })
 
 -- Exit terminal mode
 map("t", [[<C-\><C-\>]], [[<C-\><C-n>]], { desc = "Exit terminal mode" })
