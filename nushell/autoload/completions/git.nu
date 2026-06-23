@@ -51,8 +51,11 @@ const _state_descriptions = [
 def commands [] {
     ^git help --all
     | lines
-    | where {|line| $line | str starts-with '   ' }
-    | parse --regex '\s+(?<value>\w+)\s+(?<description>.+)'
+    | where {|line| 
+        let trimmed = $line | str trim 
+        $trimmed != '' and ($line | str starts-with ' ')
+    }
+    | parse --regex '\s+(?<value>[\w\-]+)\s+(?<description>.+)'
 }
 
 # Files changed or untracked
