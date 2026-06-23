@@ -13,3 +13,4 @@ whitespace
 struct
 Markovian
 MCMC
+learnable
