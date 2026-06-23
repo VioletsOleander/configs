@@ -6,18 +6,6 @@ local buf_group = aug("user.buf", { clear = true })
 local lsp_group = aug("user.lsp", { clear = true })
 local other_group = aug("user.other", { clear = true })
 
--- Help
-au("BufWinEnter", {
-  group = buf_group,
-  pattern = "*",
-  callback = function()
-    if vim.bo.filetype == "help" then
-      vim.cmd("wincmd L")
-    end
-  end,
-  desc = "Show help in vertical split window",
-})
-
 -- Readonly files
 au("BufRead", {
   group = buf_group,

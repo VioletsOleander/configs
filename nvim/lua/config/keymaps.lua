@@ -10,10 +10,6 @@ local api = vim.api
 map({ "n", "x", "o" }, "H", "^", { desc = "Jump to line start" })
 map({ "n", "x", "o" }, "L", "$", { desc = "Jump to line end" })
 
--- Jump to top/bottom of screen
-map({ "n", "x", "o" }, "gh", "H", { desc = "Jump to top of screen" })
-map({ "n", "x", "o" }, "gl", "L", { desc = "Jump to bottom of screen" })
-
 -- Jump 5 lines up/down
 map({ "n", "x", "o" }, "<C-k>", "5k", { desc = "Jump 5 lines up" })
 map({ "n", "x", "o" }, "<C-j>", "5j", { desc = "Jump 5 lines down" })
@@ -61,7 +57,7 @@ end, { desc = "Make cursor line in screen bottom and clear highlight" })
 -- Insert/Visual/Select mode to normal mode
 -- Notice that in CTRL-X CTRL-L mode this will not work because vim does not allow this, which is kind of annoying
 -- sometimes
-map({ "i", "v", "x" }, "<C-l>", "<Esc>", { desc = "Switch to normal mode" })
+map({ "i", "v", "x", "c" }, "<C-l>", "<Esc>", { desc = "Switch to normal mode" })
 
 -- Move between panes
 map("n", "<C-h>", "<C-w>h", { desc = "Move to the left window" })
