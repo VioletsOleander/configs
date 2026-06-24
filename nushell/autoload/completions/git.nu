@@ -55,7 +55,7 @@ def commands [] {
         let trimmed = $line | str trim 
         $trimmed != '' and ($line | str starts-with ' ')
     }
-    | parse --regex '\s+(?<value>[\w\-]+)\s+(?<description>.+)'
+    | parse --regex '\s+(?<value>\S+)\s+(?<description>.+)'
 }
 
 # Files changed or untracked

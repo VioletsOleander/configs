@@ -1,6 +1,7 @@
 use completions\git.nu *
 use completions\cargo.nu *
 use completions\uv.nu *
+use completions\rustup.nu *
 
 # Since autoload is executed after loading config.nu, some aliases should be put here for completions
 

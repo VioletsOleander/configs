@@ -2,7 +2,7 @@
 def commands [] {
     ^cargo --list --color never
     | lines
-    | parse --regex '\s+(?<value>\w+)\s+(?<description>.+)'
+    | parse --regex '\s+(?<value>\S+)\s+(?<description>.+)'
 }
 
 export extern main [
