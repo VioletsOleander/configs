@@ -24,6 +24,12 @@ local conform = {
       tex = { "tex-fmt" },
       typst = { "typstyle" },
     },
+    formatters = {
+      dprint = {
+        command = "dprint",
+        args = { "fmt", "--stdin", "$EXTENSION" },
+      },
+    },
   },
 }
 
