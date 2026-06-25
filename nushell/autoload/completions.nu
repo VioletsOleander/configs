@@ -37,3 +37,6 @@ alias ga = git add
 alias gp = git push
 alias gd = git diff
 alias gsw = git switch
+alias gb = git branch
+alias gbd = git branch -D
+alias gbdr = git branch -D --remotes
