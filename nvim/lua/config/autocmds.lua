@@ -33,11 +33,6 @@ local function format_buffer()
 end
 
 -- Autosave
-au("BufLeave", {
-  group = buf_group,
-  callback = format_buffer,
-})
-
 au("BufWritePre", {
   group = buf_group,
   callback = format_buffer,
