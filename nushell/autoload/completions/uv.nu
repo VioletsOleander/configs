@@ -2,7 +2,7 @@
 def commands [] {
     let lines = ^uv help --color never | lines
 
-    # Start from 'Commands:' row and end with a blank row
+    # Start from the row after 'Commands:' and end with a blank row
     mut start_idx = 0
     mut end_idx = 0
     for $line in ($lines | enumerate) {
