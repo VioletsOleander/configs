@@ -212,6 +212,10 @@ export extern 'git status' [
     --verbose (-v) # In addition to the names of files that have been changed, also show the textual changes that are staged to be committed.
 ]
 
+export extern 'git clone' [
+    --depth: number # Create a shallow clone with a history truncated to the specified number of commits.  
+]
+
 export extern 'git ls-files' [
     --modified (-m) # Show files with an unstaged modification (note that an unstaged deletion also counts as an unstaged modification).
     --others (-o) # Show other (i.e. untracked) files in the output.
