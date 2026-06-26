@@ -27,7 +27,7 @@ local function format_buffer()
   end
 
   if not vim.g.disable_autoformat then
-    require("conform").format()
+    require("conform").format({ lsp_format = "fallback", timeout_ms = 3000 })
   end
   vim.cmd("update")
 end
