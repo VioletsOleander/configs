@@ -68,3 +68,6 @@ alias zi = __zoxide_zi
 #   source ~/.zoxide.nu
 #
 # Note: zoxide only supports Nushell v0.89.0+.
+
+alias zs = __zoxide_z seed
+alias zv = __zoxide_z vault-vanilla
