@@ -60,7 +60,7 @@ local blink_opts = {
 ---@type LazyPluginSpec
 local blink_cmp = {
   "saghen/blink.cmp",
-  version = "1.x",
+  version = "*",
   event = { "InsertEnter" },
   dependencies = { "rafamadriz/friendly-snippets" },
   opts = blink_opts,
