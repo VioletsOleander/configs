@@ -2,6 +2,7 @@ use completions\git.nu *
 use completions\cargo.nu *
 use completions\uv.nu *
 use completions\rustup.nu *
+use completions\rg.nu *
 
 const package_manager = if $nu.os-info.name == 'windows' { 'completions\scoop.nu' } else { null }
 use $package_manager *
@@ -9,16 +10,6 @@ use $package_manager *
 # Since autoload is executed after loading config.nu, some aliases should be put here for completions
 
 alias g = git
-
-alias "git s" = git status
-alias 'git c' = git commit
-alias 'git a' = git add
-alias 'git p' = git push
-alias 'git d' = git diff
-alias 'git sw' = git switch
-alias 'git b' = git branch
-alias 'git bd' = git branch -D
-alias 'git bdr' = git branch -D --remotes
 
 alias "g s" = git status
 alias 'g c' = git commit
