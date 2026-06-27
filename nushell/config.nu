@@ -125,8 +125,10 @@ alias lg = lazygit
 alias re = recnys
 alias vn = vanillian
 alias nv = nvim
-alias ex = exa
 alias np = npm
 alias cat = bat
 alias tec = tectonic
+
+# Used in vault-vanilla
 alias gls = git ls
+alias gcd = git cd

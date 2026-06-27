@@ -3,6 +3,7 @@ use completions\cargo.nu *
 use completions\uv.nu *
 use completions\rustup.nu *
 use completions\rg.nu *
+use completions\eza.nu *
 
 const package_manager = if $nu.os-info.name == 'windows' { 'completions\scoop.nu' } else { null }
 use $package_manager *
@@ -31,3 +32,5 @@ alias gsw = git switch
 alias gb = git branch
 alias gbd = git branch -D
 alias gbdr = git branch -D --remotes
+
+alias ez = eza
