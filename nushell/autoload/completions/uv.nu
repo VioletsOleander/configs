@@ -25,11 +25,11 @@ export extern main [
     command?: string@commands
 ]
 
-export extern "uv add" [
+export extern 'uv add' [
     --dev # Add the requirements to the development dependency group [env: UV_DEV=].
     --upgrade (-U) # Allow package upgrades, ignoring pinned versions in any existing output file. Implies `--refresh`.
 ]
 
-export extern "uv remove" [
+export extern 'uv remove' [
     --dev # Remove the packages from the development dependency group [env: UV_DEV=]
 ]
