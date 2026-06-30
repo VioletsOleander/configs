@@ -71,3 +71,4 @@ alias zi = __zoxide_zi
 
 alias zs = __zoxide_z seed
 alias zv = __zoxide_z vault-vanilla
+alias zc = __zoxide_z codespace
