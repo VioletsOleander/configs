@@ -187,3 +187,8 @@ export extern 'git ls-files' [
     -t # Show status tags together with filenames. 
     --exclude-standard # Add the standard Git exclusions: .git/info/exclude, .gitignore in each directory, and the user’s global exclusion file.
 ]
+
+export extern 'git remote' [
+    --verbose (-v) # Be a little more verbose and show remote url after name.
+    command?: string@['add', 'rename', 'remove']
+]
