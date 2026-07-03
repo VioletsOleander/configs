@@ -16,26 +16,22 @@ au("BufRead", {
   end,
 })
 
-local function format_buffer()
-  -- Not valid or not normral buffer
-  if not vim.api.nvim_buf_is_valid(0) or not vim.bo.buftype == "" then
-    return
-  end
-  -- Not editable buffer
-  if not vim.bo.modifiable or vim.bo.readonly then
-    return
-  end
-
-  if not vim.g.disable_autoformat then
-    require("conform").format({ lsp_format = "fallback", timeout_ms = 3000 })
-  end
-  vim.cmd("update")
-end
-
 -- Autosave
 au("BufWritePre", {
   group = buf_group,
-  callback = format_buffer,
+  callback = function()
+    if not vim.api.nvim_buf_is_valid(0) or not vim.bo.buftype == "" then
+      return
+    end
+    -- Not editable buffer
+    if not vim.bo.modifiable or vim.bo.readonly then
+      return
+    end
+
+    if not vim.g.disable_autoformat then
+      require("conform").format({ lsp_format = "fallback", timeout_ms = 3000 })
+    end
+  end,
 })
 
 -- Lsp keymaps
