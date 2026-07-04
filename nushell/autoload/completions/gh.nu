@@ -43,6 +43,15 @@ def pr-commands [] {
     | parse --regex '\s+(?<value>\S+):\s+(?<description>.+)'
 }
 
+# Fields for gh pr view --json
+def json-fields [] {
+    let lines = ^gh pr view --json e>| lines # gh pr --json prints output to stderr
+
+    $lines
+    | slice 1..
+    | parse --regex '\s+(?<value>\S+)'
+}
+
 export extern main [
     --version
     command?: string@commands
@@ -51,4 +60,12 @@ export extern main [
 export extern 'gh pr' [
     command?: string@pr-commands
 
+]
+
+export extern 'gh pr view' [
+    --comments (-c) # View pull request comments.
+    --json: string@json-fields # Output JSON with the specified fields
+    --jq (-q): string # Filter JSON output using a jq expression
+    --web (-w) # Open a pull request in the browser
+    target?: string
 ]
