@@ -1,14 +1,14 @@
-# Create a new pull request with HEAD
+# Create a new pull request with HEAD.
 #
 # The pull request title will be the the commit message title of HEAD, and description will be the commit message body
-# of HEAD
+# of HEAD.
 export def new-pull-request [] {
     ^gh pr new --title (^git log -1 --format=%s) --body (^git log -1 --format=%b)
 }
 
-# Create a new branch on HEAD
+# Create a new branch on HEAD.
 #
-# The branch name will be <name> appended with unique timestamp
+# The branch name will be <name> appended with unique timestamp.
 export def new-branch [name: string] {
     let timestamp = date now | format date "%Y%m%d-%H%M%S"
     let branch = $name + "/" + $timestamp
@@ -16,7 +16,7 @@ export def new-branch [name: string] {
     ^git switch --create $branch
 }
 
-# Push main branch to github and/or codeberg
+# Push main branch to GitHub and/or Codeberg.
 export def update-remotes [] {
     let remotes = (^git remote)
 
@@ -31,6 +31,19 @@ export def update-remotes [] {
     }
 }
 
+# Squash merge pull request on current branch.
+export def merge-pull-request [] {
+    let title = (^gh pr view --json 'title' --jq '.title')
+    let body = (^gh pr view --json 'body' --jq '.body')
+    let url = (^gh pr view --json 'url' --jq '.url')
+
+    let message_body = $"($body)\nPR: ($url)"
+
+    print $'Merging pull request ($url)'
+    ^gh pr merge --squash --subject $title --body $message_body
+}
+
 export alias new-pr = new-pull-request
 export alias new-b = new-branch
 export alias up-r = update-remotes
+export alias mr-pr = merge-pull-request
