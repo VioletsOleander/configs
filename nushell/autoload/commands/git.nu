@@ -21,12 +21,12 @@ export def update-remotes [] {
     let remotes = (^git remote)
 
     if ($remotes | str contains 'gh') {
-        print 'Pushing to github'
+        print 'Pushing to GitHub'
         ^git push gh main
     }
 
     if ($remotes | str contains 'cb') {
-        print 'Pushing to codeberg'
+        print 'Pushing to Codeberg'
         ^git push cb main
     }
 }
