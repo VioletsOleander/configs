@@ -28,15 +28,20 @@
     },
   },
   # Tools
+  # Tools: Git
   ".gitconfig": { dest: { Windows: ".gitconfig", Linux: ".gitconfig" } },
-  ".inputrc": { dest: { Windows: "", Linux: ".inputrc" } },
-  ".lesskey": { dest: { Windows: "_lesskey", Linux: ".lesskey" } },
-  ".tmux.conf": { dest: { Windows: "", Linux: ".tmux.conf" } },
-  ".tridactylrc": { dest: { Windows: ".tridactylrc", Linux: ".tridactylrc" } },
-  "yazi/config/",
   "lazygit/",
+  # Tools: Viewer
+  ".lesskey": { dest: { Windows: "_lesskey", Linux: ".lesskey" } },
+  "bat/",
+  "yazi/config/",
+  "glow/config/": { dest: { Windows: "AppData/Local/glow/Config" } },
+  # Tools: Mutiplexer
+  ".tmux.conf": { dest: { Windows: "", Linux: ".tmux.conf" } },
+  "zellij/config/": { dest: { Windows: "AppData/Roaming/Zellij/config" } },
+  # Tools: Others
+  ".inputrc": { dest: { Windows: "", Linux: ".inputrc" } },
+  ".tridactylrc": { dest: { Windows: ".tridactylrc", Linux: ".tridactylrc" } },
   "vivid/",
   "dprint/",
-  "glow/config/": { dest: { Windows: "AppData/Local/glow/Config" } },
-  "bat/",
 }
