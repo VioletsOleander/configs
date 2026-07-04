@@ -37,4 +37,5 @@
   "lazygit/",
   "vivid/",
   "dprint/",
+  "glow/config/": { dest: { Windows: "AppData/Local/glow/Config" } },
 }
