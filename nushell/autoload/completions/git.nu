@@ -62,9 +62,9 @@ def diff-files [context: string] {
 def restore-files [context: string] {
     let segments = $context | split row ' '
     let entries = if ('--staged' in $segments) or ('-S' in $segments) {
-        ^git diff --cached --name-status
+        ^git diff --cached --name-status --no-renames # The R100 entires is hard to parse, so turn off rename detection
     } else {
-        ^git diff --name-status
+        ^git diff --name-status --no-renames
     }
 
     $entries
@@ -134,6 +134,7 @@ export extern 'git diff' [
     --staged # Synonym of --cached.
     --word-diff # Change diff granularity from line to word. By default, words are delimited by whitespace.
     --word-diff-regex: string # Use <regex> to decide what a word is, instead of considering runs of non-whitespace to be a word. Also implies --word-diff unless it was already enabled. For example, --word-diff-regex=. will treat each character as a word and, correspondingly, show differences character by character.
+    --no-renames # Turn off rename detection, even when the configuration file gives the default to do so.
     ...pathspec: path@diff-files
 ]
 
