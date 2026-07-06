@@ -7,6 +7,7 @@ use completions\eza.nu *
 use completions\vivid.nu *
 use completions\dprint.nu *
 use completions\gh.nu *
+use completions\curl.nu *
 
 const package_manager = if $nu.os-info.name == 'windows' { 'completions\scoop.nu' } else { null }
 use $package_manager *
