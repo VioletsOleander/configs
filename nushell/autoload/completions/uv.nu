@@ -1,22 +1,10 @@
+use _utils.nu filter-block
+
 # Subcommands for uv
 def commands [] {
-    let lines = ^uv help --color never | lines
-
-    # Start from the row after 'Commands:' and end with a blank row
-    mut start_idx = 0
-    mut end_idx = 0
-    for $line in ($lines | enumerate) {
-        if $line.item == 'Commands:' {
-            $start_idx = $line.index + 1
-        }
-        if $start_idx > 0 and ($line.item | str trim) == '' {
-            $end_idx = $line.index - 1
-            break
-        }
-    }
-
-    $lines
-    | slice $start_idx..$end_idx
+    ^uv help --color never
+    | lines
+    | filter-block 'Commands:'
     | parse --regex '\s+(?<value>\S+)\s+(?<description>.+)'
 }
 
