@@ -85,7 +85,14 @@ au("CmdlineChanged", {
   group = other_group,
   pattern = { ":", "/", "?" },
   callback = function()
-    vim.fn.wildtrigger()
+    local cmd = vim.fn.getcmdline()
+
+    -- Avoid stuck on completing binary executables
+    if vim.startswith(cmd, "!") then
+      return
+    else
+      vim.fn.wildtrigger()
+    end
   end,
   desc = "Automatically show popup menu when typing in cmd line",
 })
