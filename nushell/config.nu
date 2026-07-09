@@ -96,7 +96,17 @@ if $nu.os-info.name == 'windows' {
     $env.DELTA_PAGER = $'less --lesskey-src="([$env.HOMEDRIVE $env.HOMEPATH "_lesskey"] | path join)"'
     $env.BAT_CONFIG_DIR = [$env.APPDATA 'bat'] | path join
 } else if $nu.os-info.name == 'linux' {
-    $env.PATH = $env.PATH | prepend ($env.HOME | path join ".local/bin")
+    $env.BAT_CONFIG_DIR = [$env.HOME ".config/bat"] | path join
+
+    let local_bin = [$env.HOME ".local/bin"] | path join
+    let cargo_bin = [$env.HOME ".cargo/bin"]| path join
+
+    if $local_bin not-in $env.PATH {
+        $env.PATH = $env.PATH | prepend $local_bin
+    }
+    if $cargo_bin not-in $env.PATH {
+        $env.PATH = $env.PATH | prepend $cargo_bin
+    }
 }
 
 ## Misc
