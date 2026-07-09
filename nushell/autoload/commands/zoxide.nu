@@ -31,21 +31,21 @@ export-env {
 #
 
 # Jump to a directory using only keywords.
-def --env --wrapped __zoxide_z [...rest: string] {
-  let path = match $rest {
-    [] => {'~'},
-    [ '-' ] => {'-'},
-    [ $arg ] if ($arg | path expand | path type) == 'dir' => {$arg}
-    _ => {
-      ^zoxide query --exclude $env.PWD -- ...$rest | str trim -r -c "\n"
+export def --env --wrapped __zoxide_z [...rest: string] {
+    let path = match $rest {
+        [] => { '~' }
+        ['-'] => { '-' }
+        [$arg] if ($arg | path expand | path type) == 'dir' => { $arg }
+        _ => {
+            ^zoxide query --exclude $env.PWD -- ...$rest | str trim -r -c "\n"
+        }
     }
-  }
-  cd $path
+    cd $path
 }
 
 # Jump to a directory using interactive search.
-def --env --wrapped __zoxide_zi [...rest:string] {
-  cd $'(^zoxide query --interactive -- ...$rest | str trim -r -c "\n")'
+export def --env --wrapped __zoxide_zi [...rest: string] {
+    cd $'(^zoxide query --interactive -- ...$rest | str trim -r -c "\n")'
 }
 
 # =============================================================================
@@ -53,8 +53,8 @@ def --env --wrapped __zoxide_zi [...rest:string] {
 # Commands for zoxide. Disable these using --no-cmd.
 #
 
-alias z = __zoxide_z
-alias zi = __zoxide_zi
+export alias z = __zoxide_z
+export alias zi = __zoxide_zi
 
 # =============================================================================
 #
@@ -69,6 +69,6 @@ alias zi = __zoxide_zi
 #
 # Note: zoxide only supports Nushell v0.89.0+.
 
-alias zs = __zoxide_z seed
-alias zv = __zoxide_z vault-vanilla
-alias zc = __zoxide_z codespace
+export alias zs = __zoxide_z seed
+export alias zv = __zoxide_z vault-vanilla
+export alias zc = __zoxide_z codespace
