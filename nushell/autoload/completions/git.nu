@@ -83,7 +83,14 @@ def branches [context: string] {
         ^git branch --list --format='%(refname:lstrip=2)'
     }
 
-    $branches | lines
+    $branches
+    | lines
+}
+
+# Remotes in current repository
+def remotes [] {
+    ^git remote
+    | lines
 }
 
 # Subcommands for git config
@@ -164,6 +171,7 @@ export extern 'git pull' [
     --prune (-p) # Before fetching, remove any remote-tracking references that no longer exist on the remote. 
     --depth: int # Limit fetching to the specified number of commits from the tip of each remote branch history.
     --dry-run
+    repository?: string@remotes
 ]
 
 export extern 'git config' [
