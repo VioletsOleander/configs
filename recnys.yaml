@@ -38,7 +38,9 @@
   "glow/config/": { dest: { Windows: "AppData/Local/glow/Config" } },
   # Tools: Mutiplexer
   ".tmux.conf": { dest: { Windows: "", Linux: ".tmux.conf" } },
-  "zellij/config/": { dest: { Windows: "AppData/Roaming/Zellij/config" } },
+  "zellij/": {
+    dest: { Windows: "AppData/Roaming/Zellij/config", Linux: ".config/zellij" },
+  },
   # Tools: Others
   ".inputrc": { dest: { Windows: "", Linux: ".inputrc" } },
   ".tridactylrc": { dest: { Windows: ".tridactylrc", Linux: ".tridactylrc" } },
