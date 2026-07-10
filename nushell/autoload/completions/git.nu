@@ -93,6 +93,14 @@ def remotes [] {
     | lines
 }
 
+# Remote branches in current repository
+def remote-branches [] {
+    ^git branch --remotes
+    | lines
+    | where {|line| '->' not-in $line}
+    | each {|line| $'remotes/($line | str trim)'}
+}
+
 # Subcommands for git config
 def config-commands [] {
     [
@@ -124,6 +132,8 @@ export extern 'git branch' [
     --list (-l) # List branches.
     --remotes (-r) # List or delete (if used with -d) the remote-tracking branches.
     --all (-a) # List both remote-tracking branches and local branches.
+    --set-upstream-to (-u): string@remote-branches # Set up <branch-name>'s tracking information so <upstream> is considered <branch-name>'s upstream branch. If no <branch-name> is specified, then it defaults to the current branch.
+    --verbose (-v) # When in list mode, show sha1 and commit subject line for each head, along with relationship to upstream branch (if any). If given twice, print the path of the linked worktree (if any) and the name of the upstream branch, as well.
     ...branch: string@branches
 ]
 
