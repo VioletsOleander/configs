@@ -9,8 +9,11 @@ use completions/dprint.nu *
 use completions/gh.nu *
 use completions/curl.nu *
 
-const package_manager = if $nu.os-info.name == 'windows' { 'completions\scoop.nu' } else { null }
-use $package_manager *
+# Optional imports
+const scoop = if $nu.os-info.name == 'windows' { 'completions/scoop.nu' } else { null }
+const wsl = if $nu.os-info.name == 'windows' { 'completions/wsl.nu' } else { null }
+use $scoop *
+use $wsl *
 
 # Since autoload is executed after loading config.nu, some aliases should be put here for completions
 
