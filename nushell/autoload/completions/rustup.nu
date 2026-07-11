@@ -24,8 +24,26 @@ def show-commands [] {
     | parse --regex '\s+(?<value>\S+)\s+(?<description>.+)'
 }
 
+# Subcommands for rustup component
+def component-commands [] {
+    ^rustup component --help
+    | lines
+    | filter-block 'Commands:'
+    | parse --regex '\s+(?<value>\S+)\s+(?<description>.+)'
+}
+
 def installed-toolchains [] {
     ^rustup toolchain list --quiet
+    | lines
+}
+
+def installed-components [] {
+    ^rustup component list --installed
+    | lines
+}
+
+def all-components [] {
+    ^rustup component list --quiet
     | lines
 }
 
@@ -54,4 +72,16 @@ export extern 'rustup default' [
 export extern 'rustup show' [
     --verbose (-v)
     command?: string@show-commands
+]
+
+export extern 'rustup component' [
+    command?: string@component-commands
+]
+
+export extern 'rustup component remove' [
+    component: string@installed-components
+]
+
+export extern 'rustup component add' [
+    component: string@all-components
 ]
