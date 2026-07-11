@@ -211,3 +211,9 @@ export extern 'git remote' [
     --verbose (-v) # Be a little more verbose and show remote url after name.
     command?: string@['add', 'rename', 'remove']
 ]
+
+export extern 'git log' [
+    --oneline # This is a shorthand for --pretty=oneline --abbrev-commit used together.
+    --all # Pretend as if all the refs in refs/, along with HEAD, are listed on the command line as <commit>.
+    --graph # Draw a text-based graphical representation of the commit history on the left hand side of the output.
+]
