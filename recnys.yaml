@@ -34,7 +34,7 @@
   # Tools: Viewer
   ".lesskey": { dest: { Windows: "_lesskey", Linux: ".lesskey" } },
   "bat/",
-  "yazi/config/",
+  "yazi/": { dest: { Windows: "AppData/Roaming/yazi/config" } },
   "glow/config/": { dest: { Windows: "AppData/Local/glow/Config" } },
   # Tools: Mutiplexer
   ".tmux.conf": { dest: { Windows: "", Linux: ".tmux.conf" } },
