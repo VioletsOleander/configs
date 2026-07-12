@@ -114,6 +114,7 @@ def units [extra_flags?: string] {
     }
     | lines
     | parse --regex '(?<value>\S+)\s+(?<description>.+)'
+    | where value not-in $loaded.value
 
     $loaded | append $installed
 }
