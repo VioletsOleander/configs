@@ -6,6 +6,7 @@ $env.config.buffer_editor = 'nvim'
 ## Edit
 $env.config.edit_mode = 'vi'
 $env.config.keybindings ++= [
+    # Vim mode
     {
         name: 'ctrl-[ escape'
         modifier: Control
@@ -26,6 +27,20 @@ $env.config.keybindings ++= [
         keycode: Char_l
         mode: [Vi_Normal]
         event: {send: None}
+    }
+    {
+        name: 'H goto line start'
+        modifier: Shift
+        keycode: Char_h
+        mode: [Vi_Normal]
+        event: {edit: MoveToLineStart, select: false}
+    }
+    {
+        name: 'L goto line end'
+        modifier: Shift
+        keycode: Char_l
+        mode: [Vi_Normal]
+        event: {edit: MoveToLineEnd, select: false}
     }
     {
         name: 'ctrl-m enter'
