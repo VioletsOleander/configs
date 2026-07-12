@@ -99,7 +99,7 @@ if $nu.os-info.name == 'windows' {
     $env.BAT_CONFIG_DIR = [$env.HOME ".config/bat"] | path join
 
     let local_bin = [$env.HOME ".local/bin"] | path join
-    let cargo_bin = [$env.HOME ".cargo/bin"]| path join
+    let cargo_bin = [$env.HOME ".cargo/bin"] | path join
 
     if $local_bin not-in $env.PATH {
         $env.PATH = $env.PATH | prepend $local_bin
@@ -146,3 +146,4 @@ alias gls = git ls
 
 # Only used in vault-vanilla
 alias gcd = git cd
+alias gci = git ci
