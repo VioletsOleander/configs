@@ -1,3 +1,5 @@
+use zoxide.nu __zoxide_z
+
 # Equivalent to cd then ls
 export def --env cl [p: path = "~"] {
     cd $p
