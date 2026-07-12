@@ -217,3 +217,26 @@ export extern 'git log' [
     --all # Pretend as if all the refs in refs/, along with HEAD, are listed on the command line as <commit>.
     --graph # Draw a text-based graphical representation of the commit history on the left hand side of the output.
 ]
+
+export alias g = git
+
+export alias "g s" = git status
+export alias 'g c' = git commit
+export alias 'g a' = git add
+export alias 'g p' = git push
+export alias 'g d' = git diff
+export alias 'g sw' = git switch
+export alias 'g b' = git branch
+export alias 'g bd' = git branch -D
+export alias 'g bdr' = git branch -D --remotes
+export alias 'g restore' = git restore
+
+export alias gs = git status
+export alias gc = git commit
+export alias ga = git add
+export alias gp = git push
+export alias gd = git diff
+export alias gsw = git switch
+export alias gb = git branch
+export alias gbd = git branch -D
+export alias gbdr = git branch -D --remotes
