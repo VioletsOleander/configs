@@ -11,3 +11,8 @@ export extern main [
     --explain # Provide a detailed explanation of a rustc error message.
     command?: string@commands
 ]
+
+export extern 'cargo add' [
+    --features (-F): string # Space or comma separated list of features to activate.
+    --dry-run (-n) # Don't actually write the manifest.
+]
