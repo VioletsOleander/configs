@@ -25,6 +25,3 @@ export def --env y [...args] {
     }
     rm -fp $tmp
 }
-
-# 'duck' -> dk, since y is not easy to press
-export alias dk = y
