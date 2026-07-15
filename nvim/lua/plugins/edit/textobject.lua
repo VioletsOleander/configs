@@ -119,7 +119,7 @@ local nvim_treesitter_textobjects = {
     -- r for right
     map({ "n" }, "<Leader>mh", function()
       swap.swap_previous("@parameter.inner")
-    end, { desc = "Swap next parameter" })
+    end, { desc = "Swap previous parameter" })
 
     local opts = {
       select = {
