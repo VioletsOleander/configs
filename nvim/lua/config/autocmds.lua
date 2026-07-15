@@ -68,9 +68,9 @@ au("LspAttach", {
     map_local("n", "gA", function()
       vim.diagnostic.open_float({ close_events = { "BufHidden" } })
     end, "Show persist diagnostic (requires manual close)")
-    map_local("i", "<C-s>", function()
-      vim.lsp.buf.signature_help({ close_events = { "InsertLeave", "BufHidden" } })
-    end, "Show persist signature help (instead of closing immediately on typing)")
+    -- map_local("i", "<C-s>", function()
+    --   vim.lsp.buf.signature_help({ close_events = { "InsertLeave", "BufHidden" } })
+    -- end, "Show persist signature help (instead of closing immediately on typing)")
 
     -- LSP actions
     map_local("n", "<Leader>r", vim.lsp.buf.rename, "Rename symbol")
