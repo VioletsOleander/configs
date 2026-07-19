@@ -10,13 +10,17 @@ Nushell
 PyTorch
 RL
 SDE
+SFT
 Typst
+backend
 composability
 destructure
 destructuring
 discretization
+frontend
 json
 learnable
+logits
 nushell
 recnys
 recomputation
@@ -24,7 +28,3 @@ rollout
 sharding
 struct
 whitespace
-SFT
-logits
-frontend
-backend
