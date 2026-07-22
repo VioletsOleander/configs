@@ -112,6 +112,7 @@ if $nu.os-info.name == 'windows' {
     $env.BAT_CONFIG_DIR = [$env.APPDATA 'bat'] | path join
 } else if $nu.os-info.name == 'linux' {
     $env.BAT_CONFIG_DIR = [$env.HOME ".config/bat"] | path join
+    $env.RUST_BACKTRACE = 0
 
     let local_bin = [$env.HOME ".local/bin"] | path join
     let cargo_bin = [$env.HOME ".cargo/bin"] | path join
