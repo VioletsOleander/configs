@@ -9,6 +9,7 @@ use completions/dprint.nu *
 use completions/gh.nu *
 use completions/curl.nu *
 use completions/fd.nu *
+use completions/git-cliff.nu *
 
 # Optional imports
 const scoop = if $nu.os-info.name == 'windows' { 'completions/scoop.nu' } else { null }
