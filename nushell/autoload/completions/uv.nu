@@ -21,3 +21,9 @@ export extern 'uv add' [
 export extern 'uv remove' [
     --dev # Remove the packages from the development dependency group [env: UV_DEV=]
 ]
+
+export extern 'uv version' [
+    --bump: string@['major' 'minor' 'patch' 'stable' 'alpha' 'beta' 'rc' 'post' dev] # Update the project version using the given semantics.
+    --dry-run # Don't write a new version to the `pyproject.toml`.
+    --short # Only show the version
+]

@@ -15,4 +15,10 @@ export extern main [
 export extern 'cargo add' [
     --features (-F): string # Space or comma separated list of features to activate.
     --dry-run (-n) # Don't actually write the manifest.
+    --dev # Add as development dependency.
+]
+
+export extern 'cargo install' [
+    --path: path # Filesystem path to local crate to install from.
+    --list # List all installed packages and their versions.
 ]
