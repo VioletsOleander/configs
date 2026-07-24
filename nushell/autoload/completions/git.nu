@@ -111,12 +111,7 @@ def refspecs [] {
     | lines
     | parse --regex '(?<value>\S+)\s+(?<description>.+)'
 
-    let remote_branches = ^git for-each-ref --format='%(refname:strip=2) Remote Branch' refs/remotes
-    | lines
-    | parse --regex '(?<value>\S+)\s+(?<description>.+)'
-
     $local_branches
-    | append $remote_branches
     | append $tags
 }
 
