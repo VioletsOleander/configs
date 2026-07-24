@@ -101,6 +101,25 @@ def remote-branches [] {
     | each {|line| $'remotes/($line | str trim)'}
 }
 
+# Refspecs in current repository
+def refspecs [] {
+    let tags = ^git for-each-ref --format='%(refname:strip=2) Tag' refs/tags
+    | lines
+    | parse --regex '(?<value>\S+)\s+(?<description>.+)'
+
+    let local_branches = ^git for-each-ref --format='%(refname:strip=2) Local Branch' refs/heads
+    | lines
+    | parse --regex '(?<value>\S+)\s+(?<description>.+)'
+
+    let remote_branches = ^git for-each-ref --format='%(refname:strip=2) Remote Branch' refs/remotes
+    | lines
+    | parse --regex '(?<value>\S+)\s+(?<description>.+)'
+
+    $local_branches
+    | append $remote_branches
+    | append $tags
+}
+
 # Subcommands for git config
 def config-commands [] {
     [
@@ -175,6 +194,8 @@ export extern 'git push' [
     --delete (-d) # All listed refs are deleted from the remote repository.
     --force (-f) 
     --set-upstream (-u) # For every branch that is up to date or successfully pushed, add upstream (tracking) reference, used by argument-less git-pull[1] and other commands. 
+    repository?: string@remotes
+    ...refspec: string@refspecs
 ]
 
 export extern 'git pull' [
@@ -216,6 +237,10 @@ export extern 'git log' [
     --oneline # This is a shorthand for --pretty=oneline --abbrev-commit used together.
     --all # Pretend as if all the refs in refs/, along with HEAD, are listed on the command line as <commit>.
     --graph # Draw a text-based graphical representation of the commit history on the left hand side of the output.
+]
+
+export extern 'git fetch' [
+    --prune # Before fetching, remove any remote-tracking references that no longer exist on the remote.
 ]
 
 export alias g = git
