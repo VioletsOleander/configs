@@ -238,6 +238,10 @@ export extern 'git fetch' [
     --prune # Before fetching, remove any remote-tracking references that no longer exist on the remote.
 ]
 
+export extern 'git rebase' [
+    --interactive (-i) # Make a list of the commits which are about to be rebased. Let the user edit that list before rebasing.
+]
+
 export alias g = git
 
 export alias "g s" = git status
