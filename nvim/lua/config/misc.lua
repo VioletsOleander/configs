@@ -1,8 +1,3 @@
--- Display diagnostic on the end of the line
-vim.diagnostic.config({ virtual_text = true, severity_sort = true })
--- Lsp log level
-vim.lsp.log_levels = vim.log.levels.WARN
-
 -- Display help vertically
 vim.api.nvim_create_user_command("H", "vertical help <args>", { nargs = "*", complete = "help" })
 
@@ -18,11 +13,11 @@ if vim.fn.has("wsl") then
     name = "win32yank-wsl",
     copy = {
       ["+"] = "win32yank.exe -i --crlf",
-      ["*"] = "win32yank.exe -i --crlf"
+      ["*"] = "win32yank.exe -i --crlf",
     },
     paste = {
       ["+"] = "win32yank.exe -o --lf",
-      ["*"] = "win32yank.exe -o --lf"
+      ["*"] = "win32yank.exe -o --lf",
     },
     cache_enabled = true,
   }
