@@ -6,6 +6,9 @@ return {
       completion = {
         autoimport = { enable = false },
       },
+      check = {
+        command = "clippy",
+      },
     },
   },
 }
