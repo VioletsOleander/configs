@@ -68,7 +68,7 @@ local snacks_opts = {
         hidden = true,
         ignored = true,
         follow_file = false,
-        layout = { preview = "main" },
+        layout = { preview = "main", hidden = { "preview" } },
         win = {
           -- The toggle of explorer is controlled by leader+e, so
           -- let esc works like esc
