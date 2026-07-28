@@ -232,6 +232,7 @@ export extern 'git log' [
     --oneline # This is a shorthand for --pretty=oneline --abbrev-commit used together.
     --all # Pretend as if all the refs in refs/, along with HEAD, are listed on the command line as <commit>.
     --graph # Draw a text-based graphical representation of the commit history on the left hand side of the output.
+    --max-count (-n): number # Limit the output to the first <number> commits that would be shown.
 ]
 
 export extern 'git fetch' [
@@ -250,6 +251,8 @@ export alias 'g a' = git add
 export alias 'g p' = git push
 export alias 'g d' = git diff
 export alias 'g l' = git log
+export alias 'g ll' = git log --oneline
+export alias 'g ls' = git log --oneline --max-count 10
 export alias 'g sw' = git switch
 export alias 'g b' = git branch
 export alias 'g bd' = git branch -D
@@ -262,6 +265,8 @@ export alias ga = git add
 export alias gp = git push
 export alias gd = git diff
 export alias gl = git log
+export alias gll = git log --oneline
+export alias gls = git log --oneline --max-count 10
 export alias gsw = git switch
 export alias gb = git branch
 export alias gbd = git branch -D
