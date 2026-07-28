@@ -15,4 +15,10 @@ local nvim_autopair = {
   },
 }
 
-return { nvim_surround, nvim_autopair }
+---@type LazyPluginSpec
+local grug_far_nvim = {
+  "MagicDuck/grug-far.nvim",
+  cmd = { "GrugFar", "GrugFarWithin" },
+}
+
+return { nvim_surround, nvim_autopair, grug_far_nvim }
