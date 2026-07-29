@@ -62,8 +62,14 @@ local dayfox = {
   config = function()
     require("nightfox").setup({
       groups = {
+        -- The values defined under `all` will be applied to every style.
         all = {
           ["@markup.raw"] = { style = "NONE" },
+        },
+        dayfox = {
+          -- Lighter than the default
+          -- The constract between Normal:bg and ColorColumn:bg is now 1.08 (originally 1.33)
+          ColorColumn = { bg = "#f0e8e5" },
         },
       },
     })
@@ -79,6 +85,7 @@ local rosepine = {
   name = "rose-pine",
   config = function()
     require("rose-pine").setup({
+
       styles = {
         italic = false,
       },
