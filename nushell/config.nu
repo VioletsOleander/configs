@@ -158,8 +158,6 @@ alias np = npm
 alias cat = bat
 alias tec = tectonic
 
-alias gls = git ls
-
 # Only used in vault-vanilla
 alias gcd = git cd
 alias gci = git ci
