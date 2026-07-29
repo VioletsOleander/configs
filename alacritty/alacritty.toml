@@ -37,7 +37,7 @@ style = { shape = "Beam", blinking = "Never" }
 shell = { program = "nu", args = ["--login"] }
 
 [font]
-normal = { family = "FiraCode Nerd Font", style = "Retina" }
+normal = { family = "CaskaydiaCove Nerd Font" }
 size = 11.5
 
 [selection]
