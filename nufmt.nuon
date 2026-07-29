@@ -1,4 +1,4 @@
 {
-    line_length: 120
+    line_length: 100
     exclude: ["nushell/vendor/**", "nushell/third_party/**"]
 }
