@@ -82,7 +82,12 @@ map("n", "<Leader>w", "<Cmd>update<CR>", { desc = "Save File", silent = true })
 map("n", "<Leader><CR>", "<Cmd>update<CR>", { desc = "Save File", silent = true })
 
 -- Correct spell
-map("i", "<C-a>", "<C-g>u<Esc>[s1z=`]a<C-g>u", { desc = "Correc last spell using the first suggestion" })
+map(
+  "i",
+  "<C-a>",
+  "<C-g>u<Esc>[s1z=`]a<C-g>u",
+  { desc = "Correc last spell using the first suggestion" }
+)
 
 --- Return the character after cursor
 ---

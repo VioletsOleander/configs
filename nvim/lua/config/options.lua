@@ -75,7 +75,8 @@ opt.shellxescape = ""
 opt.shellxquote = ""
 opt.shellquote = ""
 
-opt.shellpipe = "| complete | update stderr { ansi strip } | tee { get stderr | save --force --raw %s } | into record"
+opt.shellpipe =
+  "| complete | update stderr { ansi strip } | tee { get stderr | save --force --raw %s } | into record"
 
 -- Spell
 opt.spelllang = "en,cjk"

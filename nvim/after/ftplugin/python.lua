@@ -1,6 +1,6 @@
 vim.treesitter.start()
 
-vim.opt_local.textwidth = 120
+vim.opt_local.textwidth = 100
 vim.opt_local.colorcolumn = "+1"
 
 -- Modify the code in `vim.lsp.buf` module to filter &nbsp; \_ from ty
@@ -51,7 +51,10 @@ local function ctx_is_valid(ctx)
   local c = lsp.get_client_by_id(ctx.client_id)
   local enc = c and c.offset_encoding
 
-  return cur[1] - 1 == p.line and enc and cur[2] == lsp.util._get_line_byte_from_position(bufnr, p, enc) or false
+  return cur[1] - 1 == p.line
+      and enc
+      and cur[2] == lsp.util._get_line_byte_from_position(bufnr, p, enc)
+    or false
 end
 
 local function hover(config)
@@ -135,7 +138,10 @@ local function hover(config)
         else
           -- Multiple clients: surround plaintext with ``` to get correct formatting
           contents[#contents + 1] = "```"
-          vim.list_extend(contents, vim.split(result.contents.value or "", "\n", { trimempty = true }))
+          vim.list_extend(
+            contents,
+            vim.split(result.contents.value or "", "\n", { trimempty = true })
+          )
           contents[#contents + 1] = "```"
         end
       else
@@ -145,7 +151,8 @@ local function hover(config)
       if range then
         local start = range.start
         local end_ = range["end"]
-        local start_idx = lsp.util._get_line_byte_from_position(bufnr, start, client.offset_encoding)
+        local start_idx =
+          lsp.util._get_line_byte_from_position(bufnr, start, client.offset_encoding)
         local end_idx = lsp.util._get_line_byte_from_position(bufnr, end_, client.offset_encoding)
 
         vim.hl.range(

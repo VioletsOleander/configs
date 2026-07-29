@@ -157,4 +157,13 @@ local onelight = {
   end,
 }
 
-return { gruvbox, edge, tokyonight_day, dayfox, rosepine, catppuccin_latte, kanagawa_lotus, onelight }
+return {
+  gruvbox,
+  edge,
+  tokyonight_day,
+  dayfox,
+  rosepine,
+  catppuccin_latte,
+  kanagawa_lotus,
+  onelight,
+}

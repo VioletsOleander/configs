@@ -7,7 +7,12 @@ vim.api.nvim_create_user_command(
 
 -- Displayed diagnostic makes screen flicker when saving and formatting the file, therefore it should be turned off in
 -- most of the time
-vim.diagnostic.config({ signs = false, underline = false, virtual_lines = false, virtual_text = false })
+vim.diagnostic.config({
+  signs = false,
+  underline = false,
+  virtual_lines = false,
+  virtual_text = false,
+})
 
 -- Toggle diagnostic display
 local show_diagnostic = false
@@ -16,7 +21,12 @@ vim.api.nvim_create_user_command("ToggleDiagnostic", function()
     vim.diagnostic.config({ signs = true, underline = true })
     show_diagnostic = true
   else
-    vim.diagnostic.config({ signs = false, underline = false, virtual_lines = false, virtual_text = false })
+    vim.diagnostic.config({
+      signs = false,
+      underline = false,
+      virtual_lines = false,
+      virtual_text = false,
+    })
     show_diagnostic = false
   end
 end, { desc = "Enable or disable showing attention attracting diagnostics" })

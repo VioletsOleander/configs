@@ -57,7 +57,12 @@ au("LspAttach", {
 
     -- LSP shows
     -- Special case: do not wait the builtin gr* keymaps
-    vim.keymap.set("n", "gr", vim.lsp.buf.references, { buf = ev.buf, nowait = true, desc = "Show references" })
+    vim.keymap.set(
+      "n",
+      "gr",
+      vim.lsp.buf.references,
+      { buf = ev.buf, nowait = true, desc = "Show references" }
+    )
 
     map_local("n", "gk", vim.lsp.buf.signature_help, "Show signature help")
     map_local("n", "gK", function()
