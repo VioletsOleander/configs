@@ -2,7 +2,7 @@
 vim.api.nvim_create_user_command(
   "H",
   "vertical help <args>",
-  { nargs = "*", complete = "help", desc = "Show help in vertical split windos" }
+  { nargs = "*", complete = "help", desc = "Show help in vertical split window" }
 )
 
 -- Displayed diagnostic makes screen flicker when saving and formatting the file, therefore it should be turned off in
