@@ -1,6 +1,7 @@
 ---@module "lazy"
 
 ---@alias colortheme
+---| '"gruvbox"'
 ---| '"gruvbox-material"'
 ---| '"edge"'
 ---| '"tokyonight-day"'
@@ -8,13 +9,12 @@
 ---| '"rosepine"'
 ---| '"catppuccin-latte"'
 ---| '"kanagawa-lotus"'
----| '"onelight"'
 
 ---@type colortheme
 local current_theme = "dayfox"
 
 ---@type LazyPluginSpec
-local gruvbox = {
+local gruvbox_material = {
   "sainnhe/gruvbox-material",
   lazy = (current_theme ~= "gruvbox-material"),
   priority = 1000,
@@ -23,6 +23,25 @@ local gruvbox = {
     vim.g.gruvbox_material_background = "medium"
     vim.g.gruvbox_material_disable_italic_comment = 1
     vim.cmd("colorscheme gruvbox-material")
+  end,
+}
+
+---@type LazyPluginSpec
+local gruvbox = {
+  "ellisonleao/gruvbox.nvim",
+  lazy = (current_theme ~= "gruvbox-material"),
+  priority = 1000,
+  config = function()
+    require("gruvbox").setup({
+      italic = {
+        strings = false,
+        emphasis = false,
+        comments = false,
+        operators = false,
+        folds = false,
+      },
+    })
+    vim.cmd("colorscheme gruvbox")
   end,
 }
 
@@ -122,55 +141,13 @@ local kanagawa_lotus = {
   end,
 }
 
----@type LazyPluginSpec
-local onelight = {
-  "navarasu/onedark.nvim",
-  lazy = (current_theme ~= "onelight"),
-  priority = 1000,
-  config = function()
-    local colors = {
-      bg_blue = "#4078f2",
-      purple = "#9b229b",
-      green = "#327a2e",
-      orange = "#bc6b0b",
-      blue = "#426ce8",
-      cyan = "#2e7a78",
-      red = "#be342c",
-      pink = "#ba0251",
-      white = "#fafafa",
-      grey = "#737479",
-    }
-    local highlights = {
-      ModeMsg = { fg = "$black" },
-      FlashLabel = { fg = "$white", bg = "$cyan" },
-    }
-
-    local opts = {
-      style = "light",
-      toggle_style_list = { "light" },
-      code_style = {
-        comments = "none",
-        keywords = "none",
-        functions = "none",
-        strings = "none",
-        variables = "none",
-      },
-      highlights = highlights,
-      colors = colors,
-    }
-
-    require("onedark").setup(opts)
-    require("onedark").load()
-  end,
-}
-
 return {
   gruvbox,
+  gruvbox_material,
   edge,
   tokyonight_day,
   dayfox,
   rosepine,
   catppuccin_latte,
   kanagawa_lotus,
-  onelight,
 }
