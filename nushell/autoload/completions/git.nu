@@ -62,7 +62,8 @@ def diff-files [context: string] {
 def restore-files [context: string] {
     let segments = $context | split row ' '
     let entries = if ('--staged' in $segments) or ('-S' in $segments) {
-        ^git diff --cached --name-status --no-renames # The R100 entires is hard to parse, so turn off rename detection
+        # The R100 entires is hard to parse, so turn off rename detection
+        ^git diff --cached --name-status --no-renames
     } else {
         ^git diff --name-status --no-renames
     }
@@ -257,6 +258,7 @@ export alias 'g b' = git branch
 export alias 'g bd' = git branch -D
 export alias 'g bdr' = git branch -D --remotes
 export alias 'g restore' = git restore
+export alias 'g f' = git fetch
 
 export alias gs = git status
 export alias gc = git commit
@@ -269,3 +271,4 @@ export alias gsw = git switch
 export alias gb = git branch
 export alias gbd = git branch -D
 export alias gbdr = git branch -D --remotes
+export alias gf = git fetch
