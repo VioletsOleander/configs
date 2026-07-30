@@ -1,7 +1,9 @@
 vim.treesitter.start()
 
 vim.opt_local.textwidth = 100
-vim.opt_local.colorcolumn = "+1"
+
+-- Do not autowrap, auto insert comment leader
+vim.opt_local.formatoptions:remove({ "t", "c", "r", "o" })
 
 -- Modify the code in `vim.lsp.buf` module to filter &nbsp; \_ from ty
 
