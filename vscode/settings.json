@@ -28,7 +28,7 @@
   "workbench.editor.showTabs": "single",
   "workbench.editor.useModal": "off",
   "workbench.iconTheme": null,
-  "workbench.colorTheme": "Atom One Light",
+  "workbench.colorTheme": "Gruvbox Light Medium",
   "workbench.colorCustomizations": {
     "[Atom One Light]": {
       "editorCursor.foreground": "#526fffcc",
