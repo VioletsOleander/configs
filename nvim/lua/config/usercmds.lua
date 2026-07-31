@@ -44,3 +44,8 @@ com("ToggleColorColumn", function()
     show_colorcolumn = false
   end
 end, { desc = "Enable or disable showing attention attracting colorcolumn" })
+
+-- Toggle lsp inlay hint
+com("ToggleLspInlayHint", function()
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+end, { desc = "Enable or disable showing attention attracting lsp inlay hint." })
