@@ -16,6 +16,8 @@ export extern 'cargo add' [
     --features (-F): string # Space or comma separated list of features to activate.
     --dry-run (-n) # Don't actually write the manifest.
     --dev # Add as development dependency.
+    --no-default-features # Disable the default features.
+    --default-features # Re-enable the default features
 ]
 
 export extern 'cargo install' [
