@@ -33,6 +33,7 @@ local gruvbox = {
   priority = 1000,
   config = function()
     require("gruvbox").setup({
+      bold = false,
       italic = {
         strings = false,
         emphasis = false,
@@ -65,7 +66,7 @@ local tokyonight_day = {
   config = function()
     require("tokyonight").setup({
       styles = {
-        comment = { italic = false },
+        comments = { italic = false },
         keywords = { italic = false },
       },
     })
