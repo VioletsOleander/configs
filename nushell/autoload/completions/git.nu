@@ -126,6 +126,15 @@ def config-commands [] {
     ]
 }
 
+# Subcommands for git worktree
+def worktree-commands [] {
+    [
+        {value: 'add', description: 'Create a worktree at <path> and checkout <commit-ish> into it.'}
+        {value: 'list', description: 'List details of each worktree.'}
+        {value: 'remove', description: 'Remove a worktree. Only clean worktrees (no untracked files and no modification in tracked files) can be removed.'}
+    ]
+}
+
 export extern main [
     --version (-v)
     command?: string@commands 
@@ -242,6 +251,10 @@ export extern 'git fetch' [
 
 export extern 'git rebase' [
     --interactive (-i) # Make a list of the commits which are about to be rebased. Let the user edit that list before rebasing.
+]
+
+export extern 'git worktree' [
+    command?: string@worktree-commands
 ]
 
 export alias g = git
