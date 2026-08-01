@@ -24,3 +24,13 @@ export extern 'cargo install' [
     --path: path # Filesystem path to local crate to install from.
     --list # List all installed packages and their versions.
 ]
+
+export extern 'cargo clean' [
+    --doc # Whether or not to clean just the documentation directory.
+    --dry-run (-n) # Display what would be deleted without deleting anything.
+    --verbose (-v) # Use verbose output (-vv very verbose/build.rs output).
+]
+
+export extern 'cargo doc' [
+    --open # Opens the docs in a browser after building pacakge's documentation.
+]
