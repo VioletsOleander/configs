@@ -34,14 +34,11 @@ com("ToggleDiagnostic", function()
 end, { desc = "Enable or disable showing attention attracting diagnostics" })
 
 -- Toggle color column
-local show_colorcolumn = false
 com("ToggleColorColumn", function()
-  if show_colorcolumn == false then
-    vim.opt_local.colorcolumn = "+1"
-    show_colorcolumn = true
+  if vim.wo.colorcolumn == "" then
+    vim.wo.colorcolumn = "+1"
   else
-    vim.opt_local.colorcolumn = ""
-    show_colorcolumn = false
+    vim.wo.colorcolumn = ""
   end
 end, { desc = "Enable or disable showing attention attracting colorcolumn" })
 
