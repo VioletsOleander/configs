@@ -18,3 +18,9 @@ const systemctl = if $nu.os-info.name == 'linux' { 'completions/systemctl.nu' } 
 use $scoop *
 use $wsl *
 use $systemctl *
+
+# Seems like defining alias after the module is loaded can safely utlize the completion also for
+# alias, and defining alias inside the module has no such effect.
+
+export alias g = git
+export alias co = cargo

@@ -257,22 +257,6 @@ export extern 'git worktree' [
     command?: string@worktree-commands
 ]
 
-export alias g = git
-
-export alias "g s" = git status
-export alias 'g c' = git commit
-export alias 'g a' = git add
-export alias 'g p' = git push
-export alias 'g d' = git diff
-export alias 'g l' = git log
-export alias 'g ll' = git log --oneline
-export alias 'g sw' = git switch
-export alias 'g b' = git branch
-export alias 'g bd' = git branch -D
-export alias 'g bdr' = git branch -D --remotes
-export alias 'g restore' = git restore
-export alias 'g f' = git fetch
-
 export alias gs = git status
 export alias gc = git commit
 export alias ga = git add
