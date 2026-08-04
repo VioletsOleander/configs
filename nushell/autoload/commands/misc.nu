@@ -16,6 +16,22 @@ export def sort-cspell-words [] {
     }
 }
 
+# Sort the words in `en.utf-8.add`
+export def sort-nvim-spell-words [] {
+    let f = 'en.utf-8.add'
+
+    if ($f | path exists) {
+        let words = open $f
+        let sorted_words = $words | lines | sort
+
+        $sorted_words | save -f $f
+
+        print $'Successfully sorted ($f).'
+    } else {
+        print $'Error: ($f) not found under current working directory.'
+    }
+}
+
 export def --env y [...args] {
     let tmp = (mktemp -t "yazi-cwd.XXXXXX")
     ^yazi ...$args --cwd-file $tmp
