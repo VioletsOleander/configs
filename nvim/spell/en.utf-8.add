@@ -1,3 +1,4 @@
+Config
 DeepSeek
 JSON
 Langevin
@@ -13,6 +14,7 @@ SDE
 SFT
 Typst
 backend
+cakestry
 composability
 destructure
 destructuring
