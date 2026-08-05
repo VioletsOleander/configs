@@ -151,6 +151,8 @@ def units-to-stop [] {
 
 export extern main [
     command?: string@commands
+    --no-pager # Do not pipe output into a pager.
+    --full (-l) # Do not ellipsize unit names, process tree entries, journal output, or truncate unit descriptions in the output of status, list-units, list-jobs, and list-timers.
 ]
 
 export extern 'systemctl enable' [
