@@ -15,7 +15,7 @@ if $cargo_bin not-in $env.PATH {
 
 # Completion
 let fish_completer = {|spans|
-    fish --command $"complete '--do-complete=($spans | str replace --all "'" "\\'" | str join ' ')'"
+    fish --no-config --private --command $"complete '--do-complete=($spans | str replace --all "'" "\\'" | str join ' ')'"
     | from tsv --flexible --noheaders --no-infer
     | rename value description
     | update value {|row|
