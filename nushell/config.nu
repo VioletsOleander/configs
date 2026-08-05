@@ -105,26 +105,6 @@ $env.config.color_config.shape_nothing = 'cyan'
 $env.config.color_config.shape_raw_string = 'purple'
 $env.LS_COLORS = (vivid generate onelight-refined)
 
-## Tool
-if $nu.os-info.name == 'windows' {
-    $env.YAZI_FILE_ONE = [$env.HOMEDRIVE $env.HOMEPATH 'scoop\apps\git\current\usr\bin\file.exe'] | path join
-    $env.DELTA_PAGER = $'less --lesskey-src="([$env.HOMEDRIVE $env.HOMEPATH "_lesskey"] | path join)"'
-    $env.BAT_CONFIG_DIR = [$env.APPDATA 'bat'] | path join
-} else if $nu.os-info.name == 'linux' {
-    $env.BAT_CONFIG_DIR = [$env.HOME ".config/bat"] | path join
-    $env.RUST_BACKTRACE = 0
-
-    let local_bin = [$env.HOME ".local/bin"] | path join
-    let cargo_bin = [$env.HOME ".cargo/bin"] | path join
-
-    if $local_bin not-in $env.PATH {
-        $env.PATH = $env.PATH | prepend $local_bin
-    }
-    if $cargo_bin not-in $env.PATH {
-        $env.PATH = $env.PATH | prepend $cargo_bin
-    }
-}
-
 ## Misc
 $env.config.completions.algorithm = "fuzzy"
 $env.config.rm.always_trash = true
@@ -136,11 +116,17 @@ $env.PROMPT_COMMAND_RIGHT = {||
 }
 
 ### Source
-const third_party = $nu.default-config-dir | path join 'third_party'
-const nu_scripts = $third_party | path join 'nu_scripts'
+## OS specific 
+const windows = if $nu.os-info.name == 'windows' {
+    $nu.default-config-dir | path join 'windows/windows.nu'
+} else { null }
 
-## Color theme
-const nu_themes = $nu_scripts | path join 'themes/nu-themes'
+const linux = if $nu.os-info.name == 'linux' {
+    $nu.default-config-dir | path join 'linux/linux.nu'
+} else { null }
+
+source $windows
+source $linux
 
 ### Alias
 
@@ -157,6 +143,19 @@ alias nv = nvim
 alias np = npm
 alias cat = bat
 alias tec = tectonic
+alias co = cargo
+
+alias g = git
+alias ga = git add
+alias gc = git commit
+alias gs = git status
+alias gd = git diff
+alias gl = git log
+alias gf = git fetch
+alias gp = git push
+alias gb = git branch
+alias gbd = git branch -D
+alias gbdr = git branch -D --remotes
 
 # Only used in vault-vanilla
 alias gcd = git cd

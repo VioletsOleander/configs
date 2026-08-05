@@ -187,6 +187,10 @@ export extern 'systemctl show' [
     unit: string@all-units
 ]
 
+export extern 'systemctl cat' [
+    unit: string@all-units
+]
+
 export extern 'systemctl restart' [
     unit: string@all-units
 ]
