@@ -12,9 +12,3 @@ use completions/fd.nu *
 use completions/git-cliff.nu *
 use completions/scoop.nu *
 use completions/wsl.nu *
-
-# Seems like defining alias after the module is loaded can safely utlize the completion also for
-# alias, and defining alias inside the module has no such effect.
-
-export alias g = git
-export alias co = cargo

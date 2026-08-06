@@ -3,4 +3,11 @@ $env.YAZI_FILE_ONE = [$env.HOMEDRIVE $env.HOMEPATH 'scoop\apps\git\current\usr\b
 $env.DELTA_PAGER = $'less --lesskey-src="([$env.HOMEDRIVE $env.HOMEPATH "_lesskey"] | path join)"'
 $env.BAT_CONFIG_DIR = [$env.APPDATA 'bat'] | path join
 
+# Completion
 source 'completions.nu'
+
+let carapace_completer = {|spans|
+    carapace $spans.0 nushell ...$spans
+    | from json
+}
+$env.config.completions.external = {enable: true, completer: $carapace_completer}

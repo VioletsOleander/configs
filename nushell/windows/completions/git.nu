@@ -256,16 +256,3 @@ export extern 'git rebase' [
 export extern 'git worktree' [
     command?: string@worktree-commands
 ]
-
-export alias gs = git status
-export alias gc = git commit
-export alias ga = git add
-export alias gp = git push
-export alias gd = git diff
-export alias gl = git log
-export alias gll = git log --oneline
-export alias gsw = git switch
-export alias gb = git branch
-export alias gbd = git branch -D
-export alias gbdr = git branch -D --remotes
-export alias gf = git fetch
