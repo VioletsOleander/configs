@@ -57,6 +57,9 @@ local cursor_config = {
 }
 opt.guicursor = table.concat(cursor_config, ",")
 
+-- Gui font: FiraCode Retina
+opt.guifont = "FiraCode Nerd Font Mono:h11:w57"
+
 -- Float window border and popup menu border
 opt.winborder = "rounded"
 opt.pumborder = "rounded"
