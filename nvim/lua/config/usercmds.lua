@@ -20,7 +20,7 @@ vim.diagnostic.config({
 local show_diagnostic = false
 com("ToggleDiagnostic", function()
   if show_diagnostic == false then
-    vim.diagnostic.config({ signs = true, underline = true })
+    vim.diagnostic.config({ signs = true, underline = true, virtual_lines = true })
     show_diagnostic = true
   else
     vim.diagnostic.config({
