@@ -141,9 +141,9 @@ alias re = recnys
 alias vn = vanillian
 alias nv = nvim
 alias np = npm
+alias co = cargo
 alias cat = bat
 alias tec = tectonic
-alias co = cargo
 
 alias g = git
 alias ga = git add
@@ -154,6 +154,7 @@ alias gl = git log
 alias gf = git fetch
 alias gp = git push
 alias gb = git branch
+alias gsw = git switch
 alias gbd = git branch -D
 alias gbdr = git branch -D --remotes
 
