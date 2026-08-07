@@ -209,5 +209,6 @@
   "editor.inlineSuggest.edits.showCollapsed": true,
   "svelte.enable-ts-plugin": true,
   "chat.disableAIFeatures": true,
-  "files.eol": "\n"
+  "files.eol": "\n",
+  "update.mode": "none"
 }
