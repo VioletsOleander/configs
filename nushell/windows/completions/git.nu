@@ -116,6 +116,13 @@ def refspecs [] {
     | append $tags
 }
 
+# Commit objects in current repository
+def commit-objects [] {
+    ^git rev-list --all --oneline
+    | lines
+    | parse --regex '(?<value>\S+)\s+(?<description>.+)'
+}
+
 # Subcommands for git config
 def config-commands [] {
     [
@@ -255,4 +262,8 @@ export extern 'git rebase' [
 
 export extern 'git worktree' [
     command?: string@worktree-commands
+]
+
+export extern 'git show' [
+    object: string@commit-objects
 ]
