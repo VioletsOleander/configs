@@ -64,18 +64,10 @@ au("LspAttach", {
       { buf = ev.buf, nowait = true, desc = "Show references" }
     )
 
-    map_local("n", "gk", vim.lsp.buf.signature_help, "Show signature help")
-    map_local("n", "gK", function()
-      vim.lsp.buf.signature_help({ close_events = { "BufHidden" } })
-    end, "Show persist signature help (requires manual close)")
-
     map_local("n", "ga", vim.diagnostic.open_float, "Show diagnostics")
     map_local("n", "gA", function()
       vim.diagnostic.open_float({ close_events = { "BufHidden" } })
     end, "Show persist diagnostic (requires manual close)")
-    -- map_local("i", "<C-s>", function()
-    --   vim.lsp.buf.signature_help({ close_events = { "InsertLeave", "BufHidden" } })
-    -- end, "Show persist signature help (instead of closing immediately on typing)")
 
     -- LSP actions
     map_local("n", "<Leader>r", vim.lsp.buf.rename, "Rename symbol")
