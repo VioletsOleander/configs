@@ -265,5 +265,5 @@ export extern 'git worktree' [
 ]
 
 export extern 'git show' [
-    object: string@commit-objects
+    object?: string@commit-objects
 ]
