@@ -26,7 +26,7 @@ require("lazy").setup({
   install = { colorscheme = { "default" } },
   checker = {
     enabled = true,
-    frequency = 259200, -- Check plugin update every three days
+    frequency = 604800, -- Check plugin update every seven days
   },
   change_detection = {
     enabled = false,
