@@ -142,6 +142,7 @@ alias vn = vanillian
 alias nv = nvim
 alias np = npm
 alias co = cargo
+alias ez = eza --long --all
 alias cat = bat
 alias tec = tectonic
 
