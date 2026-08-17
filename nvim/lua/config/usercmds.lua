@@ -1,6 +1,7 @@
 local com = vim.api.nvim_create_user_command
+local map = vim.keymap.set
 
--- Display help vertically
+-- Display help vertically.
 com(
   "H",
   "vertical help <args>",
@@ -8,7 +9,7 @@ com(
 )
 
 -- Displayed diagnostic makes screen flicker when saving and formatting the file, therefore it
--- should be turned off in the most of the time
+-- should be turned off in the most of the time.
 vim.diagnostic.config({
   signs = false,
   underline = false,
@@ -16,7 +17,7 @@ vim.diagnostic.config({
   virtual_text = false,
 })
 
--- Toggle diagnostic display
+-- Toggle diagnostic display.
 local show_diagnostic = false
 com("ToggleDiagnostic", function()
   if show_diagnostic == false then
@@ -35,7 +36,7 @@ com("ToggleDiagnostic", function()
   end
 end, { desc = "Enable or disable showing attention attracting diagnostics" })
 
--- Toggle color column
+-- Toggle color column.
 com("ToggleColorColumn", function()
   if vim.wo.colorcolumn == "" then
     vim.wo.colorcolumn = "+1"
@@ -44,12 +45,12 @@ com("ToggleColorColumn", function()
   end
 end, { desc = "Enable or disable showing attention attracting colorcolumn" })
 
--- Toggle lsp inlay hint
+-- Toggle lsp inlay hint.
 com("ToggleLspInlayHint", function()
   vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 end, { desc = "Enable or disable showing attention attracting lsp inlay hint." })
 
--- Relative jump up/down
+-- Relative jump up/down.
 local function relative_jump_up()
   vim.wo.relativenumber = true
 
@@ -92,7 +93,32 @@ local function relative_jump_down()
 end
 
 com("RelativeJumpUp", relative_jump_up, { desc = "Prompt user for a relative jump up." })
-vim.keymap.set("n", "gk", relative_jump_up, { desc = "Prompt user for a relative jump up." })
+map("n", "gk", relative_jump_up, { desc = "Prompt user for a relative jump up." })
 
 com("RelativeJumpDown", relative_jump_down, { desc = "Prompt user for a relative jump down." })
-vim.keymap.set("n", "gj", relative_jump_down, { desc = "Prompt user for a relative jump down." })
+map("n", "gj", relative_jump_down, { desc = "Prompt user for a relative jump down." })
+
+local function format_and_save()
+  if not vim.api.nvim_buf_is_valid(0) or not vim.bo.buftype == "" then
+    return
+  end
+  -- Not editable buffer
+  if not vim.bo.modifiable or vim.bo.readonly then
+    return
+  end
+
+  if not vim.g.disable_autoformat then
+    require("conform").format({ lsp_format = "fallback", timeout_ms = 3000 })
+    vim.cmd("update")
+  end
+end
+
+-- Format current buffer.
+com(
+  "FormatBuffer",
+  format_and_save,
+  { desc = "Format current buffer with preconfigured formatter and save it." }
+)
+
+map("n", "<Leader>w", format_and_save, { desc = "Format and save file", silent = true })
+map("n", "<Leader><CR>", format_and_save, { desc = "Format and save file", silent = true })

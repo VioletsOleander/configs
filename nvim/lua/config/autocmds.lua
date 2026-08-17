@@ -16,8 +16,8 @@ au("BufRead", {
   end,
 })
 
--- Autosave
-au("BufWritePre", {
+-- Autosave, more versatile than opt.autowrite
+au("BufLeave", {
   group = buf_group,
   callback = function()
     if not vim.api.nvim_buf_is_valid(0) or not vim.bo.buftype == "" then
@@ -28,9 +28,10 @@ au("BufWritePre", {
       return
     end
 
-    if not vim.g.disable_autoformat then
-      require("conform").format({ lsp_format = "fallback", timeout_ms = 3000 })
-    end
+    -- if not vim.g.disable_autoformat then
+    vim.cmd("silent update")
+    -- require("conform").format({ lsp_format = "fallback", timeout_ms = 3000 })
+    -- end
   end,
 })
 

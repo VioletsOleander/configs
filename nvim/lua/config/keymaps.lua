@@ -77,10 +77,6 @@ map("n", "<C-c>", "<Cmd>close<CR>", { desc = "Close current window" })
 map("n", "<C-q>", "<Cmd>quit<CR>", { desc = "Quit current window" })
 map("n", "<Leader>qq", "<Cmd>qall<CR>", { desc = "Exit Neovim" })
 
--- Save
-map("n", "<Leader>w", "<Cmd>update<CR>", { desc = "Save File", silent = true })
-map("n", "<Leader><CR>", "<Cmd>update<CR>", { desc = "Save File", silent = true })
-
 -- Correct spell
 map(
   "i",

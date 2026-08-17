@@ -28,9 +28,6 @@ opt.wrap = false
 -- If performing an operation that would fail due to unsaved changes in the buffer (like `:q`), raise a dialog asking if we wish to save the current file(s)
 opt.confirm = true
 
--- Write file on buffer change
-opt.autowrite = true
-
 -- Insert manualcomplete
 opt.autocomplete = false
 opt.completeopt = "menuone,popup,noinsert"
