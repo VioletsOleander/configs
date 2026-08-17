@@ -2,7 +2,7 @@
   # Shells
   ".bashrc.template": { dest: { Windows: "", Linux: "my_bashrc" } },
   "nushell/",
-  "nushell/autoload/commands/net.nu.template",
+  "nushell/autoload/commands/proxy.nu.template",
   # Terminals
   "windows-terminal/": {
     dest: {

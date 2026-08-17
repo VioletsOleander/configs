@@ -1,4 +1,4 @@
-# Sort the 'words' field in 'cspell.json'
+# Sort the 'words' field in 'cspell.json'.
 export def sort-cspell-words [] {
     let f = 'cspell.json'
 
@@ -16,9 +16,9 @@ export def sort-cspell-words [] {
     }
 }
 
-# Sort the words in `en.utf-8.add`
+# Sort the words in `en.utf-8.add`.
 export def sort-nvim-spell-words [] {
-    let f = 'en.utf-8.add'
+    let f = 'nvim/spell/en.utf-8.add'
 
     if ($f | path exists) {
         let words = open $f
@@ -30,14 +30,4 @@ export def sort-nvim-spell-words [] {
     } else {
         print $'Error: ($f) not found under current working directory.'
     }
-}
-
-export def --env y [...args] {
-    let tmp = (mktemp -t "yazi-cwd.XXXXXX")
-    ^yazi ...$args --cwd-file $tmp
-    let cwd = (open $tmp)
-    if $cwd != $env.PWD and ($cwd | path exists) {
-        cd $cwd
-    }
-    rm -fp $tmp
 }
