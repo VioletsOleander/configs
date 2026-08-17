@@ -20,10 +20,17 @@ vim.diagnostic.config({
 local show_diagnostic = false
 com("ToggleDiagnostic", function()
   if show_diagnostic == false then
-    vim.diagnostic.show(nil, nil, nil, { signs = true, underline = true, virtual_lines = true })
+    vim.diagnostic.config({ signs = true, underline = true, virtual_lines = true })
+    vim.diagnostic.show()
     show_diagnostic = true
   else
     vim.diagnostic.hide()
+    vim.diagnostic.config({
+      signs = false,
+      underline = false,
+      virtual_lines = false,
+      virtual_text = false,
+    })
     show_diagnostic = false
   end
 end, { desc = "Enable or disable showing attention attracting diagnostics" })
