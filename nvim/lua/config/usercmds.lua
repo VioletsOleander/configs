@@ -17,12 +17,10 @@ vim.diagnostic.config({
 })
 
 -- Toggle diagnostic display
-vim.diagnostic.config({ signs = true, underline = true, virtual_lines = true })
-
 local show_diagnostic = false
 com("ToggleDiagnostic", function()
   if show_diagnostic == false then
-    vim.diagnostic.show()
+    vim.diagnostic.show(nil, nil, nil, { signs = true, underline = true, virtual_lines = true })
     show_diagnostic = true
   else
     vim.diagnostic.hide()
