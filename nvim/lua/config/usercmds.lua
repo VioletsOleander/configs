@@ -73,14 +73,17 @@ local function relative_jump_down()
   vim.ui.input(
     { prompt = "Enter number of lines to jump down: ", scope = "cursor" },
     function(input)
-      local number = tonumber(input)
+      -- Press Esc two times makes input == nil.
+      if input ~= nil then
+        local number = tonumber(input)
 
-      if number then
-        local cursor = vim.api.nvim_win_get_cursor(0)
-        local line_count = vim.api.nvim_buf_line_count(0)
-        vim.api.nvim_win_set_cursor(0, { math.min(cursor[1] + number, line_count), cursor[2] })
-      else
-        vim.notify("Invalid input, expect numbers")
+        if number then
+          local cursor = vim.api.nvim_win_get_cursor(0)
+          local line_count = vim.api.nvim_buf_line_count(0)
+          vim.api.nvim_win_set_cursor(0, { math.min(cursor[1] + number, line_count), cursor[2] })
+        else
+          vim.notify("The input is invalid, please input valid numbers.")
+        end
       end
 
       vim.wo.relativenumber = false
