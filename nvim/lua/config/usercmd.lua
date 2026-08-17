@@ -98,6 +98,7 @@ map("n", "gk", relative_jump_up, { desc = "Prompt user for a relative jump up." 
 com("RelativeJumpDown", relative_jump_down, { desc = "Prompt user for a relative jump down." })
 map("n", "gj", relative_jump_down, { desc = "Prompt user for a relative jump down." })
 
+-- Format current buffer.
 local function format_and_save()
   if not vim.api.nvim_buf_is_valid(0) or not vim.bo.buftype == "" then
     return
@@ -113,7 +114,6 @@ local function format_and_save()
   end
 end
 
--- Format current buffer.
 com(
   "FormatBuffer",
   format_and_save,
