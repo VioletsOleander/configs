@@ -51,6 +51,12 @@ local flash_nvim = {
           highlight = {
             backdrop = false,
           },
+          char_actions = function()
+            return {
+              [";"] = "right",
+              [","] = "left",
+            }
+          end,
         },
         treesitter = {
           jump = { autojump = false },
