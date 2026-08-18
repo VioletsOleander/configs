@@ -10,6 +10,8 @@ com(
   { nargs = "*", complete = "help", desc = "Show help in vertical split window" }
 )
 
+-- Toggle diagnostic display.
+
 -- Displayed diagnostic makes screen flicker when saving and formatting the file, therefore it
 -- should be turned off in the most of the time.
 vim.diagnostic.config({
@@ -19,9 +21,9 @@ vim.diagnostic.config({
   virtual_text = false,
 })
 
--- Toggle diagnostic display.
 local show_diagnostic = false
-com("ToggleDiagnostic", function()
+
+local function toggle_diagnostic()
   if show_diagnostic == false then
     vim.diagnostic.config({ signs = true, underline = true, virtual_lines = true })
     vim.diagnostic.show()
@@ -36,7 +38,20 @@ com("ToggleDiagnostic", function()
     })
     show_diagnostic = false
   end
-end, { desc = "Enable or disable showing attention attracting diagnostics" })
+end
+
+com(
+  "ToggleDiagnostic",
+  toggle_diagnostic,
+  { desc = "Enable or disable showing attention attracting diagnostics" }
+)
+
+vim.keymap.set(
+  "n",
+  "<C-a>",
+  toggle_diagnostic,
+  { desc = "Enable or disable showing attention attracting diagnostics" }
+)
 
 -- Toggle color column.
 com("ToggleColorColumn", function()
