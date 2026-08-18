@@ -98,6 +98,17 @@ map("n", "gk", relative_jump_up, { desc = "Prompt user for a relative jump up." 
 com("RelativeJumpDown", relative_jump_down, { desc = "Prompt user for a relative jump down." })
 map("n", "gj", relative_jump_down, { desc = "Prompt user for a relative jump down." })
 
+-- Toggle relative number
+com("ToggleRelativeNumber", function()
+  if vim.wo.relativenumber then
+    vim.wo.relativenumber = false
+    vim.wo.number = false
+  else
+    vim.wo.relativenumber = true
+    vim.wo.number = true
+  end
+end, { desc = "Enable or disable showing attention attracting relativenumber." })
+
 -- Format current buffer.
 local function format_and_save()
   if not vim.api.nvim_buf_is_valid(0) or not vim.bo.buftype == "" then
@@ -110,8 +121,9 @@ local function format_and_save()
 
   if not vim.g.disable_autoformat then
     require("conform").format({ lsp_format = "fallback", timeout_ms = 3000 })
-    vim.cmd("update")
   end
+
+  vim.cmd("update")
 end
 
 com(
