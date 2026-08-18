@@ -78,10 +78,12 @@ vim.keymap.set(
 
 -- Format current buffer.
 local function format_and_save()
+  -- Invalid buffer.
   if not vim.api.nvim_buf_is_valid(0) or not vim.bo.buftype == "" then
     return
   end
-  -- Not editable buffer
+
+  -- Not editable buffer.
   if not vim.bo.modifiable or vim.bo.readonly then
     return
   end
