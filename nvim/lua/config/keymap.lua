@@ -1,5 +1,3 @@
----@module "snacks"
-
 local map = vim.keymap.set
 local api = vim.api
 local cmd = vim.cmd
@@ -22,28 +20,10 @@ map({ "n", "x", "o" }, "<C-e>", "5<C-e>", { desc = "Jump 5 lines down" })
 map({ "n", "v" }, "<Leader>y", '"+y', { desc = "Yank to system clipboard" })
 map({ "n", "v" }, "<Leader>p", '"+p', { desc = "Paste from system clipboard" })
 
---- Close lsp float windows
-local function close_lsp_float_wins()
-  for _, win in ipairs(api.nvim_list_wins()) do
-    local config = api.nvim_win_get_config(win)
-
-    if config.relative ~= "" then
-      local buf = api.nvim_win_get_buf(win)
-      local ft = api.nvim_get_option_value("filetype", { buf = buf })
-
-      if ft == "markdown" then
-        api.nvim_win_close(win, false)
-      end
-    end
-  end
-end
-
 -- Clear screen
 map("n", "<Leader>c", function()
   cmd("nohlsearch")
-  Snacks.notifier.hide()
-  close_lsp_float_wins()
-end, { desc = "Clear Screen (including search highlight, notifications, lsp floating windows)" })
+end, { desc = "Clear Screen (including search highlight)" })
 
 map("n", "zz", function()
   cmd("normal! zz")
@@ -111,16 +91,9 @@ local function next_is_jumpable()
   return false
 end
 
---- Return true if the completion menu is visible
----
----@return boolean
-local function pum_is_visible()
-  return vim.fn.pumvisible() ~= 0
-end
-
 -- Tab for accepting completion or jump out of brackets
 map("i", "<Tab>", function()
-  if pum_is_visible() then
+  if vim.fn.pumvisible() ~= 0 then
     return "<C-y>"
   elseif next_is_jumpable() then
     return "<Right>"
@@ -131,15 +104,15 @@ end, { expr = true, desc = "Confirm completion or jump out of brackets" })
 
 -- Tab/S-Tab for iterating completion items
 map("c", "<Tab>", function()
-  return pum_is_visible() and "<C-n>" or "<Tab>"
+  return vim.fn.pumvisible() ~= 0 and "<C-n>" or "<Tab>"
 end, { expr = true, desc = "Select next completion item" })
 map("c", "<S-Tab>", function()
-  return pum_is_visible() and "<C-p>" or "<S-Tab>"
+  return vim.fn.pumvisible() ~= 0 and "<C-p>" or "<S-Tab>"
 end, { expr = true, desc = "Select previous completion item" })
 
 -- Ctrl-j/k for selecting completion items
 map("i", "<C-j>", function()
-  if pum_is_visible() then
+  if vim.fn.pumvisible() ~= 0 then
     return "<C-n>"
   else
     return "<Down>"
@@ -147,7 +120,7 @@ map("i", "<C-j>", function()
 end, { expr = true, desc = "Select next completion or move current line down" })
 
 map("i", "<C-k>", function()
-  if pum_is_visible() then
+  if vim.fn.pumvisible() ~= 0 then
     return "<C-p>"
   else
     return "<Up>"
@@ -155,7 +128,7 @@ map("i", "<C-k>", function()
 end, { expr = true, desc = "Select previous completion or move current line up" })
 
 map("c", "<C-j>", function()
-  if pum_is_visible() then
+  if vim.fn.pumvisible() ~= 0 then
     return "<C-n>"
   else
     return "<C-j>"
@@ -163,7 +136,7 @@ map("c", "<C-j>", function()
 end, { expr = true, desc = "Select previous completion" })
 
 map("c", "<C-k>", function()
-  if pum_is_visible() then
+  if vim.fn.pumvisible() ~= 0 then
     return "<C-p>"
   else
     return "<C-k>"
@@ -172,10 +145,8 @@ end, { expr = true, desc = "Select previous completion" })
 
 -- Ctrl-e to hide completion menu or signature help
 map("i", "<C-e>", function()
-  if pum_is_visible() then
+  if vim.fn.pumvisible() ~= 0 then
     api.nvim_feedkeys(vim.keycode("<C-e>"), "n", false)
-  else
-    close_lsp_float_wins()
   end
 end, { desc = "Hide completion menu or close lsp float windows" })
 
