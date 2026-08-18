@@ -1,5 +1,7 @@
+-- If an action is intended to be either triggered by command and keymap,
+-- then define the action here. If an action is intended to be only triggered
+-- by keymap (using command will be cumbersome), then define the action in `keymap.lua`.
 local com = vim.api.nvim_create_user_command
-local map = vim.keymap.set
 
 -- Display help vertically.
 com(
@@ -50,56 +52,8 @@ com("ToggleLspInlayHint", function()
   vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 end, { desc = "Enable or disable showing attention attracting lsp inlay hint." })
 
--- Relative jump up/down.
-local function relative_jump_up()
-  vim.wo.relativenumber = true
-
-  vim.ui.input({ prompt = "Enter number of lines to jump up: ", scope = "cursor" }, function(input)
-    local number = tonumber(input)
-
-    if number then
-      local cursor = vim.api.nvim_win_get_cursor(0)
-      vim.api.nvim_win_set_cursor(0, { math.max(cursor[1] - number, 1), cursor[2] })
-    else
-      vim.notify("Invalid input, expect numbers")
-    end
-
-    vim.wo.relativenumber = false
-  end)
-end
-
-local function relative_jump_down()
-  vim.wo.relativenumber = true
-
-  vim.ui.input(
-    { prompt = "Enter number of lines to jump down: ", scope = "cursor" },
-    function(input)
-      -- Press Esc two times makes input == nil.
-      if input ~= nil then
-        local number = tonumber(input)
-
-        if number then
-          local cursor = vim.api.nvim_win_get_cursor(0)
-          local line_count = vim.api.nvim_buf_line_count(0)
-          vim.api.nvim_win_set_cursor(0, { math.min(cursor[1] + number, line_count), cursor[2] })
-        else
-          vim.notify("The input is invalid, please input valid numbers.")
-        end
-      end
-
-      vim.wo.relativenumber = false
-    end
-  )
-end
-
-com("RelativeJumpUp", relative_jump_up, { desc = "Prompt user for a relative jump up." })
-map("n", "gk", relative_jump_up, { desc = "Prompt user for a relative jump up." })
-
-com("RelativeJumpDown", relative_jump_down, { desc = "Prompt user for a relative jump down." })
-map("n", "gj", relative_jump_down, { desc = "Prompt user for a relative jump down." })
-
 -- Toggle relative number
-com("ToggleRelativeNumber", function()
+local function toggle_relative_number()
   if vim.wo.relativenumber then
     vim.wo.relativenumber = false
     vim.wo.number = false
@@ -107,7 +61,20 @@ com("ToggleRelativeNumber", function()
     vim.wo.relativenumber = true
     vim.wo.number = true
   end
-end, { desc = "Enable or disable showing attention attracting relativenumber." })
+end
+
+com(
+  "ToggleRelativeNumber",
+  toggle_relative_number,
+  { desc = "Enable or disable showing attention attracting relativenumber." }
+)
+
+vim.keymap.set(
+  "n",
+  "<C-n>",
+  toggle_relative_number,
+  { desc = "Enable or disable showing attention attracting relativenumber." }
+)
 
 -- Format current buffer.
 local function format_and_save()
@@ -132,5 +99,5 @@ com(
   { desc = "Format current buffer with preconfigured formatter and save it." }
 )
 
-map("n", "<Leader>w", format_and_save, { desc = "Format and save file", silent = true })
-map("n", "<Leader><CR>", format_and_save, { desc = "Format and save file", silent = true })
+vim.keymap.set("n", "<Leader>w", format_and_save, { desc = "Format and save file" })
+vim.keymap.set("n", "<Leader><CR>", format_and_save, { desc = "Format and save file" })
