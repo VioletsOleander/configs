@@ -91,6 +91,20 @@ vim.keymap.set(
   { desc = "Enable or disable showing attention attracting relativenumber." }
 )
 
+-- Toggle spell check
+local function toggle_spell()
+  if vim.wo.spell then
+    vim.wo.spell = false
+    vim.notify("Spell check for current window is off")
+  else
+    vim.wo.spell = true
+    vim.notify("Spell check for current window is on")
+  end
+end
+
+com("ToggleSpell", toggle_spell, { desc = "Enable or disable spell check." })
+vim.keymap.set("n", "<C-s>", toggle_spell, { desc = "Enable or disable spell check" })
+
 -- Format current buffer.
 local function format_and_save()
   -- Invalid buffer.
