@@ -85,7 +85,7 @@ com(
 )
 
 vim.keymap.set(
-  "n",
+  { "n", "v", "o" },
   "<C-n>",
   toggle_relative_number,
   { desc = "Enable or disable showing attention attracting relativenumber." }
