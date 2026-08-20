@@ -1,6 +1,8 @@
+Async
 Config
 DeepSeek
 JSON
+LLM
 Langevin
 Lua
 Lyapunov
@@ -14,6 +16,7 @@ SDE
 SFT
 Serializer
 Typst
+async
 backend
 cakestry
 composability
