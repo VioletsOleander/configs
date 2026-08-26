@@ -185,4 +185,4 @@ map("n", "gj", function()
 end, { desc = "Prompt user for a relative jump down." })
 
 -- Format current line
-map("i", "<C-q>", "<Cmd>normal gww<CR>", { desc = "Format current line." })
+map("i", "<C-q>", "<Cmd>normal gww<CR><Right>", { desc = "Format current line." })
