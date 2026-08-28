@@ -33,9 +33,11 @@ export def update-remotes [] {
 
 # Squash merge pull request on current branch.
 export def merge-pull-request [] {
-    let title = (^gh pr view --json 'title' --jq '.title')
-    let body = (^gh pr view --json 'body' --jq '.body')
-    let url = (^gh pr view --json 'url' --jq '.url')
+    let record = (^gh pr view --json 'title,body,url' | from json)
+
+    let title = $record.title
+    let body = $record.body
+    let url = $record.url
 
     let message_body = $"($body)\nPR: ($url)"
 
