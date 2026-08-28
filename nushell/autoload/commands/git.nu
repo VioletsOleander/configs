@@ -33,11 +33,18 @@ export def update-remotes [] {
 
 # Squash merge pull request on current branch.
 export def merge-pull-request [] {
-    let record = (^gh pr view --json 'title,body,url' | from json)
+    let checks_result = (^gh pr checks --json 'bucket' | from json)
 
-    let title = $record.title
-    let body = $record.body
-    let url = $record.url
+    if 'fail' in $checks_result.bucket {
+        print 'Failed to merge pull request: there exits failed CI'
+        return
+    }
+
+    let view_result = (^gh pr view --json 'title,body,url' | from json)
+
+    let title = $view_result.title
+    let body = $view_result.body
+    let url = $view_result.url
 
     let message_body = $"($body)\nPR: ($url)"
 
