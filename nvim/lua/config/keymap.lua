@@ -63,6 +63,11 @@ map(
   { desc = "Correc last spell using the first suggestion" }
 )
 
+-- Format current line
+-- Notice that using 'Esc + a' makes sure the cursor position will be correctly preserved, while
+-- using ':normal' does not.
+map("i", "<C-q>", "<C-g>u<Esc>gwwa<C-g>u", { desc = "Format current paragraph." })
+
 --- Return the character after cursor
 ---
 ---@return string
@@ -183,6 +188,3 @@ map("n", "gj", function()
     end
   )
 end, { desc = "Prompt user for a relative jump down." })
-
--- Format current line
-map("i", "<C-q>", "<Cmd>normal gww<CR><Right>", { desc = "Format current line." })
