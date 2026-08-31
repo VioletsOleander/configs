@@ -63,7 +63,7 @@
         "list": 
         [
             {
-                "colorScheme": "AtomOneLight-Refined",
+                "colorScheme": "Catppuccin Latte",
                 "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
                 "font": 
                 {
