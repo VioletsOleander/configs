@@ -81,7 +81,7 @@ $env.config.keybindings ++= [
         }
     }
     {
-        name: 'ctrl-k menu down'
+        name: 'ctrl-k menu up'
         modifier: Control
         keycode: Char_k
         mode: [Vi_Insert]
