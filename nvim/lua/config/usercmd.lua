@@ -43,14 +43,14 @@ end
 com(
   "ToggleDiagnostic",
   toggle_diagnostic,
-  { desc = "Enable or disable showing attention attracting diagnostics" }
+  { desc = "Toggle showing attention attracting diagnostics" }
 )
 
 vim.keymap.set(
   "n",
   "<C-a>",
   toggle_diagnostic,
-  { desc = "Enable or disable showing attention attracting diagnostics" }
+  { desc = "Toggle showing attention attracting diagnostics" }
 )
 
 -- Toggle color column.
@@ -60,12 +60,12 @@ com("ToggleColorColumn", function()
   else
     vim.wo.colorcolumn = ""
   end
-end, { desc = "Enable or disable showing attention attracting colorcolumn" })
+end, { desc = "Toggle showing attention attracting colorcolumn" })
 
 -- Toggle lsp inlay hint.
 com("ToggleLspInlayHint", function()
   vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-end, { desc = "Enable or disable showing attention attracting lsp inlay hint." })
+end, { desc = "Toggle showing attention attracting lsp inlay hint." })
 
 -- Toggle relative number
 local function toggle_relative_number()
@@ -81,14 +81,14 @@ end
 com(
   "ToggleRelativeNumber",
   toggle_relative_number,
-  { desc = "Enable or disable showing attention attracting relativenumber." }
+  { desc = "Toggle showing attention attracting relativenumber." }
 )
 
 vim.keymap.set(
   { "n", "v", "o" },
   "<C-n>",
   toggle_relative_number,
-  { desc = "Enable or disable showing attention attracting relativenumber." }
+  { desc = "Toggle showing attention attracting relativenumber." }
 )
 
 -- Toggle spell check
@@ -102,8 +102,8 @@ local function toggle_spell()
   end
 end
 
-com("ToggleSpell", toggle_spell, { desc = "Enable or disable spell check." })
-vim.keymap.set("n", "<C-s>", toggle_spell, { desc = "Enable or disable spell check" })
+com("ToggleSpell", toggle_spell, { desc = "Toggle spell check." })
+vim.keymap.set("n", "<C-s>", toggle_spell, { desc = "Toggle spell check" })
 
 -- Format current buffer.
 local function format_and_save()
