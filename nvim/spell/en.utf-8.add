@@ -1,6 +1,7 @@
 Async
 Config
 DeepSeek
+Euphonic
 JSON
 LLM
 Langevin
@@ -23,6 +24,7 @@ backend
 cakestry
 composability
 composable
+config
 ctrl
 destructure
 destructuring
@@ -35,6 +37,7 @@ logits
 mutex
 nushell
 overfit
+overfitting
 recnys
 recomputation
 rollout
