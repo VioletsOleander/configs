@@ -4,7 +4,6 @@
 ---@type LazyPluginSpec
 local conform = {
   "stevearc/conform.nvim",
-  event = { "BufWritePre" },
   cmd = { "ConformInfo" },
   ---@type conform.setupOpts
   opts = {
@@ -23,12 +22,6 @@ local conform = {
       nu = { "nufmt" },
       tex = { "tex-fmt" },
       typst = { "typstyle" },
-    },
-    formatters = {
-      dprint = {
-        command = "dprint",
-        args = { "fmt", "--stdin", "$EXTENSION" },
-      },
     },
   },
 }
