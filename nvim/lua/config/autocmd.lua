@@ -21,7 +21,7 @@ au("BufLeave", {
   group = buf_group,
   callback = function()
     -- Invalid buffer.
-    if not vim.api.nvim_buf_is_valid(0) or vim.bo.buftype == "" then
+    if not vim.api.nvim_buf_is_valid(0) or vim.bo.buftype ~= "" then
       return
     end
 
